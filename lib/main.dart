@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'custom_list_item',
         theme: Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
         routes: {
           'home': (context) => const HomeScreen(),
