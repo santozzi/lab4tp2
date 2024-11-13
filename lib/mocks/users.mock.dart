@@ -1,4 +1,4 @@
-const List users = [
+List<Map<String, dynamic>> users = [
   {
     "id": 1,
     "email": "john@mail.com",

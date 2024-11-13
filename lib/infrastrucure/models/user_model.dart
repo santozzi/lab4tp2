@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user_entity.dart';
 
-class UsersModel {
+class UserModel {
   final int id;
   final String email;
   final String password;
@@ -11,7 +10,7 @@ class UsersModel {
   final DateTime creationAt;
   final DateTime updatedAt;
 
-  UsersModel({
+  UserModel({
     required this.id,
     required this.email,
     required this.password,
@@ -22,8 +21,8 @@ class UsersModel {
     required this.updatedAt,
   });
 
-  factory UsersModel.fromJson(Map<String, dynamic> json) {
-    return UsersModel(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       id: json['id'],
       email: json['email'],
       password: json['password'],
