@@ -8,7 +8,7 @@ class UsersProvider extends ChangeNotifier {
   List<UserEntity> users = [];
   UserEntity user = UserEntity(
       id: 0,
-      name: 'Sergio',
+      name: '',
       email: '',
       role: '',
       avatar: '',

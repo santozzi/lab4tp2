@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: 'users',
+          initialRoute: 'home',
           theme: Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
           routes: {
             'home': (context) => const HomeScreen(),
