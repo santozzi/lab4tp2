@@ -8,7 +8,7 @@ class UsersProvider extends ChangeNotifier {
   List<UserEntity> users = [];
   UserEntity user = UserEntity(
       id: 0,
-      name: '',
+      name: 'Sergio',
       email: '',
       role: '',
       avatar: '',
@@ -23,9 +23,8 @@ class UsersProvider extends ChangeNotifier {
   }
 
   Future<void> getUser(int id) async {
-    await usuarioRepository.getUser(id);
+    user = await usuarioRepository.getUser(id);
+
     notifyListeners();
   }
-
-  //TODO terminar provider
 }
