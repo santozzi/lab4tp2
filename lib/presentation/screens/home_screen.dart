@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/widgets/drawer_menu.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

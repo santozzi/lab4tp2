@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class DrawerMenu extends StatelessWidget {
   final List<Map<String, String>> _menuItems = <Map<String, String>>[
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
+    {'route': 'custom_list', 'title': 'Usuarios', 'subtitle': ''},
     {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
     {'route': 'profile', 'title': 'Perfil usuario', 'subtitle': ''},
   ];
@@ -55,52 +56,11 @@ class _DrawerHeaderAlternative extends StatelessWidget {
     return DrawerHeader(
       padding: EdgeInsets.zero,
       child: Stack(children: [
-        Positioned(
-          top: -90,
-          child: Container(
-            width: 130,
-            height: 130,
-            decoration: BoxDecoration(
-                color: Colors.blueAccent.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.2),
-          ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 140,
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-                color: Colors.redAccent.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.9),
-          ),
-        ),
-        Positioned(
-          top: 30,
-          right: 35,
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-                color: Colors.amber.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.9),
-          ),
-        ),
-        Positioned(
-          top: 70,
-          right: -10,
-          child: Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(5)),
-            transform: Matrix4.rotationZ(0.9),
-          ),
+        Image.asset(
+          'assets/images/title.png',
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
         ),
         Container(
           alignment: Alignment.bottomRight,
