@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userRepository =
+    final UserRepository userRepository =
         UserRepositoryImp(userDatasource: MockUserDatasourceImpl());
 
     return MultiProvider(
