@@ -6,6 +6,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'users', 'title': 'Usuarios', 'subtitle': ''},
     {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
     {'route': 'profile', 'title': 'Perfil usuario', 'subtitle': ''},
+    {'route': 'products', 'title': 'Listado de Productos', 'subtitle': 'Gianluca el mejor'},
   ];
 
   DrawerMenu({super.key});
