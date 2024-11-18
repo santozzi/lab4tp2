@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UserCad extends StatelessWidget {
+class UserCad extends StatefulWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
@@ -12,9 +12,20 @@ class UserCad extends StatelessWidget {
   });
 
   @override
+  State<UserCad> createState() => _UserCadState();
+}
+
+class _UserCadState extends State<UserCad> {
+  @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Image.network(imageUrl), Text(title), Text(subtitle)],
+      children: [
+        FadeInImage(
+            placeholder: const AssetImage('assets/loading.gif'),
+            image: NetworkImage(widget.imageUrl)),
+        Text(widget.title),
+        Text(widget.subtitle)
+      ],
     );
   }
 }

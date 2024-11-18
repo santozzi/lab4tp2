@@ -18,6 +18,4 @@ class UserEntity {
     required this.creationAt,
     required this.updatedAt,
   });
-
-  //TODO implement fromJson
 }

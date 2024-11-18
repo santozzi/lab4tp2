@@ -5,6 +5,7 @@ import '../../domain/repositories/user_repository.dart';
 
 class UsersProvider extends ChangeNotifier {
   final UserRepository usuarioRepository;
+  int contador = 1;
   List<UserEntity> users = [];
   UserEntity user = UserEntity(
       id: 0,
@@ -25,6 +26,11 @@ class UsersProvider extends ChangeNotifier {
   Future<void> getUser(int id) async {
     user = await usuarioRepository.getUser(id);
 
+    notifyListeners();
+  }
+
+  void incrementCounter() {
+    contador++;
     notifyListeners();
   }
 }

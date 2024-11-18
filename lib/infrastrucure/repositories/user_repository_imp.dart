@@ -8,14 +8,12 @@ class UserRepositoryImp implements UserRepository {
   UserRepositoryImp({required this.userDatasource});
 
   @override
-  Future<UserEntity> getUser(int id) {
-    // TODO: implement getUser
-    return userDatasource.getUser(id);
+  Future<UserEntity> getUser(int id) async {
+    return await userDatasource.getUser(id);
   }
 
   @override
-  Future<List<UserEntity>> getUsers() {
-    // TODO: implement getUsers
-    return userDatasource.getUsers();
+  Future<List<UserEntity>> getUsers() async {
+    return await userDatasource.getUsers();
   }
 }
