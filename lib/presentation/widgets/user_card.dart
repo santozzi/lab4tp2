@@ -2,18 +2,29 @@ import 'package:flutter/material.dart';
 
 class UserCard extends StatelessWidget {
   final String imageUrl;
-  final String title;
-  final String subtitle;
-  const UserCard({
-    super.key,
-    required this.imageUrl,
-    required this.title,
-    required this.subtitle,
-  });
+
+  final String phone;
+  final String email;
+  final String name;
+  final String country;
+  final String city;
+  final String state;
+  final String gender;
+  const UserCard(
+      {super.key,
+      required this.imageUrl,
+      required this.phone,
+      required this.email,
+      required this.name,
+      required this.country,
+      required this.city,
+      required this.state,
+      required this.gender});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
           margin: const EdgeInsets.all(10),
@@ -33,8 +44,47 @@ class UserCard extends StatelessWidget {
                 image: NetworkImage(imageUrl, scale: 0.5)),
           ),
         ),
-        Text(title),
-        Text(subtitle)
+        Container(
+          alignment: Alignment.center,
+          height: 500,
+          width: double.infinity,
+          color: Colors.grey[200],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.person),
+                  Text(name),
+                ],
+              ),
+              Row(
+                children: [
+                  const Icon(Icons.email),
+                  Text(email),
+                ],
+              ),
+              Row(
+                children: [
+                  const Icon(Icons.phone),
+                  Text(phone),
+                ],
+              ),
+              Row(
+                children: [
+                  const Icon(Icons.location_city),
+                  Text('$country - $state - $city'),
+                ],
+              ),
+              Row(
+                children: [
+                  const Icon(Icons.wc),
+                  Text(gender),
+                ],
+              )
+            ],
+          ),
+        ),
       ],
     );
   }

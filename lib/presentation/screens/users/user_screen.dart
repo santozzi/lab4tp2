@@ -29,8 +29,13 @@ class UserScreen extends StatelessWidget {
       body: Center(
         child: UserCard(
             imageUrl: userSelected.avatar,
-            title: userSelected.name,
-            subtitle: userSelected.email),
+            name: userSelected.name,
+            email: userSelected.email,
+            phone: userSelected.phone,
+            country: userSelected.country,
+            city: userSelected.city,
+            state: userSelected.state,
+            gender: userSelected.gender),
       ),
     );
   }

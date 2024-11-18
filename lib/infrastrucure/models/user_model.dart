@@ -7,6 +7,11 @@ class UserModel {
   final String name;
   final String role;
   final String avatar;
+  final String gender;
+  final String country;
+  final String city;
+  final String state;
+  final String phone;
 
   UserModel({
     required this.id,
@@ -15,6 +20,11 @@ class UserModel {
     required this.name,
     required this.role,
     required this.avatar,
+    required this.gender,
+    required this.country,
+    required this.city,
+    required this.state,
+    required this.phone,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -25,15 +35,24 @@ class UserModel {
       name: '${json['name']['first']} ${json['name']['last']}',
       role: 'customer',
       avatar: json['picture']['large'],
+      gender: json['gender'],
+      country: json['location']['country'],
+      city: json['location']['city'],
+      state: json['location']['state'],
+      phone: json['phone'],
     );
   }
 
   UserEntity toUserEntity() => UserEntity(
-        id: id,
-        email: email,
-        password: password,
-        name: name,
-        role: role,
-        avatar: avatar,
-      );
+      id: id,
+      email: email,
+      password: password,
+      name: name,
+      role: role,
+      avatar: avatar,
+      gender: gender,
+      country: country,
+      city: city,
+      state: state,
+      phone: phone);
 }

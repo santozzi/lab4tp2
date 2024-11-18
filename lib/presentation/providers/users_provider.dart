@@ -10,7 +10,17 @@ class UsersProvider extends ChangeNotifier {
   int contador = 1;
   List<UserEntity> users = [];
   UserEntity user = UserEntity(
-      id: '', name: '', email: '', role: '', avatar: '', password: '');
+      id: '',
+      name: '',
+      email: '',
+      role: '',
+      avatar: '',
+      password: '',
+      gender: '',
+      country: '',
+      city: '',
+      state: '',
+      phone: '');
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
