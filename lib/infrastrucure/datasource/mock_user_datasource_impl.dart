@@ -20,7 +20,7 @@ class MockUserDatasourceImpl implements UserDatasource {
   @override
   Future<List<UserEntity>> getUsers() async {
     //simuación de peticion a la api
-    //  await Future.delayed(const Duration(seconds: 2));
+    //await Future.delayed(const Duration(seconds: 2));
     final List<UserEntity> usuarios =
         users.map((e) => UserModel.fromJson(e).toUserEntity()).toList();
 

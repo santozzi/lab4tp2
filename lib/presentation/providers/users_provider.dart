@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user_entity.dart';
 
@@ -8,18 +10,12 @@ class UsersProvider extends ChangeNotifier {
   int contador = 1;
   List<UserEntity> users = [];
   UserEntity user = UserEntity(
-      id: 0,
-      name: '',
-      email: '',
-      role: '',
-      avatar: '',
-      creationAt: DateTime.now(),
-      updatedAt: DateTime.now(),
-      password: '');
+      id: '', name: '', email: '', role: '', avatar: '', password: '');
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
     users = await usuarioRepository.getUsers();
+
     notifyListeners();
   }
 

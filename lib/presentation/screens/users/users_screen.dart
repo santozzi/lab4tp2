@@ -3,27 +3,18 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user_entity.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
-import 'package:flutter_application_base/presentation/widgets/user_card.dart';
+
 import 'package:provider/provider.dart';
 
-class UsersScreen extends StatefulWidget {
+class UsersScreen extends StatelessWidget {
   const UsersScreen({super.key});
-
-  @override
-  State<UsersScreen> createState() => _UsersScreenState();
-}
-
-class _UsersScreenState extends State<UsersScreen> {
   @override
   Widget build(BuildContext context) {
     final UsersProvider userprovider = context.watch<UsersProvider>();
 
-    userprovider.getUser(userprovider.contador).then((d) {
-      log('Usuario cargado');
-      log('${userprovider.users}');
-    });
+    userprovider.getUsers();
+
     final List<UserEntity> usuarios = userprovider.users;
-    log('${usuarios.length} ');
 
     return MaterialApp(
       title: 'Material App',
@@ -38,15 +29,22 @@ class _UsersScreenState extends State<UsersScreen> {
             },
           ),
         ),
-        body: ListView.builder(
-          itemCount: usuarios.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: Image.network(usuarios[index].avatar),
-              title: Text(usuarios[index].name),
-              subtitle: Text(usuarios[index].email),
-            );
-          },
+        body: SingleChildScrollView(
+          physics: const ScrollPhysics(),
+          child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: usuarios.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(usuarios[index].avatar),
+                ),
+                title: Text(usuarios[index].name),
+                subtitle: Text(usuarios[index].email),
+              );
+            },
+          ),
         ),
       ),
     );
