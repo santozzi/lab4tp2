@@ -18,7 +18,7 @@ class UsersScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Material App Bar'),
+        title: const Text('Usuarios'),
         //boton de regreso
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -35,8 +35,11 @@ class UsersScreen extends StatelessWidget {
           itemCount: usuarios.length,
           itemBuilder: (context, index) {
             return ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(usuarios[index].avatar),
+              leading: ClipRRect(
+                borderRadius: BorderRadius.circular(500),
+                child: FadeInImage(
+                    placeholder: const AssetImage('assets/loading.gif'),
+                    image: NetworkImage(usuarios[index].avatar)),
               ),
               title: Text(usuarios[index].name),
               subtitle: Text(usuarios[index].email),

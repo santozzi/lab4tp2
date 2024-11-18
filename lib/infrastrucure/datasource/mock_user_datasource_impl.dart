@@ -9,7 +9,7 @@ class MockUserDatasourceImpl implements UserDatasource {
   @override
   Future<UserEntity> getUser(String id) async {
     //simuación de peticion a la api
-    // await Future.delayed(const Duration(seconds: 2));
+    //await Future.delayed(const Duration(seconds: 2));
     final usuarios = getUsers();
     final UserEntity usuario =
         (await usuarios).firstWhere((usuario) => usuario.id == id);
