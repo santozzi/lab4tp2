@@ -19,7 +19,7 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      id: "2",
+      id: json['id']['value'],
       email: json['email'],
       password: json['login']['password'],
       name: '${json['name']['first']} ${json['name']['last']}',

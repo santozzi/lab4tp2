@@ -7,7 +7,7 @@ import 'package:flutter_application_base/mocks/users.mock.dart';
 
 class MockUserDatasourceImpl implements UserDatasource {
   @override
-  Future<UserEntity> getUser(int id) async {
+  Future<UserEntity> getUser(String id) async {
     //simuación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
     final usuarios = getUsers();

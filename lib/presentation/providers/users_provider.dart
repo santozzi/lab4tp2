@@ -19,10 +19,10 @@ class UsersProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getUser(int id) async {
+  Future<UserEntity> getUser(String id) async {
     user = await usuarioRepository.getUser(id);
 
-    notifyListeners();
+    return user;
   }
 
   void incrementCounter() {

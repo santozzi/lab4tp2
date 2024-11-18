@@ -9,6 +9,7 @@ import 'package:flutter_application_base/infrastrucure/repositories/user_reposit
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/screens/screens.dart';
+import 'package:flutter_application_base/presentation/screens/users/user_screen.dart';
 //provider
 import 'package:provider/provider.dart';
 
@@ -27,16 +28,16 @@ class MyApp extends StatelessWidget {
     final UserRepository userRepository =
         UserRepositoryImp(userDatasource: MockUserDatasourceImpl());
 
-    final ProductsRepository productsRepository = 
+    final ProductsRepository productsRepository =
         ProductsRepositoryImp(productsDatasource: MockProductsDatasourceImpl());
 
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
             create: (_) => UsersProvider(usuarioRepository: userRepository)),
-
         ChangeNotifierProvider(
-            create: (_) => ProductsProvider(productsRepository: productsRepository)),
+            create: (_) =>
+                ProductsProvider(productsRepository: productsRepository)),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
             'profile': (context) => const ProfileScreen(),
             'custom_list_item': (context) => const CustomListItem(),
             'users': (context) => const UsersScreen(),
+            'user': (context) => const UserScreen(),
             'products': (context) => const ProductScreen(),
           }
           /* home: DesignScreen(), */

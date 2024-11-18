@@ -8,7 +8,7 @@ class UserRepositoryImp implements UserRepository {
   UserRepositoryImp({required this.userDatasource});
 
   @override
-  Future<UserEntity> getUser(int id) async {
+  Future<UserEntity> getUser(String id) async {
     return await userDatasource.getUser(id);
   }
 

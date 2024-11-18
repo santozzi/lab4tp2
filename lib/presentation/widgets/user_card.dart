@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class UserCad extends StatefulWidget {
+class UserCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
-  const UserCad({
+  const UserCard({
     super.key,
     required this.imageUrl,
     required this.title,
@@ -12,19 +12,14 @@ class UserCad extends StatefulWidget {
   });
 
   @override
-  State<UserCad> createState() => _UserCadState();
-}
-
-class _UserCadState extends State<UserCad> {
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         FadeInImage(
             placeholder: const AssetImage('assets/loading.gif'),
-            image: NetworkImage(widget.imageUrl)),
-        Text(widget.title),
-        Text(widget.subtitle)
+            image: NetworkImage(imageUrl)),
+        Text(title),
+        Text(subtitle)
       ],
     );
   }

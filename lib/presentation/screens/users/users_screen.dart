@@ -16,35 +16,38 @@ class UsersScreen extends StatelessWidget {
 
     final List<UserEntity> usuarios = userprovider.users;
 
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-          //boton de regreso
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Material App Bar'),
+        //boton de regreso
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: SingleChildScrollView(
-          physics: const ScrollPhysics(),
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: usuarios.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(usuarios[index].avatar),
-                ),
-                title: Text(usuarios[index].name),
-                subtitle: Text(usuarios[index].email),
-              );
-            },
-          ),
+      ),
+      body: SingleChildScrollView(
+        physics: const ScrollPhysics(),
+        child: ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: usuarios.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(usuarios[index].avatar),
+              ),
+              title: Text(usuarios[index].name),
+              subtitle: Text(usuarios[index].email),
+              onTap: () {
+                userprovider.getUser(usuarios[index].id).then((user) {
+                  Navigator.pushNamed(context, 'user',
+                      arguments: <String, dynamic>{'user': user});
+                });
+              },
+            );
+          },
         ),
       ),
     );
