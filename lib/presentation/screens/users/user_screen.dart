@@ -11,11 +11,13 @@ class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final args =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final UserEntity userSelected = args['user'];
 
     return Scaffold(
+      backgroundColor: colors.primary,
       appBar: AppBar(
         title: const Text('User Screen'),
         //boton de regreso

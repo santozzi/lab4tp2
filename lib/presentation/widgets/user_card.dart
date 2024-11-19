@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserCard extends StatelessWidget {
   final String imageUrl;
-
+  final double fontS = 20;
   final String phone;
   final String email;
   final String name;
@@ -23,16 +23,17 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          margin: const EdgeInsets.all(10),
+          margin: const EdgeInsets.only(top: 200),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(500),
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                    color: Color.fromARGB(66, 13, 46, 235),
+                    color: colors.onPrimary.withOpacity(0.5),
                     blurRadius: 1,
                     spreadRadius: 8,
                     offset: Offset(0, 0))
@@ -41,48 +42,68 @@ class UserCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(500),
             child: FadeInImage(
                 placeholder: const AssetImage('assets/loading.gif'),
-                image: NetworkImage(imageUrl, scale: 0.5)),
+                image: NetworkImage(imageUrl, scale: 0.35)),
           ),
         ),
-        Container(
-          alignment: Alignment.center,
-          height: 500,
-          width: double.infinity,
-          color: Colors.grey[200],
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.person),
-                  Text(name),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.email),
-                  Text(email),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.phone),
-                  Text(phone),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.location_city),
-                  Text('$country - $state - $city'),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.wc),
-                  Text(gender),
-                ],
-              )
-            ],
+        ClipRRect(
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+          child: Container(
+            alignment: Alignment.center,
+            height: 300,
+            padding: const EdgeInsets.only(left: 90, right: 50),
+            width: double.infinity,
+            color: colors.primaryContainer,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.person),
+                    Text(
+                      name,
+                      style: TextStyle(fontSize: fontS),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.email),
+                    Text(
+                      email,
+                      style: TextStyle(fontSize: fontS),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.phone),
+                    Text(
+                      phone,
+                      style: TextStyle(fontSize: fontS),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.location_city),
+                    Text(
+                      '$country - $state - $city',
+                      style: TextStyle(fontSize: fontS),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.wc),
+                    Text(
+                      gender,
+                      style: TextStyle(fontSize: fontS),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ],

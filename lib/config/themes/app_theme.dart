@@ -20,8 +20,9 @@ class AppTheme {
             "Te caiste del arreglo entre 0 y ${colors.length - 1} debe ser el valor");
   ThemeData theme() {
     return ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: colors[selectedColor],
-        brightness: Brightness.light);
+      useMaterial3: true,
+      colorSchemeSeed: colors[selectedColor],
+      brightness: Brightness.light,
+    );
   }
 }
