@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/config/themes/app_theme.dart';
 import 'package:flutter_application_base/domain/repositories/user_repository.dart';
 import 'package:flutter_application_base/domain/repositories/products_repository.dart';
 import 'package:flutter_application_base/config/helpers/preferences.dart';
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: 'users',
-          theme: Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
+          theme: AppTheme(selectedColor: 9)
+              .theme(), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
           routes: {
             'home': (context) => const HomeScreen(),
             'custom_list': (context) => const CustomListScreen(),
