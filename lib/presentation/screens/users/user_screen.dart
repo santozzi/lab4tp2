@@ -37,7 +37,7 @@ class UserScreen extends StatelessWidget {
                     .setTheme(UserPreferences(
                         isDarkMode: value,
                         userId: userSelected.id,
-                        theme: 'blue'))
+                        theme: 'naranja'))
                     .then((value) => log('value: ${userSelected.id}'));
               })
         ],

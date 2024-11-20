@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/config/themes/app_theme.dart';
+import 'package:flutter_application_base/config/themes/index_themes.dart';
 import 'package:flutter_application_base/domain/entities/user_preferences.dart';
 import 'package:flutter_application_base/domain/repositories/user_preferences_repositoriy.dart';
 import 'package:flutter_application_base/domain/repositories/user_repository.dart';
@@ -80,7 +80,7 @@ class App extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
-        theme: AppTheme(
+        theme: IndexThemes(
                 theme: userPreferences.theme,
                 darkMode: userPreferences.isDarkMode)
             .getTheme(), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
