@@ -6,7 +6,6 @@ import 'package:flutter_application_base/domain/entities/user_preferences.dart';
 import 'package:flutter_application_base/domain/repositories/user_preferences_repositoriy.dart';
 import 'package:flutter_application_base/domain/repositories/user_repository.dart';
 import 'package:flutter_application_base/domain/repositories/products_repository.dart';
-import 'package:flutter_application_base/config/helpers/preferences.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/mock_products_datasource_impl.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/mock_user_datasource_impl.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/shared_user_preferences_datasource_imp.dart';
@@ -23,7 +22,6 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Preferences.initShared();
 
   runApp(const MyApp());
 }
@@ -87,7 +85,6 @@ class App extends StatelessWidget {
         routes: {
           'home': (context) => const HomeScreen(),
           'custom_list': (context) => const CustomListScreen(),
-          'profile': (context) => const ProfileScreen(),
           'custom_list_item': (context) => const CustomListItem(),
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),

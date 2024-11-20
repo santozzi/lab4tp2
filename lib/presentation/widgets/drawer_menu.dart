@@ -9,8 +9,11 @@ class DrawerMenu extends StatelessWidget {
       'subtitle': 'Esta es la  pantalla de Sergio Antozzi'
     },
     {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
-    {'route': 'profile', 'title': 'Perfil usuario', 'subtitle': ''},
-    {'route': 'products', 'title': 'Listado de Productos', 'subtitle': 'Gianluca el mejor'},
+    {
+      'route': 'products',
+      'title': 'Listado de Productos',
+      'subtitle': 'Gianluca el mejor'
+    },
   ];
 
   DrawerMenu({super.key});
