@@ -51,9 +51,12 @@ class UserCard extends StatelessWidget {
               ]),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(500),
-            child: FadeInImage(
-                placeholder: const AssetImage('assets/loading.gif'),
-                image: NetworkImage(imageUrl, scale: 0.50)),
+            child: Container(
+              width: 200,
+              child: FadeInImage(
+                  placeholder: const AssetImage('assets/loading.gif'),
+                  image: NetworkImage(imageUrl, scale: 0.50)),
+            ),
           ),
         ),
         ClipRRect(
