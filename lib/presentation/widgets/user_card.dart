@@ -28,7 +28,7 @@ class UserCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 200),
+          margin: const EdgeInsets.only(top: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(500),
               boxShadow: [
@@ -50,58 +50,43 @@ class UserCard extends StatelessWidget {
               topLeft: Radius.circular(50), topRight: Radius.circular(50)),
           child: Container(
             alignment: Alignment.center,
-            height: 200,
-            padding: const EdgeInsets.only(left: 90, right: 50),
+            height: 400,
+            padding: const EdgeInsets.only(left: 50, right: 50),
             width: double.infinity,
             color: colors.primaryContainer,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
-                  children: [
-                    const Icon(Icons.person),
-                    Text(
-                      name,
-                      style: TextStyle(fontSize: fontS),
-                    ),
-                  ],
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: name,
+                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
+                      prefixIcon: const Icon(Icons.person)),
                 ),
-                Row(
-                  children: [
-                    const Icon(Icons.email),
-                    Text(
-                      email,
-                      style: TextStyle(fontSize: fontS),
-                    ),
-                  ],
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: email,
+                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
+                      prefixIcon: const Icon(Icons.email)),
                 ),
-                Row(
-                  children: [
-                    const Icon(Icons.phone),
-                    Text(
-                      phone,
-                      style: TextStyle(fontSize: fontS),
-                    ),
-                  ],
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: phone,
+                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
+                      prefixIcon: const Icon(Icons.phone)),
                 ),
-                Row(
-                  children: [
-                    const Icon(Icons.location_city),
-                    Text(
-                      '$country - $state - $city',
-                      style: TextStyle(fontSize: fontS),
-                    ),
-                  ],
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: '$country - $state - $city',
+                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
+                      prefixIcon: const Icon(Icons.location_city)),
                 ),
-                Row(
-                  children: [
-                    const Icon(Icons.wc),
-                    Text(
-                      gender,
-                      style: TextStyle(fontSize: fontS),
-                    ),
-                  ],
-                )
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: gender,
+                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
+                      prefixIcon: const Icon(Icons.wc)),
+                ),
               ],
             ),
           ),
