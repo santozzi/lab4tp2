@@ -82,7 +82,12 @@ class UserCard extends StatelessWidget {
                     }),
                 Row(
                   children: [
-                    const Text('Theme: '),
+                    //icono para seleccionar un theme
+                    const SizedBox(width: 10),
+                    const Icon(Icons.color_lens),
+                    const SizedBox(width: 10),
+                    const Text('Themes: ', style: TextStyle(fontSize: 16)),
+                    const SizedBox(width: 10),
                     DropdownButton(
                         value: userPreferenciesProvider.userPreferences.theme,
                         items: [

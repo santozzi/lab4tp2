@@ -27,7 +27,6 @@ class UserScreen extends StatelessWidget {
       backgroundColor: colors.primary,
       appBar: AppBar(
         title: const Text('User Screen'),
-        actions: [],
         //boton de regreso
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
