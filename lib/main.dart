@@ -65,21 +65,21 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
-    SharedUserPreferencesDatasourceImp sharedUserPreferencesDatasourceImp =
-        SharedUserPreferencesDatasourceImp();
+    //SharedUserPreferencesDatasourceImp sharedUserPreferencesDatasourceImp =
+    //   SharedUserPreferencesDatasourceImp();
     if (!userPreferencesProvider.entre) {
       userPreferencesProvider.entre = true;
       userPreferencesProvider.getTheme('1019').then((c) {
         log('cargando...');
       });
     }
-    sharedUserPreferencesDatasourceImp.toString2();
+    //sharedUserPreferencesDatasourceImp.toString2();
 
     UserPreferences userPreferences = userPreferencesProvider.getPreferences();
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'users',
+        initialRoute: 'home',
         theme: AppTheme(
                 theme: userPreferences.theme,
                 darkMode: userPreferences.isDarkMode)

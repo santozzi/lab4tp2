@@ -42,7 +42,7 @@ class UserCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(500),
             child: FadeInImage(
                 placeholder: const AssetImage('assets/loading.gif'),
-                image: NetworkImage(imageUrl, scale: 0.45)),
+                image: NetworkImage(imageUrl, scale: 0.50)),
           ),
         ),
         ClipRRect(
@@ -59,33 +59,24 @@ class UserCard extends StatelessWidget {
               children: [
                 TextField(
                   decoration: InputDecoration(
-                      hintText: name,
-                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
-                      prefixIcon: const Icon(Icons.person)),
+                      hintText: name, prefixIcon: const Icon(Icons.person)),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      hintText: email,
-                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
-                      prefixIcon: const Icon(Icons.email)),
+                      hintText: email, prefixIcon: const Icon(Icons.email)),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      hintText: phone,
-                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
-                      prefixIcon: const Icon(Icons.phone)),
+                      hintText: phone, prefixIcon: const Icon(Icons.phone)),
                 ),
                 TextField(
                   decoration: InputDecoration(
                       hintText: '$country - $state - $city',
-                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
                       prefixIcon: const Icon(Icons.location_city)),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      hintText: gender,
-                      hintStyle: TextStyle(color: colors.onPrimaryFixed),
-                      prefixIcon: const Icon(Icons.wc)),
+                      hintText: gender, prefixIcon: const Icon(Icons.wc)),
                 ),
               ],
             ),
