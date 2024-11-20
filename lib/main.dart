@@ -81,9 +81,9 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         theme: IndexThemes(
-                theme: userPreferences.theme,
-                darkMode: userPreferences.isDarkMode)
-            .getTheme(), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
+          theme: userPreferences.theme,
+        ).getTheme(userPreferences
+            .isDarkMode), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
         routes: {
           'home': (context) => const HomeScreen(),
           'custom_list': (context) => const CustomListScreen(),

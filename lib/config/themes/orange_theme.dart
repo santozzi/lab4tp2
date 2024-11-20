@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/domain/themes/theme_theme.dart';
 
-class OrangeTheme {
-  final bool darkMode;
-  OrangeTheme({required this.darkMode});
+class OrangeTheme extends ThemeTheme {
+  OrangeTheme();
 
-  ThemeData getTheme() {
+  @override
+  ThemeData getTheme(bool darkMode) {
     return ThemeData(
         colorSchemeSeed: const Color(0xFFFFD54F),
         brightness: (darkMode) ? Brightness.dark : Brightness.light,
