@@ -65,10 +65,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
-
-    userPreferencesProvider.getTheme('1019').then((c) {
-      log('cargando...');
-    });
+    SharedUserPreferencesDatasourceImp sharedUserPreferencesDatasourceImp =
+        SharedUserPreferencesDatasourceImp();
+    if (!userPreferencesProvider.entre) {
+      userPreferencesProvider.entre = true;
+      userPreferencesProvider.getTheme('1019').then((c) {
+        log('cargando...');
+      });
+    }
+    sharedUserPreferencesDatasourceImp.toString2();
 
     UserPreferences userPreferences = userPreferencesProvider.getPreferences();
 

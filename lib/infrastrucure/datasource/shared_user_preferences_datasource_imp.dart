@@ -83,4 +83,11 @@ class SharedUserPreferencesDatasourceImp extends UserPreferencesDataSource {
                     .toList())
             .toJson()));
   }
+
+  Future<void> toString2() async {
+    final lista = await _usersPreferencestoList();
+    for (var item in lista) {
+      log('item: ${item.userId} - ${item.isDarkMode} - ${item.theme}');
+    }
+  }
 }

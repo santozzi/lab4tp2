@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 const List<Color> colors = [
@@ -12,32 +14,30 @@ const List<Color> colors = [
   Color(0xFFA1887F),
   Color(0xFF9575CD),
 ];
-Map<String, ThemeData> themes = {
-  'blue': ThemeData(
+Map<String, dynamic> themes = {
+  'blue': (isDark) => ThemeData(
       colorSchemeSeed: Colors.blue,
-      brightness: Brightness.light,
+      brightness: (isDark) ? Brightness.dark : Brightness.light,
       useMaterial3: true),
-  'naranja': ThemeData(
-      colorSchemeSeed: const Color(0xFFFFD54F),
-      brightness: Brightness.light,
-      useMaterial3: true),
-  'Dark': ThemeData.dark(),
+  'naranja': (isDark) => ThemeData(
+          colorSchemeSeed: const Color(0xFFFFD54F),
+          brightness: (isDark) ? Brightness.dark : Brightness.light,
+          useMaterial3: true)
+      .copyWith(brightness: (isDark) ? Brightness.dark : Brightness.light),
+  'Dark': (isDark) => ThemeData.dark(),
 };
 
 class AppTheme {
   final String theme;
   final bool darkMode;
   AppTheme({required this.theme, required this.darkMode});
+
   ThemeData getTheme() {
+    log('dede el theme: $darkMode');
     if (themes[theme] == null) {
-      return themes['blue']!;
+      return themes['blue']!(false);
     }
-    if (darkMode) {
-      return themes[theme]!.copyWith(
-        brightness: Brightness.dark,
-      );
-    } else {
-      return themes[theme]!;
-    }
+
+    return themes[theme]!(darkMode);
   }
 }

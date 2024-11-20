@@ -49,13 +49,6 @@ class UsersScreen extends StatelessWidget {
               title: Text(usuarios[index].name),
               subtitle: Text(usuarios[index].email),
               onTap: () {
-                final pref = SharedUserPreferencesRepository(
-                    userPreferencesDataSource:
-                        SharedUserPreferencesDatasourceImp());
-                final usuarioCambio = UserPreferences(
-                    isDarkMode: true, userId: '1019', theme: 'naranja');
-                //pref.setUserPreferences(usuarioCambio);
-                userPreferenciesProvider.setTheme(usuarioCambio);
                 userprovider.getUser(usuarios[index].id).then((user) {
                   Navigator.pushNamed(context, 'user',
                       arguments: <String, dynamic>{'user': user});

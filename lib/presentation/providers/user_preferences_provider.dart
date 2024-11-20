@@ -4,7 +4,8 @@ import 'package:flutter_application_base/domain/repositories/user_preferences_re
 
 class UserPreferencesProvider extends ChangeNotifier {
   final UserPreferencesRepository userPreferencesRepository;
-
+  bool isDarkMode = false;
+  bool entre = false;
   UserPreferences userPreferences = UserPreferences(
     userId: '0',
     theme: 'blue',
@@ -14,6 +15,11 @@ class UserPreferencesProvider extends ChangeNotifier {
   UserPreferencesProvider({required this.userPreferencesRepository});
 
   Future<void> getTheme(String id) async {
+    userPreferences = await userPreferencesRepository.getUserPreferences(id);
+    notifyListeners();
+  }
+
+  Future<void> getTheme2(String id) async {
     userPreferences = await userPreferencesRepository.getUserPreferences(id);
   }
 
@@ -25,5 +31,10 @@ class UserPreferencesProvider extends ChangeNotifier {
 
   UserPreferences getPreferences() {
     return userPreferences;
+  }
+
+  void changeMode() {
+    isDarkMode = !isDarkMode;
+    notifyListeners();
   }
 }
