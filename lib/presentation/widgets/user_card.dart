@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserCard extends StatelessWidget {
   final String imageUrl;
-  final double fontS = 20;
+  final double fontS = 12;
   final String phone;
   final String email;
   final String name;
@@ -36,13 +36,13 @@ class UserCard extends StatelessWidget {
                     color: colors.onPrimary.withOpacity(0.5),
                     blurRadius: 1,
                     spreadRadius: 8,
-                    offset: Offset(0, 0))
+                    offset: const Offset(0, 0))
               ]),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(500),
             child: FadeInImage(
                 placeholder: const AssetImage('assets/loading.gif'),
-                image: NetworkImage(imageUrl, scale: 0.35)),
+                image: NetworkImage(imageUrl, scale: 0.45)),
           ),
         ),
         ClipRRect(
@@ -50,7 +50,7 @@ class UserCard extends StatelessWidget {
               topLeft: Radius.circular(50), topRight: Radius.circular(50)),
           child: Container(
             alignment: Alignment.center,
-            height: 300,
+            height: 200,
             padding: const EdgeInsets.only(left: 90, right: 50),
             width: double.infinity,
             color: colors.primaryContainer,

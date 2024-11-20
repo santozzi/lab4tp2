@@ -12,17 +12,32 @@ const List<Color> colors = [
   Color(0xFFA1887F),
   Color(0xFF9575CD),
 ];
+Map<String, ThemeData> themes = {
+  'blue': ThemeData(
+      colorSchemeSeed: Colors.blue,
+      brightness: Brightness.light,
+      useMaterial3: true),
+  'naranja': ThemeData(
+      colorSchemeSeed: const Color(0xFFFFD54F),
+      brightness: Brightness.light,
+      useMaterial3: true),
+  'Dark': ThemeData.dark(),
+};
 
 class AppTheme {
-  final int selectedColor;
-  AppTheme({required this.selectedColor})
-      : assert(selectedColor >= 0 && selectedColor < colors.length,
-            "Te caiste del arreglo entre 0 y ${colors.length - 1} debe ser el valor");
-  ThemeData theme() {
-    return ThemeData(
-      useMaterial3: true,
-      colorSchemeSeed: colors[selectedColor],
-      brightness: Brightness.light,
-    );
+  final String theme;
+  final bool darkMode;
+  AppTheme({required this.theme, required this.darkMode});
+  ThemeData getTheme() {
+    if (themes[theme] == null) {
+      return themes['blue']!;
+    }
+    if (darkMode) {
+      return themes[theme]!.copyWith(
+        brightness: Brightness.dark,
+      );
+    } else {
+      return themes[theme]!;
+    }
   }
 }
