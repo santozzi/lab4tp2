@@ -20,4 +20,8 @@ class IndexThemes extends ThemeTheme {
 
     return themes[theme]!(darkMode);
   }
+
+  static List<String> getThemes() {
+    return themes.keys.toList();
+  }
 }

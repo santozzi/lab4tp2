@@ -1,4 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/config/themes/index_themes.dart';
+import 'package:flutter_application_base/domain/entities/user_preferences.dart';
+import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
+import 'package:provider/provider.dart';
 
 class UserCard extends StatelessWidget {
   final String imageUrl;
@@ -10,8 +16,10 @@ class UserCard extends StatelessWidget {
   final String city;
   final String state;
   final String gender;
+  final String id;
   const UserCard(
       {super.key,
+      required this.id,
       required this.imageUrl,
       required this.phone,
       required this.email,
@@ -24,6 +32,9 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final userPreferenciesProvider =
+        Provider.of<UserPreferencesProvider>(context);
+    final List<String> themes = IndexThemes.getThemes();
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -57,6 +68,39 @@ class UserCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                SwitchListTile.adaptive(
+                    title: const Text('Dark Mode'),
+                    value: userPreferenciesProvider.userPreferences.isDarkMode,
+                    onChanged: (value) {
+                      userPreferenciesProvider
+                          .setTheme(UserPreferences(
+                              isDarkMode: value,
+                              userId: id,
+                              theme: userPreferenciesProvider
+                                  .userPreferences.theme))
+                          .then((value) => log('value: $id'));
+                    }),
+                Row(
+                  children: [
+                    const Text('Theme: '),
+                    DropdownButton(
+                        value: userPreferenciesProvider.userPreferences.theme,
+                        items: [
+                          for (String theme in themes)
+                            DropdownMenuItem(
+                              value: theme,
+                              child: Text(theme),
+                            )
+                        ],
+                        onChanged: (value) async {
+                          await userPreferenciesProvider.setTheme(
+                              UserPreferences(
+                                  isDarkMode: false,
+                                  userId: id,
+                                  theme: value.toString()));
+                        }),
+                  ],
+                ),
                 TextField(
                   decoration: InputDecoration(
                       hintText: name, prefixIcon: const Icon(Icons.person)),

@@ -27,20 +27,7 @@ class UserScreen extends StatelessWidget {
       backgroundColor: colors.primary,
       appBar: AppBar(
         title: const Text('User Screen'),
-        actions: [
-          Switch(
-              value: userPreferenciesProvider.userPreferences.isDarkMode,
-              onChanged: (value) {
-                log('value: $value');
-                //userPreferenciesProvider.changeMode();
-                userPreferenciesProvider
-                    .setTheme(UserPreferences(
-                        isDarkMode: value,
-                        userId: userSelected.id,
-                        theme: 'naranja'))
-                    .then((value) => log('value: ${userSelected.id}'));
-              })
-        ],
+        actions: [],
         //boton de regreso
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -51,6 +38,7 @@ class UserScreen extends StatelessWidget {
       ),
       body: Center(
         child: UserCard(
+            id: userSelected.id,
             imageUrl: userSelected.avatar,
             name: userSelected.name,
             email: userSelected.email,
