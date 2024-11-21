@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/config/themes/themes.dart';
+import 'package:flutter_application_base/config/theme/themes.dart';
 import 'package:flutter_application_base/domain/themes/theme_theme.dart';
 
 Map<String, dynamic> themes = {

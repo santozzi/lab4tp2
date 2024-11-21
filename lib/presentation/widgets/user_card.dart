@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/config/themes/index_themes.dart';
+import 'package:flutter_application_base/config/theme/index_themes.dart';
 import 'package:flutter_application_base/domain/entities/user_preferences.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:provider/provider.dart';
