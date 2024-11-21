@@ -87,7 +87,10 @@ class UserCard extends StatelessWidget {
                   children: [
                     //icono para seleccionar un theme
                     const SizedBox(width: 10),
-                    const Icon(Icons.color_lens),
+                    Icon(
+                      Icons.color_lens,
+                      color: colors.onSurface,
+                    ),
                     const SizedBox(width: 10),
                     const Text('Themes: ', style: TextStyle(fontSize: 16)),
                     const SizedBox(width: 10),
