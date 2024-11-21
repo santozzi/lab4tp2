@@ -76,7 +76,7 @@ class UserCard extends StatelessWidget {
                     value: userPreferenciesProvider.userPreferences.isDarkMode,
                     onChanged: (value) {
                       userPreferenciesProvider
-                          .setTheme(UserPreferences(
+                          .setPreferences(UserPreferences(
                               isDarkMode: value,
                               userId: id,
                               theme: userPreferenciesProvider
@@ -104,7 +104,7 @@ class UserCard extends StatelessWidget {
                             )
                         ],
                         onChanged: (value) async {
-                          await userPreferenciesProvider.setTheme(
+                          await userPreferenciesProvider.setPreferences(
                               UserPreferences(
                                   isDarkMode: userPreferenciesProvider
                                       .userPreferences.isDarkMode,

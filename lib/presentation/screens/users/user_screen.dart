@@ -21,7 +21,7 @@ class UserScreen extends StatelessWidget {
     final UserPreferencesProvider userPreferenciesProvider =
         Provider.of<UserPreferencesProvider>(context);
     userPreferenciesProvider
-        .getTheme2(userSelected.id)
+        .setPreferencesByIdWithoutNotify(userSelected.id)
         .then((value) => log("Cargando provider..."));
     return Scaffold(
       backgroundColor: colors.primary,

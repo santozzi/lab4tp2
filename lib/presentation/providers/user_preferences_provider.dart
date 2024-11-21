@@ -6,7 +6,7 @@ class UserPreferencesProvider extends ChangeNotifier {
   final UserPreferencesRepository userPreferencesRepository;
   bool isDarkMode = false;
   bool entre = false;
-  UserPreferences userPreferences = UserPreferences(
+  late UserPreferences userPreferences = UserPreferences(
     userId: '0',
     theme: 'blue',
     isDarkMode: false,
@@ -14,16 +14,16 @@ class UserPreferencesProvider extends ChangeNotifier {
 
   UserPreferencesProvider({required this.userPreferencesRepository});
 
-  Future<void> getTheme(String id) async {
+  Future<void> setPreferencesById(String id) async {
     userPreferences = await userPreferencesRepository.getUserPreferences(id);
     notifyListeners();
   }
 
-  Future<void> getTheme2(String id) async {
+  Future<void> setPreferencesByIdWithoutNotify(String id) async {
     userPreferences = await userPreferencesRepository.getUserPreferences(id);
   }
 
-  Future<void> setTheme(UserPreferences userPreferences) async {
+  Future<void> setPreferences(UserPreferences userPreferences) async {
     await userPreferencesRepository.setUserPreferences(userPreferences);
     this.userPreferences = userPreferences;
     notifyListeners();

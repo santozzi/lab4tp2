@@ -7,20 +7,9 @@ import '../../domain/repositories/user_repository.dart';
 
 class UsersProvider extends ChangeNotifier {
   final UserRepository usuarioRepository;
-  int contador = 1;
-  List<UserEntity> users = [];
-  UserEntity user = UserEntity(
-      id: '',
-      name: '',
-      email: '',
-      role: '',
-      avatar: '',
-      password: '',
-      gender: '',
-      country: '',
-      city: '',
-      state: '',
-      phone: '');
+
+  late List<UserEntity> users = [];
+  late UserEntity user;
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
