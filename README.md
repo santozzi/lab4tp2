@@ -12,6 +12,8 @@
 - [Descripción](#descripción)
 - [Diagrama](#diagrama)
 - [Screens](#screens)
+- [Pantallas](#pantallas)
+- [CustomWidgets](#customwidgets)
 - [Tecnologías](#tecnologías)
 - [Instalación](#instalación)
 - [Uso](#uso)
@@ -30,9 +32,17 @@ Este proyecto es una aplicación de carrito de compras desarrollada en Flutter u
 * HomeScreen
 * UserScreen
 * UseresScreen
+* LoginScreen
+* ProfileScren
 
-
+## Pantallas
 <img src="./readme/images/screens.png" />
+
+## CustomWidgets
+
+* DrawerMenu
+* UserAvatar
+* UserCard 
 
 ## Tecnologías
 

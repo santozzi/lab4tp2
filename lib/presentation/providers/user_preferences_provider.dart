@@ -40,6 +40,7 @@ class UserPreferencesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  //Este método es para entrar solo una vez en el setPreferences del main, acutua como llave
   Future<void> changeEntre() async {
     entre = !entre;
     notifyListeners();
