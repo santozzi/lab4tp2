@@ -63,12 +63,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
+    final UsersProvider usersProvider = Provider.of<UsersProvider>(context);
     //SharedUserPreferencesDatasourceImp sharedUserPreferencesDatasourceImp =
     //   SharedUserPreferencesDatasourceImp();
-    if (!userPreferencesProvider.entre) {
-      userPreferencesProvider.entre = true;
-      userPreferencesProvider.setPreferencesById('1019').then((c) {
+
+    if (usersProvider.loged) {
+      userPreferencesProvider
+          .setPreferencesByIdWithoutNotify(usersProvider.user.id)
+          .then((c) {
         log('cargando...');
+        if (!userPreferencesProvider.entre) {
+          userPreferencesProvider.notificar();
+          userPreferencesProvider.entre = true;
+        }
       });
     }
     //sharedUserPreferencesDatasourceImp.toString2();
@@ -89,6 +96,7 @@ class App extends StatelessWidget {
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),
           'products': (context) => const ProductScreen(),
+          'login': (context) => const LoginScreen(),
         }
         /* home: DesignScreen(), */
         );

@@ -36,7 +36,7 @@ Este proyecto es una aplicación de carrito de compras desarrollada en Flutter u
 
 ## Tecnologías
 
-**Lenguaje de programación** 
+
 <!--tech stack icons-->
 
 

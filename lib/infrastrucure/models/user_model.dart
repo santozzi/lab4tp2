@@ -3,6 +3,7 @@ import 'package:flutter_application_base/domain/entities/user_entity.dart';
 class UserModel {
   final String id;
   final String email;
+  final String username;
   final String password;
   final String name;
   final String role;
@@ -16,6 +17,7 @@ class UserModel {
   UserModel({
     required this.id,
     required this.email,
+    required this.username,
     required this.password,
     required this.name,
     required this.role,
@@ -31,6 +33,7 @@ class UserModel {
     return UserModel(
       id: json['id']['value'],
       email: json['email'],
+      username: json['login']['username'],
       password: json['login']['password'],
       name: '${json['name']['first']} ${json['name']['last']}',
       role: 'customer',
@@ -46,6 +49,7 @@ class UserModel {
   UserEntity toUserEntity() => UserEntity(
       id: id,
       email: email,
+      username: username,
       password: password,
       name: name,
       role: role,

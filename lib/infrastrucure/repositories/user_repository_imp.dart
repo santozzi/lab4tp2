@@ -16,4 +16,14 @@ class UserRepositoryImp implements UserRepository {
   Future<List<UserEntity>> getUsers() async {
     return await userDatasource.getUsers();
   }
+
+  @override
+  Future<UserEntity> getUserByUsername(String username) async {
+    return await userDatasource.getUserByUsername(username);
+  }
+
+  @override
+  Future<bool> login(String username, String password) async {
+    return await userDatasource.login(username, password);
+  }
 }

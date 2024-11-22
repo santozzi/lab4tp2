@@ -12,10 +12,10 @@ class ChrismasTheme extends ThemeTheme {
   ThemeData getTheme(bool darkMode) {
     if (darkMode) {
       return ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 199, 83, 83),
+        scaffoldBackgroundColor: const Color(0xff092F00),
         colorScheme: const ColorScheme(
             primary: Color(0xff680404),
-            primaryContainer: Color.fromARGB(255, 6, 31, 0),
+            primaryContainer: Color(0xff092F00),
             secondary: secondary,
             surface: Color(0xff092F00),
             // background: Colors.white,

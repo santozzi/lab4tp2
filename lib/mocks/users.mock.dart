@@ -23,8 +23,8 @@ List<Map<String, dynamic>> users = [
     "email": "stysh.hydry@example.com",
     "login": {
       "uuid": "7214f586-381c-463f-acf5-89174297cf74",
-      "username": "goldenlion629",
-      "password": "whiskey",
+      "username": "user",
+      "password": "user",
       "salt": "IfUzl7AV",
       "md5": "ff44d488975214b807b1a10b6041ae7e",
       "sha1": "f40442c12a5a074f8711baec2368d275c94f6a37",

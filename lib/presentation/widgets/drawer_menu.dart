@@ -1,25 +1,37 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/presentation/providers/users_provider.dart';
+import 'package:provider/provider.dart';
 
 class DrawerMenu extends StatelessWidget {
-  final List<Map<String, String>> _menuItems = <Map<String, String>>[
-    {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
-    {
-      'route': 'users',
-      'title': 'Usuarios',
-      'subtitle': 'Esta es la  pantalla de Sergio Antozzi'
-    },
-    {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
-    {
-      'route': 'products',
-      'title': 'Listado de Productos',
-      'subtitle': 'Gianluca el mejor'
-    },
-  ];
-
-  DrawerMenu({super.key});
+  const DrawerMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final UsersProvider userProvider = context.watch<UsersProvider>();
+    final List<Map<String, String>> menuItems = <Map<String, String>>[
+      {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
+      {
+        'route': 'users',
+        'title': 'Usuarios',
+        'subtitle': 'Esta es la  pantalla de Sergio Antozzi'
+      },
+      {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
+      {
+        'route': 'products',
+        'title': 'Listado de Productos',
+        'subtitle': 'Gianluca el mejor'
+      },
+      {
+        'route': 'login',
+        'title': (userProvider.loged) ? 'LogOut' : 'Login',
+        'subtitle': (userProvider.loged)
+            ? 'Hola!!!, ${userProvider.user.name}'
+            : 'Ingrese al sistema'
+      },
+    ];
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -27,7 +39,7 @@ class DrawerMenu extends StatelessWidget {
           const _DrawerHeaderAlternative(),
           ...ListTile.divideTiles(
               context: context,
-              tiles: _menuItems
+              tiles: menuItems
                   .map((item) => ListTile(
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 0, horizontal: 10),
