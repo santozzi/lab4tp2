@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_base/config/theme/index_themes.dart';
 import 'package:flutter_application_base/domain/entities/user_preferences.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
 
 class UserCard extends StatelessWidget {
@@ -38,27 +39,7 @@ class UserCard extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(500),
-              boxShadow: [
-                BoxShadow(
-                    color: colors.onPrimary.withOpacity(0.5),
-                    blurRadius: 1,
-                    spreadRadius: 8,
-                    offset: const Offset(0, 0))
-              ]),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(500),
-            child: Container(
-              width: 200,
-              child: FadeInImage(
-                  placeholder: const AssetImage('assets/loading.gif'),
-                  image: NetworkImage(imageUrl, scale: 0.50)),
-            ),
-          ),
-        ),
+        UserAvatar(colors: colors, imageUrl: imageUrl),
         ClipRRect(
           borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(50), topRight: Radius.circular(50)),

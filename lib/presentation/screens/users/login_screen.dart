@@ -29,7 +29,7 @@ class _HomeScreenState extends State<LoginScreen> {
           leadingWidth: 40,
           toolbarHeight: 80,
         ),
-        drawer: DrawerMenu(),
+        drawer: const DrawerMenu(),
         body: Center(
           child: Column(
             children: [
@@ -74,6 +74,7 @@ class _HomeScreenState extends State<LoginScreen> {
                               final loged = await userprovider.login(
                                   _username, _password);
                               log('loged: $loged');
+                              Navigator.pushNamed(context, 'home');
                             },
                             child: const Text('Login'),
                           ),

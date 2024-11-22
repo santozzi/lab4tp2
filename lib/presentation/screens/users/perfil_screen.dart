@@ -9,11 +9,18 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UsersProvider usersProvider = Provider.of<UsersProvider>(context);
+    final colors = Theme.of(context).colorScheme;
     final user = usersProvider.user;
     return Scaffold(
+        backgroundColor: colors.primary,
         appBar: AppBar(
-          title: const Text('Perfil'),
-        ),
+            title: const Text('Perfil'),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )),
         body: Center(
             child: UserCard(
                 id: user.id,

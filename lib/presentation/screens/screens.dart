@@ -1,6 +1,6 @@
 //Screens de Sergio
 export 'package:flutter_application_base/presentation/screens/users/perfil_screen.dart';
-export 'package:flutter_application_base/presentation/screens/login_screen.dart';
+export 'package:flutter_application_base/presentation/screens/users/login_screen.dart';
 export 'package:flutter_application_base/presentation/screens/users/users_screen.dart';
 //fin Screens de Sergio
 

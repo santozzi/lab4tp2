@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -10,6 +12,9 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UsersProvider userProvider = context.watch<UsersProvider>();
+    final colors = Theme.of(context).colorScheme;
+    final UserPreferencesProvider userPreferencesProvider =
+        Provider.of<UserPreferencesProvider>(context);
     final List<Map<String, String>> menuItems = <Map<String, String>>[
       {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
       if (userProvider.loged && userProvider.user.role == 'admin')
@@ -31,7 +36,7 @@ class DrawerMenu extends StatelessWidget {
         },
       {
         'route': 'login',
-        'title': (userProvider.loged) ? 'LogOut' : 'Login',
+        'title': (userProvider.loged) ? 'Logout' : 'Login',
         'subtitle': (userProvider.loged)
             ? 'Hola!!!, ${userProvider.user.name}'
             : 'Ingrese al sistema'
@@ -59,13 +64,24 @@ class DrawerMenu extends StatelessWidget {
                                 fontFamily: 'RobotoMono', fontSize: 11)),
                         leading: const Icon(Icons.arrow_right),
                         /* trailing: const Icon(Icons.arrow_right), */
-                        onTap: () {
+                        onTap: () async {
+                          if (item['title'] == 'Logout') {
+                            userProvider.logout();
+                            await userPreferencesProvider.changeEntre();
+                          }
                           Navigator.pop(context);
                           //Navigator.pushReplacementNamed(context, item['route']!);
                           Navigator.pushNamed(context, item['route']!);
                         },
                       ))
-                  .toList())
+                  .toList()),
+          Container(
+              padding: const EdgeInsets.all(70),
+              child: UserAvatar(
+                colors: colors,
+                imageUrl: userProvider.user.avatar,
+                size: 25,
+              ))
         ],
       ),
     );
