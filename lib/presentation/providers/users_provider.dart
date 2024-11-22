@@ -5,25 +5,27 @@ import 'package:flutter_application_base/domain/entities/user_entity.dart';
 
 import '../../domain/repositories/user_repository.dart';
 
+UserEntity userDefault = UserEntity(
+  id: '0',
+  username: 'username',
+  password: 'password',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  avatar: '',
+  city: '',
+  country: '',
+  gender: '',
+  role: '',
+  state: '',
+);
+
 class UsersProvider extends ChangeNotifier {
   final UserRepository usuarioRepository;
   late bool loged = false;
 
   late List<UserEntity> users = [];
-  UserEntity user = UserEntity(
-    id: '0',
-    username: 'username',
-    password: 'password',
-    name: 'name',
-    email: 'email',
-    phone: 'phone',
-    avatar: '',
-    city: '',
-    country: '',
-    gender: '',
-    role: '',
-    state: '',
-  );
+  UserEntity user = userDefault;
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
@@ -49,8 +51,9 @@ class UsersProvider extends ChangeNotifier {
     return loged;
   }
 
-  void logout() {
+  Future<void> logout() async {
     loged = false;
+    user = userDefault;
     notifyListeners();
   }
 }

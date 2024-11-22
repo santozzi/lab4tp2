@@ -66,7 +66,7 @@ class DrawerMenu extends StatelessWidget {
                         /* trailing: const Icon(Icons.arrow_right), */
                         onTap: () async {
                           if (item['title'] == 'Logout') {
-                            userProvider.logout();
+                            await userProvider.logout();
                             await userPreferencesProvider.changeEntre();
                           }
                           Navigator.pop(context);
