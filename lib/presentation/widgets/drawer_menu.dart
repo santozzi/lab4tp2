@@ -23,6 +23,12 @@ class DrawerMenu extends StatelessWidget {
         'title': 'Listado de Productos',
         'subtitle': 'Gianluca el mejor'
       },
+      if (userProvider.loged)
+        {
+          'route': 'profile',
+          'title': 'Perfil',
+          'subtitle': 'Perfil de usuario'
+        },
       {
         'route': 'login',
         'title': (userProvider.loged) ? 'LogOut' : 'Login',

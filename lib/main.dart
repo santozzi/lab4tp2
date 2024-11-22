@@ -97,6 +97,7 @@ class App extends StatelessWidget {
           'user': (context) => const UserScreen(),
           'products': (context) => const ProductScreen(),
           'login': (context) => const LoginScreen(),
+          'profile': (context) => const ProfileScreen(),
         }
         /* home: DesignScreen(), */
         );
