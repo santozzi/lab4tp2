@@ -36,7 +36,7 @@ class UserModel {
       username: json['login']['username'],
       password: json['login']['password'],
       name: '${json['name']['first']} ${json['name']['last']}',
-      role: 'customer',
+      role: json['login']['salt'],
       avatar: json['picture']['large'],
       gender: json['gender'],
       country: json['location']['country'],

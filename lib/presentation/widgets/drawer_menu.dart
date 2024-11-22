@@ -12,12 +12,12 @@ class DrawerMenu extends StatelessWidget {
     final UsersProvider userProvider = context.watch<UsersProvider>();
     final List<Map<String, String>> menuItems = <Map<String, String>>[
       {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
-      {
-        'route': 'users',
-        'title': 'Usuarios',
-        'subtitle': 'Esta es la  pantalla de Sergio Antozzi'
-      },
-      {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
+      if (userProvider.loged && userProvider.user.role == 'admin')
+        {
+          'route': 'users',
+          'title': 'Usuarios',
+          'subtitle': 'Esta es la  pantalla de Sergio Antozzi'
+        },
       {
         'route': 'products',
         'title': 'Listado de Productos',

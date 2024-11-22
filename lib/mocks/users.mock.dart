@@ -61,7 +61,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "f24bb217-9ce0-4fe6-8bca-299964b94c4c",
       "username": "admin",
       "password": "admin",
-      "salt": "LKLypRKq",
+      "salt": "admin",
       "md5": "7112e58c2dfdad731b6d59905bc6d102",
       "sha1": "97f0d528beeb7d4ea2f317a29f8196314e24ab51",
       "sha256":
