@@ -1,23 +1,16 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+//Themes
 import 'package:flutter_application_base/config/theme/index_themes.dart';
+//Domains
 import 'package:flutter_application_base/domain/entities/user_preferences.dart';
-import 'package:flutter_application_base/domain/repositories/user_preferences_repositoriy.dart';
-import 'package:flutter_application_base/domain/repositories/user_repository.dart';
-import 'package:flutter_application_base/domain/repositories/products_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/mock_products_datasource_impl.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/mock_user_datasource_impl.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/shared_user_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/products_repository_imp.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/shared_user_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/user_repository_imp.dart';
-import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
-import 'package:flutter_application_base/presentation/providers/users_provider.dart';
-import 'package:flutter_application_base/presentation/providers/products_provider.dart';
+import 'package:flutter_application_base/domain/repositories/repositories.dart';
+//Infrastructures
+import 'package:flutter_application_base/infrastrucure/datasource/datasources.dart';
+import 'package:flutter_application_base/infrastrucure/repositories/repositories.dart';
+//Presentations
+import 'package:flutter_application_base/presentation/providers/providers.dart';
 import 'package:flutter_application_base/presentation/screens/screens.dart';
-import 'package:flutter_application_base/presentation/screens/users/user_screen.dart';
-//provider
+//Providers
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -71,7 +64,6 @@ class App extends StatelessWidget {
       userPreferencesProvider
           .setPreferencesByIdWithoutNotify(usersProvider.user.id)
           .then((c) {
-        log('cargando...');
         if (!userPreferencesProvider.entre) {
           userPreferencesProvider.notificar();
           userPreferencesProvider.entre = true;
