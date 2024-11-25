@@ -27,7 +27,6 @@ class ProductsCard extends StatelessWidget {
         Text(title),
         Text('\$ $price'),
         Text("\$ $description"),
-
       ],
     );
   }

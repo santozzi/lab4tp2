@@ -24,7 +24,7 @@ class UserAvatar extends StatelessWidget {
       ]),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(500),
-        child: Container(
+        child: SizedBox(
           width: size,
           child: FadeInImage(
             placeholder: const AssetImage('assets/loading.gif'),

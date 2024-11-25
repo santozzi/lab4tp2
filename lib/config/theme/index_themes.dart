@@ -6,6 +6,7 @@ Map<String, dynamic> themes = {
   'blue': (isDark) => BlueTheme().getTheme(isDark),
   'naranja': (isDark) => OrangeTheme().getTheme(isDark),
   'chrismas': (isDark) => ChrismasTheme().getTheme(isDark),
+  'red': (isDark) => RedTheme().getTheme(isDark),
 };
 
 class IndexThemes extends ThemeTheme {
