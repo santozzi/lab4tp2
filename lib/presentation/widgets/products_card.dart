@@ -1,39 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/presentation/screens/products/product_screen.dart';
+import 'package:flutter_application_base/domain/entities/products_entity.dart';
 
 class ProductsCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final double price;
-  final String description;
+  final ProductsEntity product;
 
-  const ProductsCard({
-    super.key,
-    required this.imageUrl,
-    required this.title,
-    required this.price,
-    required this.description,
-  });
+  const ProductsCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.all(50),
-      margin: const EdgeInsets.all(20),
-      child: Column(
+      padding: const EdgeInsets.all(30),
+      margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          color: colors.primaryContainer,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: colors.primary.withOpacity(0.5),
+              blurRadius: 10,
+              offset: const Offset(0, 5),
+            ),
+          ]),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: FadeInImage(
-              placeholder: const AssetImage('assets/loading.gif'),
-              image: NetworkImage(imageUrl),
+          // Left Column (Title, Description, Price)
+          Expanded(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  product.title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  product.description.length > 25
+                      ? '${product.description.substring(0, 25)}...'
+                      : product.description,
+                  style: const TextStyle(fontSize: 14),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  '\$ ${product.price}',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-          Text(title),
-          Text('\$ $price'),
-          Text(
-            "\$ ${(description.length >= 100) ? '${description.substring(0, 100)}...' : description}",
-            style: const TextStyle(fontSize: 20),
+          const SizedBox(width: 10),
+          // Right Column (Image)
+          Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/loading.gif'),
+                  image: NetworkImage(product.images[0]),
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductScreen(
+                        product: product,
+                      ),
+                    ),
+                  );
+                },
+                child: const Text('Ver detalles'),
+              ),
+            ],
           ),
         ],
       ),

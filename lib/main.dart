@@ -87,7 +87,7 @@ class App extends StatelessWidget {
           'custom_list_item': (context) => const CustomListItem(),
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),
-          'products': (context) => const ProductScreen(),
+          'products': (context) => const ProductsScreen(),
           'login': (context) => const LoginScreen(),
           'profile': (context) => const ProfileScreen(),
         }
