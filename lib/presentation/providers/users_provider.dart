@@ -5,22 +5,27 @@ import 'package:flutter_application_base/domain/entities/user_entity.dart';
 
 import '../../domain/repositories/user_repository.dart';
 
+UserEntity userDefault = UserEntity(
+  id: '0',
+  username: 'username',
+  password: 'password',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  avatar: '',
+  city: '',
+  country: '',
+  gender: '',
+  role: '',
+  state: '',
+);
+
 class UsersProvider extends ChangeNotifier {
   final UserRepository usuarioRepository;
-  int contador = 1;
-  List<UserEntity> users = [];
-  UserEntity user = UserEntity(
-      id: '',
-      name: '',
-      email: '',
-      role: '',
-      avatar: '',
-      password: '',
-      gender: '',
-      country: '',
-      city: '',
-      state: '',
-      phone: '');
+  late bool loged = false;
+
+  late List<UserEntity> users = [];
+  UserEntity user = userDefault;
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
@@ -31,12 +36,24 @@ class UsersProvider extends ChangeNotifier {
 
   Future<UserEntity> getUser(String id) async {
     user = await usuarioRepository.getUser(id);
-
     return user;
   }
 
-  void incrementCounter() {
-    contador++;
+  Future<UserEntity> getUserByUsername(String username) async {
+    user = await usuarioRepository.getUserByUsername(username);
+    return user;
+  }
+
+  Future<bool> login(String username, String password) async {
+    loged = await usuarioRepository.login(username, password);
+    await getUserByUsername(username);
+    notifyListeners();
+    return loged;
+  }
+
+  Future<void> logout() async {
+    loged = false;
+    user = userDefault;
     notifyListeners();
   }
 }

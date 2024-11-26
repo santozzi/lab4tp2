@@ -23,8 +23,8 @@ List<Map<String, dynamic>> users = [
     "email": "stysh.hydry@example.com",
     "login": {
       "uuid": "7214f586-381c-463f-acf5-89174297cf74",
-      "username": "goldenlion629",
-      "password": "whiskey",
+      "username": "user",
+      "password": "user",
       "salt": "IfUzl7AV",
       "md5": "ff44d488975214b807b1a10b6041ae7e",
       "sha1": "f40442c12a5a074f8711baec2368d275c94f6a37",
@@ -43,9 +43,10 @@ List<Map<String, dynamic>> users = [
     },
     "nat": "IR"
   },
+
   {
     "gender": "male",
-    "name": {"title": "Mr", "first": "Volkan", "last": "Çetin"},
+    "name": {"title": "Mr", "first": "Sergio", "last": "Antozzi"},
     "location": {
       "street": {"number": 5610, "name": "Maçka Cd"},
       "city": "Van",
@@ -55,12 +56,12 @@ List<Map<String, dynamic>> users = [
       "coordinates": {"latitude": "19.9275", "longitude": "139.4387"},
       "timezone": {"offset": "-2:00", "description": "Mid-Atlantic"}
     },
-    "email": "volkan.cetin@example.com",
+    "email": "santozzi@gmail.com",
     "login": {
       "uuid": "f24bb217-9ce0-4fe6-8bca-299964b94c4c",
-      "username": "crazyrabbit738",
-      "password": "rick",
-      "salt": "LKLypRKq",
+      "username": "admin",
+      "password": "admin",
+      "salt": "admin",
       "md5": "7112e58c2dfdad731b6d59905bc6d102",
       "sha1": "97f0d528beeb7d4ea2f317a29f8196314e24ab51",
       "sha256":
@@ -70,9 +71,10 @@ List<Map<String, dynamic>> users = [
     "registered": {"date": "2003-01-29T01:10:53.210Z", "age": 21},
     "phone": "(955)-510-3719",
     "cell": "(420)-764-8005",
-    "id": {"name": "", "value": "1000"},
+    "id": {"name": "", "value": "1"},
     "picture": {
-      "large": "https://randomuser.me/api/portraits/men/70.jpg",
+      "large":
+          "https://media.licdn.com/dms/image/v2/D4D35AQFtDJSicQnVwg/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1730237340327?e=1732748400&v=beta&t=7UYjzNI5K2A-Z-UJckqJan-wg-ZSMiBwdLSLJNLZ2Yg",
       "medium": "https://randomuser.me/api/portraits/med/men/70.jpg",
       "thumbnail": "https://randomuser.me/api/portraits/thumb/men/70.jpg"
     },

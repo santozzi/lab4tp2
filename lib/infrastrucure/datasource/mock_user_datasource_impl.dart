@@ -26,4 +26,36 @@ class MockUserDatasourceImpl implements UserDatasource {
 
     return usuarios;
   }
+
+  @override
+  Future<UserEntity> getUserByUsername(String username) async {
+    final usuarios = getUsers();
+    final UserEntity usuario = (await usuarios).firstWhere(
+        (usuario) => usuario.username == username,
+        orElse: () => UserEntity(
+            id: "",
+            name: "",
+            email: "",
+            username: "",
+            password: "",
+            avatar: "",
+            country: "",
+            city: "",
+            state: "",
+            gender: "",
+            phone: "",
+            role: ""));
+    return usuario;
+  }
+
+  @override
+  Future<bool> login(String username, String password) async {
+    UserEntity usuario = await getUserByUsername(username);
+    if (usuario.id != "") {
+      if (usuario.password == password) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
