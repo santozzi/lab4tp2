@@ -16,19 +16,27 @@ class ProductsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
-          width: 100,
-          height: 100,
-        ),
-        Text(title),
-        Text('\$ $price'),
-        Text("\$ $description"),
-
-      ],
+    final colors = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.all(50),
+      margin: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: FadeInImage(
+              placeholder: const AssetImage('assets/loading.gif'),
+              image: NetworkImage(imageUrl),
+            ),
+          ),
+          Text(title),
+          Text('\$ $price'),
+          Text(
+            "\$ ${(description.length >= 100) ? '${description.substring(0, 100)}...' : description}",
+            style: const TextStyle(fontSize: 20),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -10,13 +10,18 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productprovider = context.watch<ProductsProvider>();
+    final colors = Theme.of(context).colorScheme;
     productprovider.getProducts();
     final List<ProductsEntity> products = productprovider.products;
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('Productos'),
+          leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         ),
         body: Center(
           child: ListView.builder(
@@ -29,7 +34,6 @@ class ProductScreen extends StatelessWidget {
                     description: products[index].description);
               }),
         ),
-      ),
-    );
+      );
   }
 }
