@@ -10,9 +10,9 @@ class CartsProvider extends ChangeNotifier {
   int contador = 1;
   List<CartsEntity> carts = [];
   CartsEntity cart = CartsEntity(
-      id: '',
-      userId: '',
-      date: '');
+      id: 0,
+      userId: 0,
+      date: DateTime.now());
   CartsProvider({required this.carritoRepository});
 
   Future<void> getCarts() async {
@@ -21,7 +21,7 @@ class CartsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<CartsEntity> getCart(String id) async {
+  Future<CartsEntity> getCart(int id) async {
     cart = await carritoRepository.getCart(id);
 
     return cart;

@@ -1,7 +1,7 @@
 class CartsEntity {
-  final String id;
-  final String userId;
-  final String date;
+  final int id;
+  final int userId;
+  final DateTime date;
   // Agregar listado de productos
 
   CartsEntity({
