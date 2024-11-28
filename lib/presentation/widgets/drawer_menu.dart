@@ -28,6 +28,11 @@ class DrawerMenu extends StatelessWidget {
         'title': 'Listado de Productos',
         'subtitle': 'Gianluca el mejor'
       },
+      {
+        'route': 'carts',
+        'title': 'Carros de Compra',
+        'subtitle': 'Tus carros y los de otros'
+      },
       if (userProvider.loged)
         {
           'route': 'profile',

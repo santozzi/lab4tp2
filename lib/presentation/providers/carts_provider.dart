@@ -6,29 +6,25 @@ import 'package:flutter_application_base/domain/entities/carts_entity.dart';
 import '../../domain/repositories/carts_repository.dart';
 
 class CartsProvider extends ChangeNotifier {
-  final CartsRepository carritoRepository;
-  int contador = 1;
+  final CartsRepository cartsRepository;
   List<CartsEntity> carts = [];
   CartsEntity cart = CartsEntity(
       id: 0,
       userId: 0,
-      date: DateTime.now());
-  CartsProvider({required this.carritoRepository});
+      date: DateTime.now(),
+      products: []);
+  CartsProvider({required this.cartsRepository});
 
   Future<void> getCarts() async {
-    carts = await carritoRepository.getCarts();
+    carts = await cartsRepository.getCarts();
 
     notifyListeners();
   }
 
   Future<CartsEntity> getCart(int id) async {
-    cart = await carritoRepository.getCart(id);
+    cart = await cartsRepository.getCart(id);
 
     return cart;
   }
 
-  void incrementCounter() {
-    contador++;
-    notifyListeners();
-  }
 }

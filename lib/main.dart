@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
     final UserPreferencesRepository userPreferencesRepository =
         SharedUserPreferencesRepository(
             userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
-
+    final CartsRepository cartsRepository =
+        CartsRepositoryImp(cartsDatasource: MockCartsDatasourceImpl());
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -44,6 +45,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
             create: (_) => UserPreferencesProvider(
                 userPreferencesRepository: userPreferencesRepository)),
+        ChangeNotifierProvider(
+            create: (_) => CartsProvider(
+                cartsRepository: cartsRepository)),
+        
       ],
       child: const App(),
     );
@@ -91,6 +96,7 @@ class App extends StatelessWidget {
           'products': (context) => const ProductsScreen(),
           'login': (context) => const LoginScreen(),
           'profile': (context) => const ProfileScreen(),
+          'carts': (context) => const CartsScreen(),
         }
         /* home: DesignScreen(), */
         );
