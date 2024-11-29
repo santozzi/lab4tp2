@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/categorys_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
+import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
+import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
   final CategorysEntity category;
@@ -16,6 +18,19 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+
+    final productProvider = context.watch<ProductsProvider>();
+
+    // Llamamos a getProducts solo si la lista de productos está vacía
+    if (productProvider.products.isEmpty) {
+      productProvider.getProducts(); // Obtener productos si no están cargados.
+    }
+
+    // Filtramos los productos por el nombre de la categoría.
+    List<ProductsEntity> categoryProducts;
+    categoryProducts = productProvider.products
+        .where((product) => product.category == category.name)
+        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -53,28 +68,27 @@ class CategoryScreen extends StatelessWidget {
 
             // Cantidad de productos
             Text(
-              'Cantidad de productos: ${products.length}',
+              'Cantidad de productos: ${categoryProducts.isEmpty ? 0 : categoryProducts.length}',
               style: const TextStyle(
                 fontSize: 18,
               ),
             ),
             const SizedBox(height: 20),
 
-            // Botón Ver productos
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductsScreen(
-                        categoryName: category.name,
-                      ),
+            // Boton
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductsScreen(
+                      categoryName: category
+                          .name, // Pasamos solo el nombre de la categoría.
                     ),
-                  );
-                },
-                child: const Text('Ver productos'),
-              ),
+                  ),
+                );
+              },
+              child: const Text('Ver productos'),
             ),
           ],
         ),
