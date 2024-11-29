@@ -74,7 +74,7 @@ List<Map<String, dynamic>> users = [
     "id": {"name": "", "value": "1"},
     "picture": {
       "large":
-          "https://media.licdn.com/dms/image/v2/D4D35AQFtDJSicQnVwg/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1730237340327?e=1732748400&v=beta&t=7UYjzNI5K2A-Z-UJckqJan-wg-ZSMiBwdLSLJNLZ2Yg",
+          "https://media.licdn.com/dms/image/v2/D4D35AQFtDJSicQnVwg/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1730237340327?e=1733522400&v=beta&t=umN-LV4gBfGmu8xo3JzTGUu4YOPqDl2uQacrFIPS9Wc",
       "medium": "https://randomuser.me/api/portraits/med/men/70.jpg",
       "thumbnail": "https://randomuser.me/api/portraits/thumb/men/70.jpg"
     },
