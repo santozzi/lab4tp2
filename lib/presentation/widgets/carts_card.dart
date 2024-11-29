@@ -49,11 +49,11 @@ class CartsCard extends StatelessWidget {
           // Right Column (Products.lenght, Date)
           Column(
             children: [
-              Text(
-                'Products: ${cart.products.length}',
-                 style: const TextStyle(fontSize: 14),
-              ),
-              const SizedBox(height: 10),
+              // Text(
+              //   'Products: ${cart.products.length}',
+              //    style: const TextStyle(fontSize: 14),
+              // ),
+              // const SizedBox(height: 10),
               Text(
                 'Date: ${cart.date}',
                  style: const TextStyle(fontSize: 12),

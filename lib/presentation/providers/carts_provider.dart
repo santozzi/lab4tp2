@@ -11,8 +11,8 @@ class CartsProvider extends ChangeNotifier {
   CartsEntity cart = CartsEntity(
       id: 0,
       userId: 0,
-      date: DateTime.now(),
-      products: []);
+      date: DateTime.now());
+      // products: []);
   CartsProvider({required this.cartsRepository});
 
   Future<void> getCarts() async {
