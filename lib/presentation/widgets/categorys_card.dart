@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/categorys_entity.dart';
+import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
+import 'package:flutter_application_base/presentation/screens/categorys/category_screen.dart';
 
 class CategorysCard extends StatelessWidget {
   final CategorysEntity category;
+  final List<ProductsEntity> allProducts; // Lista completa de productos.
 
-  const CategorysCard({super.key, required this.category});
+  const CategorysCard({
+    super.key,
+    required this.category,
+    required this.allProducts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,7 @@ class CategorysCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //Titulo.
+          // Título
           Text(
             category.name,
             style: const TextStyle(
@@ -40,7 +47,7 @@ class CategorysCard extends StatelessWidget {
 
           const SizedBox(width: 10),
 
-          //Imagen.
+          // Imagen
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: FadeInImage(
@@ -54,20 +61,41 @@ class CategorysCard extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-          // Boton
+          // Botón Ver productos
           ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ProductsScreen(
-                    categoryName: category
-                        .name, // Pasamos solo el nombre de la categoría.
+                    categoryName: category.name,
                   ),
                 ),
               );
             },
             child: const Text('Ver productos'),
+          ),
+
+          const SizedBox(height: 10),
+
+          // Botón + info
+          ElevatedButton(
+            onPressed: () {
+              final categoryProducts = allProducts
+                  .where((product) => product.category == category.name)
+                  .toList();
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryScreen(
+                    category: category,
+                    products: categoryProducts,
+                  ),
+                ),
+              );
+            },
+            child: const Text('+ Info'),
           ),
         ],
       ),
