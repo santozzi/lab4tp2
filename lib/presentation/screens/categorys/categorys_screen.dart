@@ -40,7 +40,7 @@ class CategorysScreen extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 0.7,
+            childAspectRatio: 0.5,
           ),
           itemCount: categorys.length,
           itemBuilder: (context, index) {
