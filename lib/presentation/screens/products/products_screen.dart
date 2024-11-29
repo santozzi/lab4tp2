@@ -5,32 +5,55 @@ import 'package:flutter_application_base/presentation/widgets/products_card.dart
 import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatelessWidget {
-  const ProductsScreen({super.key});
+  final String? categoryName; // Recibimos solo el nombre de la categoría.
+
+  const ProductsScreen({super.key, this.categoryName});
 
   @override
   Widget build(BuildContext context) {
     final productprovider = context.watch<ProductsProvider>();
     final colors = Theme.of(context).colorScheme;
-    productprovider.getProducts();
-    final List<ProductsEntity> products = productprovider.products;
+
+    productprovider.getProducts(); // Obtener todos los productos.
+
+    // Filtramos los productos por el nombre de la categoría, si se pasa alguno.
+    List<ProductsEntity> products;
+
+    if (categoryName != null) {
+      products = productprovider.products
+          .where((product) =>
+              product.category ==
+              categoryName) // Filtramos por nombre de la categoría.
+          .toList();
+    } else {
+      products = productprovider
+          .products; // Si no hay nombre, mostramos todos los productos.
+    }
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Productos'),
-          backgroundColor: colors.primary,
-          leading: IconButton(
+      appBar: AppBar(
+        title: const Text('Productos'),
+        backgroundColor: colors.primary,
+        leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        ),
-        body: Center(
-          child: ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (context, index) {
-                return ProductsCard(product: products[index]);
-              }),
-        ),
-      );
+      ),
+      body: Center(
+        child: products.isEmpty
+            ? const Text(
+                'No se encontraron productos',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              )
+            : ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  return ProductsCard(product: products[index]);
+                },
+              ),
+      ),
+    );
   }
 }

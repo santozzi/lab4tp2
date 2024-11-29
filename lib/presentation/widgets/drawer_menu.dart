@@ -28,6 +28,11 @@ class DrawerMenu extends StatelessWidget {
         'title': 'Listado de Productos',
         'subtitle': 'Gianluca el mejor'
       },
+      {
+        'route': 'categorys',
+        'title': 'Listado de Categorias',
+        'subtitle': 'Esta es la pantalla de Leonardo'
+      },
       if (userProvider.loged)
         {
           'route': 'profile',

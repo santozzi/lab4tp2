@@ -9,8 +9,11 @@ export 'package:flutter_application_base/presentation/screens/users/user_screen.
 //screens de Gianluca
 export 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
 export 'package:flutter_application_base/presentation/screens/products/product_screen.dart';
-//el resto de las screens
 
+//el resto de las screens
 export 'package:flutter_application_base/presentation/screens/custom_list_item.dart';
 export 'package:flutter_application_base/presentation/screens/custom_list_screen.dart';
 export 'package:flutter_application_base/presentation/screens/home_screen.dart';
+
+//Screen de Leonardo
+export 'package:flutter_application_base/presentation/screens/categorys/categorys_screen.dart';

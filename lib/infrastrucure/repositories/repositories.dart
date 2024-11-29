@@ -1,3 +1,4 @@
 export 'package:flutter_application_base/infrastrucure/repositories/products_repository_imp.dart';
 export 'package:flutter_application_base/infrastrucure/repositories/shared_user_preferences_repository.dart';
 export 'package:flutter_application_base/infrastrucure/repositories/user_repository_imp.dart';
+export 'package:flutter_application_base/infrastrucure/repositories/categorys_repository_imp.dart';

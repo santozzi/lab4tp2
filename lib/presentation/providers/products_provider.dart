@@ -27,4 +27,11 @@ class ProductsProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  // Filtra los productos por categoría
+  List<ProductsEntity> getProductsByCategory(String categoryName) {
+    return products
+        .where((product) => product.category == categoryName)
+        .toList();
+  }
 }
