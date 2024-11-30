@@ -6,21 +6,20 @@ List<Map<String, dynamic>> users = [
 // https://randomuser.me/api/?results=100
 
   {
-    "gender": "female",
-    "name": {"title": "Miss", "first": "ستایش", "last": "حیدری"},
+    "gender": "male",
+    "name": {"title": "Mr", "first": "Gianluca", "last": "Fagherazzi"},
     "location": {
-      "street": {"number": 9423, "name": "سباری"},
-      "city": "سنندج",
-      "state": "زنجان",
-      "country": "Iran",
+      "street": {"number": 9423, "name": "Alem"},
+      "city": "Bahia Blanca",
+      "state": "Buenos aires",
+      "country": "Argentina",
       "postcode": 27449,
-      "coordinates": {"latitude": "18.2238", "longitude": "155.4054"},
+      "coordinates": {"latitude": "1234", "longitude": "9876"},
       "timezone": {
-        "offset": "-4:00",
-        "description": "Atlantic Time (Canada), Caracas, La Paz"
+        "offset": "-2:00", "description": "Mid-Atlantic"
       }
     },
-    "email": "stysh.hydry@example.com",
+    "email": "fagherazzigianluca@gmail.com",
     "login": {
       "uuid": "7214f586-381c-463f-acf5-89174297cf74",
       "username": "user",
@@ -37,7 +36,7 @@ List<Map<String, dynamic>> users = [
     "cell": "0912-671-0467",
     "id": {"name": "", "value": "1019"},
     "picture": {
-      "large": "https://randomuser.me/api/portraits/women/25.jpg",
+      "large": "https://media.licdn.com/dms/image/v2/D4D03AQHu4e_ySIVVSg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731527319600?e=1738195200&v=beta&t=VmYw7TNOHN891d64dydK7CQ0_UbjlJUXfoXfO17kk2Q",
       "medium": "https://randomuser.me/api/portraits/med/women/25.jpg",
       "thumbnail": "https://randomuser.me/api/portraits/thumb/women/25.jpg"
     },

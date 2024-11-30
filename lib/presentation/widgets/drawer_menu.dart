@@ -26,7 +26,7 @@ class DrawerMenu extends StatelessWidget {
       {
         'route': 'products',
         'title': 'Listado de Productos',
-        'subtitle': 'Gianluca el mejor'
+        'subtitle': 'Pantalla de Gianluca'
       },
       {
         'route': 'categorys',
