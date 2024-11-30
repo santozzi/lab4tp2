@@ -2,7 +2,6 @@ import 'package:flutter_application_base/domain/datasource/products_datasource.d
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/infrastrucure/models/products_model.dart';
 import 'package:flutter_application_base/mocks/products.mock.dart';
-import 'dart:developer';
 
 class MockProductsDatasourceImpl implements ProductsDatasource {
   @override

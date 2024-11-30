@@ -15,12 +15,15 @@ class ProductScreen extends StatefulWidget {
 
 class _ProductScreenState extends State<ProductScreen> {
   int currentIndex = 0; // Índice actual de la imagen
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.product.title),
+        backgroundColor: colors.primary,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -45,6 +48,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 alignment: Alignment.bottomCenter,
                 children: [
                   PageView.builder(
+                    controller: _pageController,
                     itemCount: widget.product.images.length,
                     onPageChanged: (index) {
                       setState(() {
@@ -52,15 +56,27 @@ class _ProductScreenState extends State<ProductScreen> {
                       });
                     },
                     itemBuilder: (context, index) {
-                      return ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                          bottom: Radius.circular(20),
-                        ),
-                        child: Image.network(
-                          widget.product.images[index],
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0), // Espacio a los lados
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.vertical(
+                            bottom: Radius.circular(10),
+                            top: Radius.circular(10),
+                          ),
+                          child: Image.network(
+                            widget.product.images[index],
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Image.asset(
+                                'assets/images/image_not_found.jpg',
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.cover,
+                              );
+                            },
+                          ),
                         ),
                       );
                     },
@@ -86,10 +102,41 @@ class _ProductScreenState extends State<ProductScreen> {
                       ),
                     ),
                   ),
+                  // Botones de navegación (izquierda y derecha)
+                  Positioned(
+                    left: 10,
+                    top: 140, // Ajusta la posición vertical
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_ios),
+                      onPressed: () {
+                        if (currentIndex > 0) {
+                          _pageController.previousPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    right: 10,
+                    top: 140, // Ajusta la posición vertical
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios),
+                      onPressed: () {
+                        if (currentIndex < widget.product.images.length - 1) {
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        }
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
-            // Precio, botón y descripción debajo de la imagen
+            // Precio, categoría, botón y descripción debajo de la imagen
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -125,6 +172,16 @@ class _ProductScreenState extends State<ProductScreen> {
                     ],
                   ),
                   const SizedBox(height: 20),
+                  // Categoría del producto
+                  Text(
+                    'Categoría: ${widget.product.category}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  // Descripción del producto
                   Text(
                     widget.product.description,
                     style: const TextStyle(fontSize: 16),
