@@ -23,6 +23,9 @@
 
 Este proyecto es una aplicación de carrito de compras desarrollada en Flutter utilizando una arquitectura limpia. Su diseño modular asegura que la lógica de negocio, la interfaz de usuario y los datos estén desacoplados, facilitando la escalabilidad, la mantenibilidad y las pruebas unitarias.
 
+Funcionamiento:
+    Desde la pantalla principal se puede apreciar un buscador y un menus desplegable en el lado izquierdo, si accedemos a ese menu depslegable veremos 4 opciones ()
+
 ## Diagrama
 <img src="./readme/images/practico2-lab4.drawio.svg" />
 
