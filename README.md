@@ -1,6 +1,5 @@
 # The Best Buy - carrito de compras
 
-
 ## Integrantes
   * Sergio Antozzi
   * Gianluca Fagherazzi
@@ -28,21 +27,44 @@ Este proyecto es una aplicación de carrito de compras desarrollada en Flutter u
 <img src="./readme/images/practico2-lab4.drawio.svg" />
 
 ## Screens
-
+- screens generales:
 * HomeScreen
+
+- screens de usuarios:
 * UserScreen
-* UseresScreen
+* UsersScreen
 * LoginScreen
 * ProfileScren
 
+- screens de productos:
+* ProductScreen
+* ProductsScreen
+
+- screens de categorias:
+* CategoryScreen
+* CategorysScreen
+
+- screens de carrito:
+
 ## Pantallas
+- Users
 <img src="./readme/images/screens.png" />
+
+- Products
+
+
+- Categorys
+
+- Carrito
+
 
 ## CustomWidgets
 
 * DrawerMenu
 * UserAvatar
 * UserCard 
+* ProductsCard
+* CategorysCard
 
 ## Tecnologías
 
