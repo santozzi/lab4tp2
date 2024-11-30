@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         SharedUserPreferencesRepository(
             userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
 
-    final CategorysRepository categorysRepository = CategorysRepositoryImp(
-        categorysDatasource: MockCategorysDatasourceImpl());
+    final CategoriesRepository categoriesRepository = CategoriesRepositoryImp(
+        categoriesDatasource: MockCategoriesDatasourceImpl());
 
     return MultiProvider(
       providers: [
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
                 userPreferencesRepository: userPreferencesRepository)),
         ChangeNotifierProvider(
             create: (_) =>
-                CategorysProvider(categorysRepository: categorysRepository)),
+                CategoriesProvider(categoriesRepository: categoriesRepository)),
       ],
       child: const App(),
     );
@@ -93,7 +93,7 @@ class App extends StatelessWidget {
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),
           'products': (context) => const ProductsScreen(),
-          'categorys': (context) => const CategorysScreen(),
+          'categories': (context) => const CategoriesScreen(),
           'login': (context) => const LoginScreen(),
           'profile': (context) => const ProfileScreen(),
         }

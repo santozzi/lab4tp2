@@ -14,4 +14,4 @@ export 'package:flutter_application_base/presentation/screens/products/product_s
 export 'package:flutter_application_base/presentation/screens/home_screen.dart';
 
 //Screen de Leonardo
-export 'package:flutter_application_base/presentation/screens/categorys/categorys_screen.dart';
+export 'package:flutter_application_base/presentation/screens/categories/categories_screen.dart';

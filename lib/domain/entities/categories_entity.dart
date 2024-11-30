@@ -1,11 +1,11 @@
-class CategorysEntity {
+class CategoriesEntity {
   final int id;
   final String name;
   final String image;
   final DateTime creationAt;
   final DateTime updatedAt;
 
-  CategorysEntity({
+  CategoriesEntity({
     required this.id,
     required this.name,
     required this.image,

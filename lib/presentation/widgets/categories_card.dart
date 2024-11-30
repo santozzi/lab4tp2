@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/categorys_entity.dart';
+import 'package:flutter_application_base/domain/entities/categories_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
-import 'package:flutter_application_base/presentation/screens/categorys/category_screen.dart';
+import 'package:flutter_application_base/presentation/screens/categories/category_screen.dart';
 
-class CategorysCard extends StatelessWidget {
-  final CategorysEntity category;
+class CategoriesCard extends StatelessWidget {
+  final CategoriesEntity category;
   final List<ProductsEntity> allProducts; // Lista completa de productos.
 
-  const CategorysCard({
+  const CategoriesCard({
     super.key,
     required this.category,
     required this.allProducts,

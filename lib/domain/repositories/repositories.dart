@@ -1,4 +1,4 @@
 export 'package:flutter_application_base/domain/repositories/products_repository.dart';
 export 'package:flutter_application_base/domain/repositories/user_preferences_repositoriy.dart';
 export 'package:flutter_application_base/domain/repositories/user_repository.dart';
-export 'package:flutter_application_base/domain/repositories/categorys_repository.dart';
+export 'package:flutter_application_base/domain/repositories/categories_repository.dart';

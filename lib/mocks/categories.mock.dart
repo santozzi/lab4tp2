@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> categorys = [
+List<Map<String, dynamic>> categories = [
   {
     "id": 1,
     "name": "Clothes",

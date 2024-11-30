@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/categorys_entity.dart';
+import 'package:flutter_application_base/domain/entities/categories_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
-  final CategorysEntity category;
+  final CategoriesEntity category;
   final List<ProductsEntity> products;
 
   const CategoryScreen({

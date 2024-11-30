@@ -29,7 +29,7 @@ class DrawerMenu extends StatelessWidget {
         'subtitle': 'Pantalla de Gianluca'
       },
       {
-        'route': 'categorys',
+        'route': 'categories',
         'title': 'Listado de Categorias',
         'subtitle': 'Esta es la pantalla de Leonardo'
       },
