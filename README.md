@@ -2,7 +2,7 @@
 
 ## Integrantes
   * Sergio Antozzi
-  * Gianluca Fagherazzi
+  * Gianluca Fagherazzi 
   * Leonardo Telez
   * Javier Kinter
 
@@ -54,7 +54,7 @@ Funcionamiento:
 <img src="./readme/images/screens.png" />
 
 - Products
-
+<img src="./readme/images/ProductsScreens.png" />
 
 - Categorys
 
