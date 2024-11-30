@@ -26,7 +26,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
     // Filtrar los productos según la categoría y el término de búsqueda
     List<ProductsEntity> filteredProducts = productProvider.products
         .where((product) =>
-            (widget.categoryName == null || product.category == widget.categoryName) &&
+            (widget.categoryName == null ||
+                product.category == widget.categoryName) &&
             (product.title.toLowerCase().contains(searchQuery.toLowerCase())))
         .toList();
 
@@ -39,10 +40,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
             });
           },
           decoration: InputDecoration(
+            contentPadding: const EdgeInsets.symmetric(vertical: 15),
             hintText: 'Buscar productos...',
             hintStyle: const TextStyle(color: Colors.white70),
             border: InputBorder.none,
-            prefixIcon: const Icon(Icons.search, color: Colors.white70), // Ícono de lupa
+            prefixIcon: const Icon(Icons.search,
+                color: Colors.white70), // Ícono de lupa
             suffixIcon: searchQuery.isNotEmpty
                 ? IconButton(
                     icon: const Icon(Icons.clear, color: Colors.white),
@@ -53,6 +56,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     },
                   )
                 : null, // Mostrar el botón solo si hay texto
+            
           ),
           style: const TextStyle(color: Colors.white),
           cursorColor: Colors.white,

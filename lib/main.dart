@@ -90,8 +90,6 @@ class App extends StatelessWidget {
             .isDarkMode), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
         routes: {
           'home': (context) => const HomeScreen(),
-          'custom_list': (context) => const CustomListScreen(),
-          'custom_list_item': (context) => const CustomListItem(),
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),
           'products': (context) => const ProductsScreen(),
