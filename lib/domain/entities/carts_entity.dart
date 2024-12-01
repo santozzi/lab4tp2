@@ -4,13 +4,13 @@ class CartsEntity {
   final int id;
   final int userId;
   final DateTime date;
-  // final List<ProductsCartEntity> products;
+  final List<ProductsCartEntity> products;
 
 
   CartsEntity({
     required this.id,
     required this.userId,
     required this.date,
-    // required this.products,
+    required this.products,
   });
 }
