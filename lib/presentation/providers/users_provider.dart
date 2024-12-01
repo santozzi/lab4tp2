@@ -36,6 +36,7 @@ class UsersProvider extends ChangeNotifier {
 
   Future<UserEntity> getUser(String id) async {
     user = await usuarioRepository.getUser(id);
+    notifyListeners();
     return user;
   }
 

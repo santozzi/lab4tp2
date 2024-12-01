@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
-
+import 'package:flutter_application_base/domain/entities/carts_entity.dart';
+import 'package:flutter_application_base/domain/entities/products_cart_entity.dart';
 import '../../domain/repositories/products_repository.dart';
 
 class ProductsProvider extends ChangeNotifier {
@@ -33,5 +34,13 @@ class ProductsProvider extends ChangeNotifier {
     return products
         .where((product) => product.category == categoryName)
         .toList();
+  }
+
+  // Filtra los productos según las IDs del carrito
+  List<ProductsEntity> getProductsByCart(CartsEntity cart) {
+    List<int> cartProductIds = cart.products.map((product) => product.productId).toList();
+    return products
+      .where((product) => cartProductIds.contains(product.id))
+      .toList();
   }
 }

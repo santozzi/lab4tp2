@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_application_base/presentation/screens/carts/carts_screen.dart';
+import 'package:flutter_application_base/presentation/screens/carts/cart_screen.dart';
+// import 'package:flutter_application_base/presentation/providers/users_provider.dart';
+// import 'package:flutter_application_base/domain/entities/user_entity.dart';
 import 'package:flutter_application_base/domain/entities/carts_entity.dart';
+// import 'package:provider/provider.dart';
 
 class CartsCard extends StatelessWidget {
   final CartsEntity cart;
@@ -10,7 +13,14 @@ class CartsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return Container(
+    // final userProvider = context.watch<UsersProvider>();
+
+    // Obtenemos usuario del carrito
+    // userProvider.getUser(cart.userId.toString());
+    // UserEntity cartUser;
+    // cartUser = userProvider.user;
+
+     return Container(
       padding: const EdgeInsets.all(30),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -32,19 +42,20 @@ class CartsCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Id: ${cart.id}',
-                  style: const TextStyle(fontSize: 14),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  'User Id: ${cart.userId}',
-                  style: const TextStyle(fontSize: 14),
-                ),
-                const SizedBox(height: 10),
-              ],
+                    Text(
+                      'Carrito: ${cart.id}',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Usuario: ${cart.userId}',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    const SizedBox(height: 10),
+                    ],
             ),
           ),
+          
           const SizedBox(width: 10),
           // Right Column (Products.lenght, Date)
           Column(
@@ -59,19 +70,19 @@ class CartsCard extends StatelessWidget {
                  style: const TextStyle(fontSize: 12),
               ),
               const SizedBox(height: 10),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => ProductScreen(
-              //           product: product,
-              //         ),
-              //       ),
-              //     );
-              //   },
-              //   child: const Text('Ver detalles'),
-              // ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(
+                        cart: cart,
+                      ),
+                    ),
+                  );
+                },
+                child: const Text('Ver Carrito'),
+              ),
             ],
           ),
         ],
