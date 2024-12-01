@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/domain/entities/carts_entity.dart';
-import 'package:flutter_application_base/domain/entities/products_cart_entity.dart';
 import '../../domain/repositories/products_repository.dart';
 
 class ProductsProvider extends ChangeNotifier {

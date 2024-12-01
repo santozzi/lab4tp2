@@ -85,7 +85,9 @@ Desde la pantalla principal se puede apreciar un buscador y un menú desplegable
 
 <img src="./readme/images/ProductsScreens.png" />
 
-- Categorys
+- Categories
+
+<img src="./readme/images/CategoriesScreens.png" />
 
 - Carrito
 
