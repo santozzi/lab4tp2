@@ -104,8 +104,9 @@ Desde la pantalla principal se puede apreciar un buscador y un menú desplegable
 * UserAvatar
 * UserCard 
 * ProductsCard
-* CategorysCard
+* CategoriesCard
 * CartsCard
+* ImageCarousel (reutilizable)
 
 ## Tecnologías
 
