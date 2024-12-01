@@ -16,7 +16,7 @@ class CartsCard extends StatelessWidget {
     // final userProvider = context.watch<UsersProvider>();
 
     // Obtenemos usuario del carrito
-    // userProvider.getUser(cart.userId.toString());
+    // userProvider.getUser(cart.userId);
     // UserEntity cartUser;
     // cartUser = userProvider.user;
 
@@ -61,12 +61,12 @@ class CartsCard extends StatelessWidget {
           Column(
             children: [
               Text(
-                'Products: ${cart.products.length}',
+                'Productos: ${cart.products.length}',
                  style: const TextStyle(fontSize: 14),
               ),
               const SizedBox(height: 10),
               Text(
-                'Date: ${cart.date}',
+                'Fecha: ${cart.date}',
                  style: const TextStyle(fontSize: 12),
               ),
               const SizedBox(height: 10),

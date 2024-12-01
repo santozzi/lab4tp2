@@ -47,7 +47,7 @@ Desde la pantalla principal se puede apreciar un buscador y un menú desplegable
     Lista de Usuario:
         Muestra la lista de usuarios (users_screen), la cual solo la podrá ver el administrador y solo él podrá modificar sus propiedades.
 
-    Carrito:
+    Carros de Compra:
         Envía al usuario a otra pantalla (carts_screen), en donde se muestran un listado de TODOS los carros de compra que están cargadas.
 
 
@@ -96,6 +96,8 @@ Funcionamiento:
 - Categorys
 
 - Carrito
+
+<img src="./readme/images/CartsScreens.png" />
 
 
 ## CustomWidgets

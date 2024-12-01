@@ -31,7 +31,7 @@ class CartScreen extends StatelessWidget {
     cartProducts = productProvider.getProductsByCart(cart);
 
     // Obtenemos usuario del carrito
-    userProvider.getUser(cart.userId.toString());
+    userProvider.getUser(cart.userId);
     UserEntity cartUser;
     cartUser = userProvider.user;
 
@@ -86,21 +86,6 @@ class CartScreen extends StatelessWidget {
                 ),
             ),
 
-            // Boton
-            // ElevatedButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductsScreen(
-            //           categoryName: category
-            //               .name, // Pasamos solo el nombre de la categoría.
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   child: const Text('Ver productos'),
-            // ),
           ],
         ),
       ),
