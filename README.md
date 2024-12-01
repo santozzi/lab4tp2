@@ -10,9 +10,9 @@
 
 - [Descripción](#descripción)
 - [Funcionamiento](#funcionamiento)
-- [Diagrama](#diagrama)
 - [Screens](#screens)
 - [Pantallas](#pantallas)
+- [Diagrama](#diagrama)
 - [CustomWidgets](#customwidgets)
 - [Tecnologías](#tecnologías)
 - [Instalación](#instalación)
@@ -45,21 +45,13 @@ Desde la pantalla principal se puede apreciar un buscador y un menú desplegable
         -Para entrar como usuario se rellenan ambos campos (user y password) con la palabra "user".
 
     Lista de Usuario:
-        Muestra la lista de usuarios (users_screen), la cual solo la podrá ver el administrador y solo él podrá modificar sus propiedades.
+        Si en el apartado de Login, entrastes como administrador (admin), en el menú deplegable obcervaras un nuevo apartado "lista de usuarios" (users_screen), la cual solo la podrá ver el administrador y solo él podrá modificar sus propiedades.
+    
+    Perfil:
+        Si en el apartado de Login, entrastes como usuario (user), en el menú deplegable obcervaras un nuevo apartado "perfil" (perfil_screen) en el cual podras personalizar el entorno cambiando los temas de color a tu gusto o cambiar a dark Mode.  
 
     Carros de Compra:
         Envía al usuario a otra pantalla (carts_screen), en donde se muestran un listado de TODOS los carros de compra que están cargadas.
-
-
-## Descripción
-
-Este proyecto es una aplicación de carrito de compras desarrollada en Flutter utilizando una arquitectura limpia. Su diseño modular asegura que la lógica de negocio, la interfaz de usuario y los datos estén desacoplados, facilitando la escalabilidad, la mantenibilidad y las pruebas unitarias.
-
-Funcionamiento:
-    Desde la pantalla principal se puede apreciar un buscador y un menus desplegable en el lado izquierdo, si accedemos a ese menu depslegable veremos 4 opciones ()
-
-## Diagrama
-<img src="./readme/images/practico2-lab4.drawio.svg" />
 
 ## Screens
 - screens generales:
@@ -98,6 +90,10 @@ Funcionamiento:
 - Carrito
 
 <img src="./readme/images/CartsScreens.png" />
+
+
+## Diagrama
+<img src="./readme/images/practico2-lab4.drawio.svg" />
 
 
 ## CustomWidgets
