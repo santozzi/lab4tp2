@@ -64,12 +64,22 @@ class ProductsCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: FadeInImage(
-                  placeholder: const AssetImage('assets/loading.gif'),
-                  image: NetworkImage(product.images[0]),
+                child: FadeInImage.assetNetwork(
+                  placeholder:
+                      'assets/images/loading.gif', // Imagen que se muestra mientras carga.
+                  image: product.images[0], // URL de la imagen.
                   width: 120,
                   height: 120,
                   fit: BoxFit.cover,
+                  imageErrorBuilder: (context, error, stackTrace) {
+                    // Imagen de error (por ejemplo, una local predeterminada).
+                    return Image.asset(
+                      'assets/images/image_not_found.jpg',
+                      width: 120,
+                      height: 120,
+                      fit: BoxFit.cover,
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 10),

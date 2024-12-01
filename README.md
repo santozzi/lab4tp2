@@ -1,15 +1,15 @@
 # The Best Buy - carrito de compras
 
-
 ## Integrantes
   * Sergio Antozzi
-  * Gianluca Fagherazzi
+  * Gianluca Fagherazzi 
   * Leonardo Telez
   * Javier Kinter
 
 ## Tabla de Contenidos
 
 - [Descripción](#descripción)
+- [Funcionamiento](#funcionamiento)
 - [Diagrama](#diagrama)
 - [Screens](#screens)
 - [Pantallas](#pantallas)
@@ -19,30 +19,90 @@
 - [Uso](#uso)
 - [Contribución](#contribución)
 
+## Descripción
+
+Este proyecto es una aplicación de carrito de compras desarrollada en Flutter utilizando una arquitectura limpia. Su diseño modular asegura que la lógica de negocio, la interfaz de usuario y los datos estén desacoplados, facilitando la escalabilidad, la mantenibilidad y las pruebas unitarias.
+
+## Funcionamiento
+
+Funcionamiento:
+Desde la pantalla principal se puede apreciar un buscador y un menú desplegable en el lado izquierdo, si accedemos a ese menú, veremos 5 opciones (Home, Listado de Productos, Listado de Categorías, Login, Carrito).
+
+    Home:
+        Regresa al usuario directamente a la pantalla principal (home_screen).
+
+    Listado de Productos:
+        Envía al usuario a otra pantalla (products_screen), en donde se muestran un listado de TODOS los productos que están cargados.
+
+    Lista de Categoría:
+        Envía al usuario a otra pantalla (categorys_screen), en donde se muestran un listado de TODAS las categorías que están cargadas.
+
+    Login:
+        Envía al usuario a otra pantalla (login_screen), en donde el usuario puede iniciar sesión, con los datos que se encuentran guardados.
+
+        -Para entrar como administrados se rellenan ambos campos (user y password) con la palabra "admin".
+
+        -Para entrar como usuario se rellenan ambos campos (user y password) con la palabra "user".
+
+    Lista de Usuario:
+        Muestra la lista de usuarios (users_screen), la cual solo la podrá ver el administrador y solo él podrá modificar sus propiedades.
+
+    Carrito:
+
+
 
 ## Descripción
 
 Este proyecto es una aplicación de carrito de compras desarrollada en Flutter utilizando una arquitectura limpia. Su diseño modular asegura que la lógica de negocio, la interfaz de usuario y los datos estén desacoplados, facilitando la escalabilidad, la mantenibilidad y las pruebas unitarias.
 
+Funcionamiento:
+    Desde la pantalla principal se puede apreciar un buscador y un menus desplegable en el lado izquierdo, si accedemos a ese menu depslegable veremos 4 opciones ()
+
 ## Diagrama
 <img src="./readme/images/practico2-lab4.drawio.svg" />
 
 ## Screens
-
+- screens generales:
 * HomeScreen
+
+- screens de usuarios:
 * UserScreen
-* UseresScreen
+* UsersScreen
 * LoginScreen
 * ProfileScren
 
+- screens de productos:
+* ProductScreen
+* ProductsScreen
+
+- screens de categorias:
+* CategoryScreen
+* CategorysScreen
+
+- screens de carrito:
+
 ## Pantallas
+
+- Users
+
 <img src="./readme/images/screens.png" />
+
+- Products
+
+<img src="./readme/images/ProductsScreens.png" />
+
+- Categorys
+
+- Carrito
+
 
 ## CustomWidgets
 
 * DrawerMenu
 * UserAvatar
 * UserCard 
+* ProductsCard
+* CategorysCard
 
 ## Tecnologías
 

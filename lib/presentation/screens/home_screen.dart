@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
@@ -38,23 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(top: 50, left: 60, right: 60),
                 child: Column(
                   children: [
-                    TextField(
-                      onChanged: (value) {
-                        _username = value;
-                      },
-                      decoration: const InputDecoration(
-                        labelText: 'Search',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
                     const SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        log('usuarios:   $_username, password: $_password');
+                        Navigator.pushNamed(context, 'products');
                       },
-                      child: const Text('Buscar'),
+                      child: const Text('Buscar productos'),
                     ),
                   ],
                 ),

@@ -30,11 +30,14 @@ class MyApp extends StatelessWidget {
 
     final ProductsRepository productsRepository =
         ProductsRepositoryImp(productsDatasource: MockProductsDatasourceImpl());
+
     final UserPreferencesRepository userPreferencesRepository =
         SharedUserPreferencesRepository(
             userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
-    final CartsRepository cartsRepository =
+      final CartsRepository cartsRepository =
         CartsRepositoryImp(cartsDatasource: MockCartsDatasourceImpl());
+      final CategoriesRepository categoriesRepository = CategoriesRepositoryImp(
+        categoriesDatasource: MockCategoriesDatasourceImpl());
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -48,7 +51,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
             create: (_) => CartsProvider(
                 cartsRepository: cartsRepository)),
-        
+        ChangeNotifierProvider(
+            create: (_) =>
+                CategoriesProvider(categoriesRepository: categoriesRepository)),
       ],
       child: const App(),
     );
@@ -89,11 +94,10 @@ class App extends StatelessWidget {
             .isDarkMode), //Preferences.darkmode ? ThemeData.dark() : ThemeData.light(),
         routes: {
           'home': (context) => const HomeScreen(),
-          'custom_list': (context) => const CustomListScreen(),
-          'custom_list_item': (context) => const CustomListItem(),
           'users': (context) => const UsersScreen(),
           'user': (context) => const UserScreen(),
           'products': (context) => const ProductsScreen(),
+          'categories': (context) => const CategoriesScreen(),
           'login': (context) => const LoginScreen(),
           'profile': (context) => const ProfileScreen(),
           'carts': (context) => const CartsScreen(),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
@@ -26,7 +24,12 @@ class DrawerMenu extends StatelessWidget {
       {
         'route': 'products',
         'title': 'Listado de Productos',
-        'subtitle': 'Gianluca el mejor'
+        'subtitle': 'Pantalla de Gianluca'
+      },
+      {
+        'route': 'categories',
+        'title': 'Listado de Categorias',
+        'subtitle': 'Esta es la pantalla de Leonardo'
       },
       {
         'route': 'carts',
