@@ -93,7 +93,9 @@ Funcionamiento:
 
 <img src="./readme/images/ProductsScreens.png" />
 
-- Categorys
+- Categories
+
+<img src="./readme/images/CategoriesScreens.png" />
 
 - Carrito
 
