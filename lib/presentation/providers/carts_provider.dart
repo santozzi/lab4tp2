@@ -8,7 +8,7 @@ class CartsProvider extends ChangeNotifier {
   List<CartsEntity> carts = [];
   CartsEntity cart = CartsEntity(
       id: 0,
-      userId: "",
+      userId: 0,
       date: DateTime.now(),
       products: []);
   CartsProvider({required this.cartsRepository});

@@ -1,5 +1,5 @@
-// Falta actualizar carts en presentation
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 //Themes
 import 'package:flutter_application_base/config/theme/index_themes.dart';
 //Domains
@@ -17,6 +17,8 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -32,12 +34,14 @@ class MyApp extends StatelessWidget {
         ProductsRepositoryImp(productsDatasource: MockProductsDatasourceImpl());
 
     final UserPreferencesRepository userPreferencesRepository =
-        SharedUserPreferencesRepository(
-            userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
-      final CartsRepository cartsRepository =
-        CartsRepositoryImp(cartsDatasource: MockCartsDatasourceImpl());
-      final CategoriesRepository categoriesRepository = CategoriesRepositoryImp(
-        categoriesDatasource: MockCategoriesDatasourceImpl());
+        SharedUserPreferencesRepository(userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
+
+    final CartsRepository cartsRepository =
+        CartsRepositoryImp(cartsDatasource: CartsDatasourceImpl());
+
+    final CategoriesRepository categoriesRepository = 
+        CategoriesRepositoryImp(categoriesDatasource: MockCategoriesDatasourceImpl());
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(

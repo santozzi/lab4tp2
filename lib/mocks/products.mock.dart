@@ -1,6 +1,6 @@
 List<Map<String, dynamic>> products = [
     {
-        "id": 7,
+        "id": 1,
         "title": "Clase de platzi",
         "price": 10000,
         "description": "Clase de platzi",
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> products = [
         }
     },
     {
-        "id": 8,
+        "id": 2,
         "title": "Classic Red Jogger Sweatpants",
         "price": 98,
         "description": "Experience ultimate comfort with our red jogger sweatpants, perfect for both workout sessions and lounging around the house. Made with soft, durable fabric, these joggers feature a snug waistband, adjustable drawstring, and practical side pockets for functionality. Their tapered design and elastic cuffs offer a modern fit that keeps you looking stylish on the go.",
@@ -39,7 +39,7 @@ List<Map<String, dynamic>> products = [
         }
     },
     {
-        "id": 9,
+        "id": 3,
         "title": "Classic Navy Blue Baseball Cap",
         "price": 61,
         "description": "Step out in style with this sleek navy blue baseball cap. Crafted from durable material, it features a smooth, structured design and an adjustable strap for the perfect fit. Protect your eyes from the sun and complement your casual looks with this versatile and timeless accessory.",

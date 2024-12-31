@@ -1,9 +1,10 @@
 import 'package:flutter_application_base/domain/entities/carts_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_cart_entity.dart';
+import 'package:flutter_application_base/infrastrucure/models/products_cart_model.dart';
 
 class CartsModel {
   final int id;
-  final String userId;
+  final int userId;
   final DateTime date;
   final List<ProductsCartEntity> products;
 
@@ -20,7 +21,7 @@ class CartsModel {
       userId: json['userId'],
       date: DateTime.parse(json['date']),
       products: (json['products'] as List<dynamic>)
-          .map((product) => ProductsCartEntity.fromJson(product))
+          .map((product) => ProductsCartModel.fromJson(product).toProductsCartEntity())
           .toList(),
     );
   }

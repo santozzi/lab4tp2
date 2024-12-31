@@ -4,6 +4,7 @@ import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/domain/entities/user_entity.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/alert_card.dart';
 import 'package:flutter_application_base/presentation/widgets/products_card.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,7 @@ class CartScreen extends StatelessWidget {
     cartProducts = productProvider.getProductsByCart(cart);
 
     // Obtenemos usuario del carrito
-    userProvider.getUser(cart.userId);
+    userProvider.getUser(cart.userId.toString());
     UserEntity cartUser;
     cartUser = userProvider.user;
 
@@ -46,7 +47,7 @@ class CartScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Usuario: ${cartUser.name}',
+              'Usuario: ${cartUser.name.isEmpty ? 'Usuario no detectado' : cartUser.name}',
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -65,7 +66,7 @@ class CartScreen extends StatelessWidget {
 
             // Cantidad de productos
             Text(
-              'Productos: ${cartProducts.isEmpty ? 0 : cartProducts.length}',
+              'Productos: ${cart.products.length}',
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -74,18 +75,30 @@ class CartScreen extends StatelessWidget {
 
             Expanded(
               child: cartProducts.isEmpty
-               ? const Text(
-                 'No se encontraron productos',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+               ? Column(
+                  children: [
+                    AlertCard(
+                    message: 'No se han encontrado ${cart.products.length} productos de su carrito.',
+                    )
+                  ]
                 )
-                : ListView.builder(
-                  itemCount: cartProducts.length,
-                  itemBuilder: (context, index) {
-                  return ProductsCard(product: cartProducts[index]);
-                  },
-                ),
+                : Column(
+                    children: [
+                      Expanded(
+                        child:ListView.builder(
+                          itemCount: cartProducts.length,
+                          itemBuilder: (context, index) {
+                          return ProductsCard(product: cartProducts[index]);
+                          },
+                        ),
+                      ),
+                      if (cartProducts.length < cart.products.length)
+                        AlertCard(
+                          message: 'No se han encontrado ${cart.products.length-cartProducts.length} productos de su carrito.',
+                        ),
+                    ],
+                )
             ),
-
           ],
         ),
       ),

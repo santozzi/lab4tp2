@@ -2,7 +2,7 @@ import 'package:flutter_application_base/domain/entities/products_cart_entity.da
 
 class CartsEntity {
   final int id;
-  final String userId;
+  final int userId;
   final DateTime date;
   final List<ProductsCartEntity> products;
 

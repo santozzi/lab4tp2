@@ -8,13 +8,13 @@ import 'package:flutter_application_base/mocks/users.mock.dart';
 class MockUserDatasourceImpl implements UserDatasource {
   @override
   Future<UserEntity> getUser(String id) async {
-    //simuación de peticion a la api
-    //await Future.delayed(const Duration(seconds: 2));
-    final usuarios = getUsers();
-    final UserEntity usuario =
-        (await usuarios).firstWhere((usuario) => usuario.id == id);
-
-    return usuario;
+      //simuación de peticion a la api
+      //await Future.delayed(const Duration(seconds: 2));
+      final usuarios = getUsers();
+      final UserEntity usuario =
+          (await usuarios).firstWhere((usuario) => usuario.id == id, 
+          orElse: () => UserEntity(id: id, email: '', username: 'Usuario desconocido', password: '', name: 'desconocido', role: '', avatar: '', gender: '', country: '', city: '', state: '', phone: ''),);
+      return usuario;
   }
 
   @override

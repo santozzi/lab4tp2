@@ -3,7 +3,6 @@ import 'package:flutter_application_base/domain/entities/products_cart_entity.da
 class ProductsCartModel {
   final int productId;
   final int quantity;
-  // Agregar listado de productos
 
   ProductsCartModel({
     required this.productId,
