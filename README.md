@@ -108,6 +108,7 @@ Funcionamiento:
 * ProductsCard
 * CategorysCard
 * CartsCard
+* AlertCard
 
 ## Tecnologías
 
@@ -131,6 +132,7 @@ Queremos expresar nuestro más sincero agradecimiento a la comunidad de desarrol
 * cupertino_icons: ^1.0.2  
 * shared_preferences: ^2.3.2
 * provider: ^6.1.2
+* http: ^1.2.2
 
 
 A todos los colaboradores y creadores de estas librerías: ¡gracias por compartir su conocimiento y contribuir al crecimiento de la comunidad tecnológica!
@@ -158,7 +160,7 @@ Pasos para instalar y configurar tu proyecto localmente.
 
 ## Uso
 
-El proyecto fue realizado y probado en una virtualización del Pixel 8 API 35
+El proyecto fue realizado y probado en una virtualización del Pixel 7 Pro API VanillaIceCream
 
 
 ## Contribución
