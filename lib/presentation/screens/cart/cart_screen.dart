@@ -72,7 +72,10 @@ class CartScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            Expanded(
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
               child: cartProducts.isEmpty
                   ? const Text(
                       'No se encontraron productos',

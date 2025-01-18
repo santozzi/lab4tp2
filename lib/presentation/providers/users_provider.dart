@@ -4,10 +4,8 @@ import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/api/user_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
-
 import '../../domain/repositories/user/user_repository.dart';
 
 UserEntity userDefault = UserEntity(
@@ -33,14 +31,16 @@ class UsersProvider extends ChangeNotifier {
   UserEntity user = userDefault;
   UsersProvider({required this.usuarioRepository});
 
-  Future<void> getUsers() async {
+  Future<List<UserEntity>> getUsers() async {
     try {
       users = await usuarioRepository.getUsers();
+      return users;
     } catch (e) {
-      log(e.toString());
+      log("en getUsers provider: ${e.toString()}");
+      return [];
     }
 
-    notifyListeners();
+    //notifyListeners();
   }
 
   Future<UserEntity> getUser(String id) async {

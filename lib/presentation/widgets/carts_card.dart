@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/presentation/screens/carts/cart_screen.dart';
+import 'package:flutter_application_base/presentation/screens/cart/cart_screen.dart';
 // import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 // import 'package:flutter_application_base/domain/entities/user_entity.dart';
 import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';

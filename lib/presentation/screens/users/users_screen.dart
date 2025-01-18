@@ -17,9 +17,6 @@ class UsersScreen extends StatelessWidget {
     final UsersProvider userprovider = context.watch<UsersProvider>();
     final UserPreferencesProvider userPreferenciesProvider =
         context.watch<UserPreferencesProvider>();
-    userprovider.getUsers();
-
-    final List<UserEntity> usuarios = userprovider.users;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,35 +29,56 @@ class UsersScreen extends StatelessWidget {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const ScrollPhysics(),
-        child: ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: usuarios.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(500),
-                child: FadeInImage(
-                    placeholder: const AssetImage('assets/loading.gif'),
-                    imageErrorBuilder: (context, error, stackTrace) =>
-                        const Image(
-                            image: AssetImage(
-                                'assets/images/avatar_not_found.png')),
-                    image: NetworkImage(usuarios[index].avatar)),
+      body: FutureBuilder<List<UserEntity>>(
+        future: userprovider.getUsers(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(
+                color: Colors.blue, // Color principal del indicador
+                backgroundColor: Colors.grey[300], // Color del fondo
+                strokeWidth: 6.0, // Grosor del indicador
               ),
-              title: Text(usuarios[index].name),
-              subtitle: Text(usuarios[index].email),
-              onTap: () {
-                userprovider.getUser(usuarios[index].id).then((user) {
-                  Navigator.pushNamed(context, 'user',
-                      arguments: <String, dynamic>{'user': user});
-                });
-              },
             );
-          },
-        ),
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          } else {
+            return SingleChildScrollView(
+              physics: const ScrollPhysics(),
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(500),
+                      child: FadeInImage(
+                          placeholder: const AssetImage('assets/loading.gif'),
+                          imageErrorBuilder: (context, error, stackTrace) =>
+                              const Image(
+                                  image: AssetImage(
+                                      'assets/images/avatar_not_found.png')),
+                          image: NetworkImage(snapshot.data![index].avatar)),
+                    ),
+                    title: Text(snapshot.data![index].name),
+                    subtitle: Text(snapshot.data![index].email),
+                    onTap: () {
+                      userprovider
+                          .getUser(snapshot.data![index].id)
+                          .then((user) {
+                        Navigator.pushNamed(context, 'user',
+                            arguments: <String, dynamic>{'user': user});
+                      });
+                    },
+                  );
+                },
+              ),
+            );
+          }
+        },
       ),
     );
   }

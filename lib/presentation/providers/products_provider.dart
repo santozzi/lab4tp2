@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
@@ -17,9 +19,32 @@ class ProductsProvider extends ChangeNotifier {
       category: '');
   ProductsProvider({required this.productsRepository});
 
-  Future<void> getProducts() async {
-    products = await productsRepository.getProducts();
+  Future<List<ProductEntity>> getProducts() async {
+    try {
+      products = await productsRepository.getProducts();
+      return products;
+    } catch (e) {
+      log("Error en getProducts provider: ${e.toString()}");
+      return [];
+    }
+
     //notifyListeners();
+  }
+
+  Future<List<ProductEntity>> getFilteredProducts(
+      String categoryName, String searchQuery) async {
+    try {
+      products = await productsRepository.getProducts();
+
+      return products
+          .where((product) =>
+              (categoryName == "" || product.category == categoryName) &&
+              (product.title.toLowerCase().contains(searchQuery.toLowerCase())))
+          .toList();
+    } catch (e) {
+      log("Error en getProducts provider: ${e.toString()}");
+      return [];
+    }
   }
 
   Future<ProductEntity> getProduct(String id) async {
