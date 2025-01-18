@@ -24,7 +24,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     productProvider.getProducts(); // Obtener todos los productos.
 
     // Filtrar los productos según la categoría y el término de búsqueda
-    List<ProductsEntity> filteredProducts = productProvider.products
+    List<ProductEntity> filteredProducts = productProvider.products
         .where((product) =>
             (widget.categoryName == null ||
                 product.category == widget.categoryName) &&
@@ -56,7 +56,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     },
                   )
                 : null, // Mostrar el botón solo si hay texto
-            
           ),
           style: const TextStyle(color: Colors.white),
           cursorColor: Colors.white,

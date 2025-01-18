@@ -1,29 +1,58 @@
-import 'package:flutter_application_base/domain/datasource/carts_datasource.dart';
-import 'package:flutter_application_base/domain/entities/carts_entity.dart';
-import 'package:flutter_application_base/infrastrucure/models/carts_model.dart';
+import 'package:flutter_application_base/domain/datasource/cart/carts_datasource.dart';
+import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
+import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
+import 'package:flutter_application_base/infrastrucure/models/cart/carts_model.dart';
 import 'package:flutter_application_base/mocks/carts.mock.dart';
 import 'dart:developer';
 
 class MockCartsDatasourceImpl implements CartsDatasource {
   @override
-  Future<CartsEntity> getCart(int id) async {
+  Future<CartEntity> getCart(String id) async {
     //simulación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
     final carts = getCarts();
-    final CartsEntity cart =
-        (await carts).firstWhere((cart) => cart.id == id);
+    final CartEntity cart = (await carts).firstWhere((cart) => cart.id == id);
 
     return cart;
   }
 
   @override
-  Future<List<CartsEntity>> getCarts() async {
+  Future<List<CartEntity>> getCarts() async {
     //simulación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
-    final List<CartsEntity> cartsList = carts
-        .map((cart) => CartsModel.fromJson(cart).toCartsEntity())
-        .toList();
+    final List<CartEntity> cartsList =
+        carts.map((cart) => CartModel.fromJson(cart).toCartsEntity()).toList();
 
     return cartsList;
+  }
+
+  @override
+  Future<void> addCartProduct(
+      String id, ProductCartEntity productCartEntity) async {
+    try {
+      CartEntity cart = await getCart(id);
+      cart.products.add(productCartEntity);
+    } catch (e) {
+      log(e.toString());
+    }
+    CartEntity cart = await getCart(id);
+  }
+
+  @override
+  Future<void> deleteCart(String id) {
+    // TODO: implement deleteCart
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> deleteItem(String id) {
+    // TODO: implement deleteItem
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<CartEntity> addCart(CartEntity cart) {
+    // TODO: implement addCart
+    throw UnimplementedError();
   }
 }

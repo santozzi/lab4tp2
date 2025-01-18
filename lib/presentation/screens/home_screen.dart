@@ -1,4 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+
+import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
+import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
 
 import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 
@@ -41,6 +47,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        final TokenPreferencesRepository
+                            tokenPreferencesRepository = TokenRepositoryImp(
+                                tokenDatasource:
+                                    SharedTokenPreferencesDatasourceImp());
+                        tokenPreferencesRepository
+                            .getTokenPreferences()
+                            .then((value) {
+                          log(value.toString());
+                        });
+
                         Navigator.pushNamed(context, 'products');
                       },
                       child: const Text('Buscar productos'),

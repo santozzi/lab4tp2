@@ -1,21 +1,21 @@
-import 'package:flutter_application_base/domain/entities/categories_entity.dart';
+import 'package:flutter_application_base/domain/entities/category_entity.dart';
 
-class CategoriesModel {
+class CategoryModel {
   final int id;
   final String name;
   final String image;
   final DateTime creationAt;
   final DateTime updatedAt;
 
-  CategoriesModel(
+  CategoryModel(
       {required this.id,
       required this.name,
       required this.image,
       required this.creationAt,
       required this.updatedAt});
 
-  factory CategoriesModel.fromJson(Map<String, dynamic> json) {
-    return CategoriesModel(
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
         id: json['id'],
         name: json['name'],
         image: json['image'],
@@ -23,7 +23,7 @@ class CategoriesModel {
         updatedAt: DateTime.parse(json['updatedAt']));
   }
 
-  CategoriesEntity toCategoriesEntity() => CategoriesEntity(
+  CategoryEntity toCategoryEntity() => CategoryEntity(
       id: id,
       name: name,
       image: image,

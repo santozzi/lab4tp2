@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/carts_entity.dart';
+import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/products_card.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
-  final CartsEntity cart;
+  final CartEntity cart;
 
   const CartScreen({
     super.key,
@@ -27,7 +27,7 @@ class CartScreen extends StatelessWidget {
       productProvider.getProducts(); // Obtener productos si no están cargados.
     }
     // Filtramos los productos por el ID de los productos en el carrito.
-    List<ProductsEntity> cartProducts;
+    List<ProductEntity> cartProducts;
     cartProducts = productProvider.getProductsByCart(cart);
 
     // Obtenemos usuario del carrito
@@ -74,18 +74,18 @@ class CartScreen extends StatelessWidget {
 
             Expanded(
               child: cartProducts.isEmpty
-               ? const Text(
-                 'No se encontraron productos',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                )
-                : ListView.builder(
-                  itemCount: cartProducts.length,
-                  itemBuilder: (context, index) {
-                  return ProductsCard(product: cartProducts[index]);
-                  },
-                ),
+                  ? const Text(
+                      'No se encontraron productos',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    )
+                  : ListView.builder(
+                      itemCount: cartProducts.length,
+                      itemBuilder: (context, index) {
+                        return ProductsCard(product: cartProducts[index]);
+                      },
+                    ),
             ),
-
           ],
         ),
       ),

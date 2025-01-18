@@ -28,6 +28,8 @@ class UserAvatar extends StatelessWidget {
           width: size,
           child: FadeInImage(
             placeholder: const AssetImage('assets/loading.gif'),
+            imageErrorBuilder: (context, error, stackTrace) => const Image(
+                image: AssetImage('assets/images/image_not_found.jpg')),
             image: (imageUrl != '')
                 ? NetworkImage(imageUrl, scale: 0.50)
                 : const AssetImage('assets/images/guest.png'),

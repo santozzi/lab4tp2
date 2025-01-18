@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:flutter_application_base/domain/datasource/user_datasource.dart';
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
+import 'package:flutter_application_base/domain/datasource/user/user_datasource.dart';
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 import 'package:flutter_application_base/infrastrucure/models/user_model.dart';
 import 'package:flutter_application_base/mocks/users.mock.dart';
 
@@ -33,7 +33,7 @@ class MockUserDatasourceImpl implements UserDatasource {
     final UserEntity usuario = (await usuarios).firstWhere(
         (usuario) => usuario.username == username,
         orElse: () => UserEntity(
-            id: "",
+            id: "0",
             name: "",
             email: "",
             username: "",
@@ -49,13 +49,13 @@ class MockUserDatasourceImpl implements UserDatasource {
   }
 
   @override
-  Future<bool> login(String username, String password) async {
+  Future<String> login(String username, String password) async {
     UserEntity usuario = await getUserByUsername(username);
     if (usuario.id != "") {
       if (usuario.password == password) {
-        return true;
+        return "true";
       }
     }
-    return false;
+    return "false";
   }
 }

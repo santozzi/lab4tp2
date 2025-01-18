@@ -3,7 +3,7 @@ import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/widgets/image_carousel.dart'; // Importa el widget reutilizable
 
 class ProductScreen extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const ProductScreen({
     super.key,
@@ -35,7 +35,7 @@ class ProductScreen extends StatelessWidget {
               ),
             ),
             // Uso del widget reutilizable
-            ImageCarousel(images: product.images),  
+            ImageCarousel(images: product.images),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -56,8 +56,8 @@ class ProductScreen extends StatelessWidget {
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text(
-                                  'Agregado al carrito: ${product.title}'),
+                              content:
+                                  Text('Agregado al carrito: ${product.title}'),
                             ),
                           );
                         },

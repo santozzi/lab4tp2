@@ -15,16 +15,14 @@ List<Map<String, dynamic>> users = [
       "country": "Argentina",
       "postcode": 27449,
       "coordinates": {"latitude": "1234", "longitude": "9876"},
-      "timezone": {
-        "offset": "-2:00", "description": "Mid-Atlantic"
-      }
+      "timezone": {"offset": "-2:00", "description": "Mid-Atlantic"}
     },
     "email": "fagherazzigianluca@gmail.com",
     "login": {
       "uuid": "7214f586-381c-463f-acf5-89174297cf74",
       "username": "user",
       "password": "user",
-      "salt": "IfUzl7AV",
+      "role": "IfUzl7AV",
       "md5": "ff44d488975214b807b1a10b6041ae7e",
       "sha1": "f40442c12a5a074f8711baec2368d275c94f6a37",
       "sha256":
@@ -36,7 +34,8 @@ List<Map<String, dynamic>> users = [
     "cell": "0912-671-0467",
     "id": {"name": "", "value": "1019"},
     "picture": {
-      "large": "https://media.licdn.com/dms/image/v2/D4D03AQHu4e_ySIVVSg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731527319600?e=1738195200&v=beta&t=VmYw7TNOHN891d64dydK7CQ0_UbjlJUXfoXfO17kk2Q",
+      "large":
+          "https://media.licdn.com/dms/image/v2/D4D03AQHu4e_ySIVVSg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731527319600?e=1738195200&v=beta&t=VmYw7TNOHN891d64dydK7CQ0_UbjlJUXfoXfO17kk2Q",
       "medium": "https://randomuser.me/api/portraits/med/women/25.jpg",
       "thumbnail": "https://randomuser.me/api/portraits/thumb/women/25.jpg"
     },
@@ -60,7 +59,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "f24bb217-9ce0-4fe6-8bca-299964b94c4c",
       "username": "admin",
       "password": "admin",
-      "salt": "admin",
+      "role": "admin",
       "md5": "7112e58c2dfdad731b6d59905bc6d102",
       "sha1": "97f0d528beeb7d4ea2f317a29f8196314e24ab51",
       "sha256":
@@ -99,7 +98,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "0bf99831-6c3f-4740-896d-008a64b45df7",
       "username": "silverpanda487",
       "password": "dominiqu",
-      "salt": "yZzpq7tK",
+      "role": "yZzpq7tK",
       "md5": "11b329e0d49886c31b3d95cb07a8776d",
       "sha1": "0717ae7c1f895bf700373df0caa08d63379ae059",
       "sha256":
@@ -137,7 +136,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "d634e594-cb68-45ae-8697-0bf1860d39bb",
       "username": "yellowduck670",
       "password": "express",
-      "salt": "15UXdal8",
+      "role": "15UXdal8",
       "md5": "bd4d67a59ca08afeff4b17070af96737",
       "sha1": "973baa565e8174f48bd1b536e5b2e2c643d56a50",
       "sha256":
@@ -172,7 +171,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c5d8e92d-c75f-446b-9ddc-944e8f1a4427",
       "username": "whitelion555",
       "password": "tender",
-      "salt": "JgcMbNxR",
+      "role": "JgcMbNxR",
       "md5": "f02de683880fac7077f10a0a7c9fdd3a",
       "sha1": "30090f5302c0b6c404a8dec3345e7734fc6870f2",
       "sha256":
@@ -207,7 +206,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "decc003f-5f3a-4163-ad66-3abeb062198e",
       "username": "sadswan317",
       "password": "wildman",
-      "salt": "lh41aQdz",
+      "role": "lh41aQdz",
       "md5": "d6e5388fe29681683845aac35a37e4db",
       "sha1": "e98d69b01d4fe9821572f07593d2bd311dc0b092",
       "sha256":
@@ -242,7 +241,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "0705fcfe-910a-40a6-bee9-8686d87f57bd",
       "username": "smallladybug492",
       "password": "rrrrr",
-      "salt": "19bLhdjN",
+      "role": "19bLhdjN",
       "md5": "243f749fb31492bf7672b327ad39466d",
       "sha1": "098df1759981d2b35d71b216f64c2559d62c5f77",
       "sha256":
@@ -280,7 +279,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "28b3ed7f-5915-4395-9ba1-a1aed6e31c4c",
       "username": "angrygorilla826",
       "password": "chloe1",
-      "salt": "9WtQ7rSf",
+      "role": "9WtQ7rSf",
       "md5": "9162758f2d26dc4cb5ae33e73c78e4cc",
       "sha1": "0b11d14a46be4149435f4df55abfdee4cbe88a6f",
       "sha256":
@@ -318,7 +317,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "21ed0a06-fbd3-4c32-8b00-ebfa5678cc10",
       "username": "purplecat672",
       "password": "madman",
-      "salt": "sbfXPkwX",
+      "role": "sbfXPkwX",
       "md5": "5a112acd85d67888645e31e8617e0a68",
       "sha1": "3c265f1d4dc131f42c3c20ccaf42e4b05d408018",
       "sha256":
@@ -356,7 +355,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "91a95fae-3f49-4edf-8920-2acd7663f980",
       "username": "goldenmeercat177",
       "password": "lonely",
-      "salt": "REkgvxMN",
+      "role": "REkgvxMN",
       "md5": "41eb902176ed88118e54e3c86bd3803d",
       "sha1": "df9b8d701f10c2d7184b6a9620f9c69ab153e197",
       "sha256":
@@ -394,7 +393,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "221bdf2c-c278-45d2-b864-805c760c90d7",
       "username": "biggorilla937",
       "password": "raven1",
-      "salt": "BtJ7Sruc",
+      "role": "BtJ7Sruc",
       "md5": "3dce6b5dec577be23015f3e4f95da4d8",
       "sha1": "8593633e5b1678946aba3a4c0d5d74c2c963fc6e",
       "sha256":
@@ -429,7 +428,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "b4853514-6a04-4bfc-8af4-b1306c759a82",
       "username": "goldencat705",
       "password": "2020",
-      "salt": "9gYcijOh",
+      "role": "9gYcijOh",
       "md5": "d496e73b05e61f8d4b2a110c0d8452a8",
       "sha1": "e34409bc64ab38fe0d1c72afccb3f81ac669a902",
       "sha256":
@@ -464,7 +463,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "909ec1e1-af2d-4b70-b1f8-2ecb401ca25c",
       "username": "heavyduck827",
       "password": "sage",
-      "salt": "1mf3wlFe",
+      "role": "1mf3wlFe",
       "md5": "9e3f7241a0a283ec954e3a6983482561",
       "sha1": "8a0f8207e09dfcd591475acf5fcb9945c942abe9",
       "sha256":
@@ -502,7 +501,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "2abe0d1c-507b-488d-bc18-e463059f661f",
       "username": "smallgoose154",
       "password": "jelly",
-      "salt": "LqUuGNKP",
+      "role": "LqUuGNKP",
       "md5": "1629aba142529e914d2c7e051d51ea55",
       "sha1": "12eb0fe001ab154fdf6a5abe056b9364a08aeec4",
       "sha256":
@@ -537,7 +536,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "66b3804c-8df2-4411-9951-43e6b57fa21e",
       "username": "purplekoala378",
       "password": "savage",
-      "salt": "G118AwZN",
+      "role": "G118AwZN",
       "md5": "eb8c519c170e0907f0f91db1fe3d23d0",
       "sha1": "647277697b0a4299db0cafe32601c7f45681ab64",
       "sha256":
@@ -575,7 +574,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "9822f33a-b93b-4bd0-8e06-b024c5e0a26d",
       "username": "redtiger347",
       "password": "billy",
-      "salt": "tnOtK1ri",
+      "role": "tnOtK1ri",
       "md5": "a32eb84f5f30aa05623e276fdbc69bdc",
       "sha1": "2077f4d96ebda76bdec25f1e84928b3971dcfe3c",
       "sha256":
@@ -610,7 +609,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "14a38283-12b2-4501-8392-ec6e51a0e599",
       "username": "heavykoala545",
       "password": "spikes",
-      "salt": "6oukFC9t",
+      "role": "6oukFC9t",
       "md5": "de6510dcb9ae09e73337362a09be5100",
       "sha1": "81f18b3444700e868df7fa0ca1f6f5d120c7d15d",
       "sha256":
@@ -645,7 +644,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "72bd8459-ef26-49e1-b24b-419c293baf6a",
       "username": "smallmeercat173",
       "password": "4417",
-      "salt": "HKGuPcny",
+      "role": "HKGuPcny",
       "md5": "1e8fb56c7a5fb6da76de384a86816da4",
       "sha1": "daaf51bc31d61ecd5a478ce0ab845da789e1f3e0",
       "sha256":
@@ -680,7 +679,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c52e9df2-8aee-4079-9b72-1559a8591a8c",
       "username": "purplegoose828",
       "password": "niceguy",
-      "salt": "whaFOPYp",
+      "role": "whaFOPYp",
       "md5": "362fe7336b62c857a9a90ba431d20de5",
       "sha1": "c24f9589c186ebcfce3abbc6b173fec63185d2e8",
       "sha256":
@@ -715,7 +714,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "ef890b55-d127-4c8b-9066-57c4199535f1",
       "username": "blackzebra323",
       "password": "blue12",
-      "salt": "81OdmjQe",
+      "role": "81OdmjQe",
       "md5": "fad46e5881a6051f271dc653e2cee3d7",
       "sha1": "bb8497e36388238a8372a40e7691f79c5ad9ba0c",
       "sha256":
@@ -750,7 +749,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "3412759f-b450-4b16-a1cc-fb90f1b785d7",
       "username": "bluecat550",
       "password": "passpass",
-      "salt": "dqRZ7yp4",
+      "role": "dqRZ7yp4",
       "md5": "5dc5772e5810869357f77d16481d50fb",
       "sha1": "47cdaa9d53365f724f0da33198255b2f0be800a0",
       "sha256":
@@ -785,7 +784,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "58707b44-d6b0-490c-9e4f-1d022a1051a8",
       "username": "crazybear515",
       "password": "makaveli",
-      "salt": "UFgBbVfn",
+      "role": "UFgBbVfn",
       "md5": "bf081a749c176f02e4da79dfb00d6d16",
       "sha1": "8a2a96b23d0ea2e632a48acc48ad6886966e8b12",
       "sha256":
@@ -823,7 +822,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "5da91132-8cc3-42bd-866e-dda368044745",
       "username": "yellowladybug859",
       "password": "bollox",
-      "salt": "JUgpuJP0",
+      "role": "JUgpuJP0",
       "md5": "5ada33937209edde1690398f36d8fd56",
       "sha1": "23ee2a18e631daaaf4d4348240dfc11ff573f41d",
       "sha256":
@@ -858,7 +857,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "1e5281c7-3c2d-428d-8e7f-db381281d5d9",
       "username": "whitebird693",
       "password": "halifax",
-      "salt": "Hi7hIrSw",
+      "role": "Hi7hIrSw",
       "md5": "0fc00c804ab93cb9ef38ab09f067bbc9",
       "sha1": "f0fb094da3fe7bb57e9ffaa31935933ea3ec993c",
       "sha256":
@@ -893,7 +892,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "ad2c3b80-3869-44b5-8a9a-7c50d0620188",
       "username": "greenfish530",
       "password": "brandy",
-      "salt": "pBpnop38",
+      "role": "pBpnop38",
       "md5": "b29e708a896c0744c54da5a76b76a522",
       "sha1": "51165b36d64ae8052afd138b82e238b49a2d9a73",
       "sha256":
@@ -931,7 +930,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "1751f43f-ebe0-4a5f-8697-0998125c9577",
       "username": "silverbird724",
       "password": "logan",
-      "salt": "1Z4MtoLS",
+      "role": "1Z4MtoLS",
       "md5": "e20cf39bc27850b4affb0dd07423fe9f",
       "sha1": "1058fd170d0b7259ae59ca012311bb9e9afe97e6",
       "sha256":
@@ -966,7 +965,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "ddf65dac-a648-47ca-b221-22aebfc51ecc",
       "username": "silverelephant704",
       "password": "kojak",
-      "salt": "0YR7fgAm",
+      "role": "0YR7fgAm",
       "md5": "57aafa3661162509395b10423ed3e0a6",
       "sha1": "edac313642ef4f6f819c3bc7990bdb948096bb14",
       "sha256":
@@ -1001,7 +1000,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "18d4ecb8-412e-4e54-ba49-d422ae4350f7",
       "username": "redsnake417",
       "password": "nellie",
-      "salt": "8Xu0F88n",
+      "role": "8Xu0F88n",
       "md5": "2e81c7d5fce2c2ef61a874d08e53dc94",
       "sha1": "04b5bd2e86af2fa9553a5156937a1d3516ac42ed",
       "sha256":
@@ -1039,7 +1038,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "4101475f-60c4-4782-abf1-f3b1eb4d4d67",
       "username": "crazymouse479",
       "password": "bushido",
-      "salt": "aSTHSg81",
+      "role": "aSTHSg81",
       "md5": "cb672fe9549ae39abb945468665a2a03",
       "sha1": "61f03e062ca2d70ad87094e15dcbc9d9b5c342e9",
       "sha256":
@@ -1077,7 +1076,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "5287f5d7-67af-4e95-a5ea-82a9571461de",
       "username": "heavygorilla703",
       "password": "trust",
-      "salt": "VqWEXPkF",
+      "role": "VqWEXPkF",
       "md5": "513bd8e79497d8b04a2efcc442522b28",
       "sha1": "7ded13dc923e9bf6ed6447ccde9de54f46cc0dd8",
       "sha256":
@@ -1112,7 +1111,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "515d1456-4e89-485a-8360-d91fed1c1195",
       "username": "redduck598",
       "password": "riffraff",
-      "salt": "hU1KddLS",
+      "role": "hU1KddLS",
       "md5": "1a2e33dd0221b1d36d57fee9b3ae2474",
       "sha1": "027ffab36a6ac95b06e434f851542c6fbee4a370",
       "sha256":
@@ -1147,7 +1146,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "d953c694-cad0-43d0-9ca5-88c81d025108",
       "username": "silverleopard780",
       "password": "caprice",
-      "salt": "bYYwx606",
+      "role": "bYYwx606",
       "md5": "b454374acf48a5d786b011089b040c91",
       "sha1": "e3ccf68ff2451ef4b0ffa81c7e285cb2881a0070",
       "sha256":
@@ -1182,7 +1181,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c3aa5c42-2680-4136-9b3c-95ff765e1eac",
       "username": "organicbird208",
       "password": "gators1",
-      "salt": "aTLxx2Wv",
+      "role": "aTLxx2Wv",
       "md5": "5d7a0bb42109fee59c0bac69611bd015",
       "sha1": "2733f8566baeffc688c0c0bc6de199e690282164",
       "sha256":
@@ -1220,7 +1219,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "f4518eb0-99ac-4156-9fda-032a122f3985",
       "username": "silvergorilla256",
       "password": "anne",
-      "salt": "cYLkbYKi",
+      "role": "cYLkbYKi",
       "md5": "a8a7a0147a7380e799a6aded5e113fb8",
       "sha1": "b5e213682ec14c9262fddd0e0b962f57a656b9d5",
       "sha256":
@@ -1258,7 +1257,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "3ebd0876-e804-4a4d-be65-99b9a0c1b904",
       "username": "greenzebra253",
       "password": "daniela",
-      "salt": "bxo0R2TH",
+      "role": "bxo0R2TH",
       "md5": "f4fa992fc8264ab5487b422e192f2ce3",
       "sha1": "e4d3a0f1287b40fb3fa853bae5fc234ecfdc9c84",
       "sha256":
@@ -1293,7 +1292,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "f63ea328-3874-4d02-94df-dfb97a495fef",
       "username": "beautifullion528",
       "password": "krystal",
-      "salt": "fHLNVhcv",
+      "role": "fHLNVhcv",
       "md5": "e9e5759583b34381dcc82c2eaa28a7d7",
       "sha1": "d38037f972416bd04eab1e9cfbed4c1b959d5164",
       "sha256":
@@ -1328,7 +1327,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "8f7cf359-0145-491c-8170-c139407d34d5",
       "username": "tinydog511",
       "password": "koolaid",
-      "salt": "kdFiBoAg",
+      "role": "kdFiBoAg",
       "md5": "d3ec465cb4a0c502711099eaa46296a6",
       "sha1": "cbbf48b353cb065f70ccc1669a933b7777144f98",
       "sha256":
@@ -1363,7 +1362,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "308ef920-4bd1-4b9b-a88a-7fa1698b9c14",
       "username": "angrybear323",
       "password": "freedom",
-      "salt": "p0xSfTIK",
+      "role": "p0xSfTIK",
       "md5": "e3e97becc2f3b8e246c02feef1edf3d5",
       "sha1": "f210ed3dbf7677a59549819fe06c624cc528c8bc",
       "sha256":
@@ -1398,7 +1397,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "af2f7dfb-d98f-4988-88ea-735374dafbb1",
       "username": "whiteladybug801",
       "password": "loving",
-      "salt": "yHOHtKim",
+      "role": "yHOHtKim",
       "md5": "2ad30929899a0a56c4e72cc0f1b02e7c",
       "sha1": "06d9752b59208c21749ff4e10a39e49d0df9c808",
       "sha256":
@@ -1436,7 +1435,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "da6180cd-f911-44e0-8e52-82f184b56e1a",
       "username": "blacktiger737",
       "password": "dimas",
-      "salt": "B0HLZqR3",
+      "role": "B0HLZqR3",
       "md5": "018d23c9fa5bc3cd3e22fc2bb6885a9e",
       "sha1": "f23f2cd313f5f606c1aa260cf59202fa0aabba8b",
       "sha256":
@@ -1474,7 +1473,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "8c8add2e-09e2-4ca4-a5a7-3dc96e4204fd",
       "username": "heavybird171",
       "password": "trip",
-      "salt": "6u0KK1jV",
+      "role": "6u0KK1jV",
       "md5": "db7ba61f09ac6f72db1273ae6fdd8c47",
       "sha1": "5450316e4128cb123334aeffaae8a732c57946f2",
       "sha256":
@@ -1509,7 +1508,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "d9a78786-3743-434d-b254-7dd35db7c1eb",
       "username": "whitepeacock608",
       "password": "qiong",
-      "salt": "abYInwHz",
+      "role": "abYInwHz",
       "md5": "8f0c317b152b980b90757652a6b2f970",
       "sha1": "e8b153b134444ff7ae53a5543265230280064321",
       "sha256":
@@ -1544,7 +1543,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "332c0326-835f-428a-b9e3-323c575adde9",
       "username": "organicswan902",
       "password": "open",
-      "salt": "nHDPdg2x",
+      "role": "nHDPdg2x",
       "md5": "a5d74d001ef3f6b89d0fd17ad5597a19",
       "sha1": "719ac5e10ba23caddc74f2cbc0a64654ff2052a1",
       "sha256":
@@ -1579,7 +1578,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "9b8b1ba7-52ce-41dc-a6fc-f49a396a9788",
       "username": "purplegorilla250",
       "password": "miao",
-      "salt": "oc18eY65",
+      "role": "oc18eY65",
       "md5": "e57fca3281e2d120f6335c36df53476e",
       "sha1": "7113f07615b6e9f9bfecf2f6b369f6b59e298fcc",
       "sha256":
@@ -1617,7 +1616,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "908dedfd-bf11-4638-83a5-a82b5f703648",
       "username": "angrypeacock189",
       "password": "semperfi",
-      "salt": "4RKePgwd",
+      "role": "4RKePgwd",
       "md5": "364dc7ff8b2d0474383e82ced37b050d",
       "sha1": "5d4a1d0ae1c2d24cab05ad4086cc51951ddd519a",
       "sha256":
@@ -1655,7 +1654,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "489c9505-3639-4d5a-aae7-7efc5f8ff3aa",
       "username": "happyostrich614",
       "password": "chipper",
-      "salt": "doPF34Yp",
+      "role": "doPF34Yp",
       "md5": "4f25ebebdab73b32a029a64a4a377fd7",
       "sha1": "1ce49b9f75ef03361ba27d9134da43edc5b7ef06",
       "sha256":
@@ -1690,7 +1689,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7e80d0d5-d26e-4333-bcb6-1eba3a33c265",
       "username": "yellowtiger886",
       "password": "stone55",
-      "salt": "iBNTvxFR",
+      "role": "iBNTvxFR",
       "md5": "31edb6b05ddd9b177acf73eaaa3ca216",
       "sha1": "598c93d96e82d5f6e620e83681786710a30de396",
       "sha256":
@@ -1725,7 +1724,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c0bb8b1f-d24a-4627-9690-5ce2fd45a5dc",
       "username": "goldentiger748",
       "password": "jing",
-      "salt": "EhZuXkHu",
+      "role": "EhZuXkHu",
       "md5": "8702928e9e3868484c25224c01d6a8ea",
       "sha1": "15b2651b8a9cce38e0aa9439534f0314dc6d4b1c",
       "sha256":
@@ -1763,7 +1762,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "19e8e3ce-c682-40cf-8068-9558c4c7ca28",
       "username": "angryostrich419",
       "password": "stress",
-      "salt": "ucihRqPA",
+      "role": "ucihRqPA",
       "md5": "4bc8b77d2f25509da62102cb12f9be47",
       "sha1": "cc395f0377cc586d99eb9d488a8f4941141b83a6",
       "sha256":
@@ -1798,7 +1797,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "6a19e2ec-11ef-493f-b82a-02ee21da18bb",
       "username": "bluewolf836",
       "password": "hihihi",
-      "salt": "ebO6tBFK",
+      "role": "ebO6tBFK",
       "md5": "e0bf89152331e14fd2ccbb44a19edea2",
       "sha1": "89f841ee031d9ef41e4110093aa7c391d4253181",
       "sha256":
@@ -1836,7 +1835,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "e99fddb6-732c-4d90-89bc-a38b87e02d58",
       "username": "silverpeacock681",
       "password": "1024",
-      "salt": "STZhDKqK",
+      "role": "STZhDKqK",
       "md5": "638d5eb6a81e8da78155dd5e55ab470d",
       "sha1": "c57872f744ae73024fc8034c9608b59c068b09aa",
       "sha256":
@@ -1871,7 +1870,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "8741b34a-506f-43f3-84c7-9fa51e68cc1e",
       "username": "ticklishbear816",
       "password": "gggg",
-      "salt": "d86cH5eI",
+      "role": "d86cH5eI",
       "md5": "0a2d8dc5df6caf2be5435fb07c5bff7f",
       "sha1": "5459381c1ef22f9490c8b88298fc58bbb9ff993c",
       "sha256":
@@ -1909,7 +1908,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c56efe3c-8cf9-4775-8b90-78c4246d7d31",
       "username": "orangeelephant704",
       "password": "buddah",
-      "salt": "xPjzl4cf",
+      "role": "xPjzl4cf",
       "md5": "19979c35986a1d1ea6b94238636da5b7",
       "sha1": "6f9b6d7eca3fd1e22e6d022af6e63ed23a5b07bf",
       "sha256":
@@ -1947,7 +1946,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "fffaf067-67be-4640-992b-20b966dc5690",
       "username": "lazytiger896",
       "password": "inferno",
-      "salt": "LIX3pj0Q",
+      "role": "LIX3pj0Q",
       "md5": "b738189047951b1bc8061b1a1fc35e4f",
       "sha1": "8214caa3a4da31fb24da5a293fc5c4debb9737fa",
       "sha256":
@@ -1982,7 +1981,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "3425e148-ac21-4d78-8fab-c0eb4896596d",
       "username": "sadladybug223",
       "password": "star69",
-      "salt": "HQ9lSRrr",
+      "role": "HQ9lSRrr",
       "md5": "9092309d5bc991d3bc2e47ff1d0334f1",
       "sha1": "5bffe1c502d356c23f62595bd0489491a591aef2",
       "sha256":
@@ -2017,7 +2016,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "fb0c920c-921b-462c-a7fd-2cbd2034b1c1",
       "username": "bigbutterfly483",
       "password": "banker",
-      "salt": "zEPT1ETT",
+      "role": "zEPT1ETT",
       "md5": "7a208cc76e551457ffc165a7927521c0",
       "sha1": "ee4d68109eaec3228ad58efba90a8b03dc0ee377",
       "sha256":
@@ -2052,7 +2051,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "8d70c077-53fb-47c5-b486-d657491b063f",
       "username": "orangeladybug606",
       "password": "rush",
-      "salt": "FjWCkyV3",
+      "role": "FjWCkyV3",
       "md5": "5a9fce0145c9a4eac3e2293bfd27cf4c",
       "sha1": "a71540d0d0384a15363a248d608f5788ba7323d5",
       "sha256":
@@ -2087,7 +2086,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "b845f27c-c9cc-4604-a012-2d3ee1dbd07a",
       "username": "angrymeercat682",
       "password": "dirk",
-      "salt": "7q9h68fF",
+      "role": "7q9h68fF",
       "md5": "982f2011d0bb1bb78b3bb52ab22dcbfd",
       "sha1": "b34429763d462e713db91ca800531e12119927c4",
       "sha256":
@@ -2125,7 +2124,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "612d166e-d271-489a-8205-8187a9546874",
       "username": "organicgoose100",
       "password": "speedy",
-      "salt": "CKQaosoq",
+      "role": "CKQaosoq",
       "md5": "20d23034b1b9aa6d17b428d620dc74ca",
       "sha1": "3e0672342dfd48ea46de6d5fea62734b2a6e9474",
       "sha256":
@@ -2160,7 +2159,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "bc860029-baab-455c-b6df-aee7332eca22",
       "username": "redduck266",
       "password": "maggie",
-      "salt": "5RxqIMp7",
+      "role": "5RxqIMp7",
       "md5": "c81852be6e448bfc8d53cc9b47b328e5",
       "sha1": "5d9258f6bb4d3c53f34ab0687fae88e11ff6f1b6",
       "sha256":
@@ -2195,7 +2194,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "892e184d-a4ff-46b3-96b1-1ae2538a58dc",
       "username": "orangegoose696",
       "password": "515151",
-      "salt": "vwihNFmI",
+      "role": "vwihNFmI",
       "md5": "d92db574a4cc2c899889648df9c2c918",
       "sha1": "f7570de9162f9bac8a97dcb78a60d1b89a38c00e",
       "sha256":
@@ -2230,7 +2229,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "e0801dd0-d208-4273-a18e-3730d33be7c3",
       "username": "yellowzebra112",
       "password": "marsh",
-      "salt": "VBqEsvkn",
+      "role": "VBqEsvkn",
       "md5": "04b232251854dcbb10aa67326a049db9",
       "sha1": "04432cb6b6f2bbd76d15784bccd566f052049437",
       "sha256":
@@ -2268,7 +2267,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "ee89d720-194f-4ce8-8b7c-e608f5bccee8",
       "username": "angryostrich425",
       "password": "dodger",
-      "salt": "yOEI2S4j",
+      "role": "yOEI2S4j",
       "md5": "481151821a1964f805d3c31c38f4ce88",
       "sha1": "ba50be6f19fbf41353f66fa487d8144e067d30bc",
       "sha256":
@@ -2306,7 +2305,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "4f6b1b89-5003-4c0e-83b9-fbe1346390fa",
       "username": "goldenzebra492",
       "password": "kristi",
-      "salt": "4oNmRt5v",
+      "role": "4oNmRt5v",
       "md5": "643d9c65c3b6f95791ef9cba27374eb5",
       "sha1": "5815eb41c308ca36c291ae3f0458b27acfcf00ee",
       "sha256":
@@ -2344,7 +2343,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7a56750a-968a-4859-a38e-7caf46bc6ac2",
       "username": "organicfrog962",
       "password": "harmony",
-      "salt": "AxxM2hun",
+      "role": "AxxM2hun",
       "md5": "474e8e1cb89f08285eb3f183cccdfa4e",
       "sha1": "4dc5804c0f5fce53f8e64289a375e4612ef81529",
       "sha256":
@@ -2382,7 +2381,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "603910fa-9774-4384-a63f-4845c91d7a6f",
       "username": "browngoose867",
       "password": "santa",
-      "salt": "vSvQXQWJ",
+      "role": "vSvQXQWJ",
       "md5": "effbd0e869762b464e0f70f4e4b1ef6c",
       "sha1": "b8c7618210f36baf33d5af5a60c08977a2b32625",
       "sha256":
@@ -2420,7 +2419,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7f89d4be-42eb-43ff-8282-b495186d46cf",
       "username": "whitefish496",
       "password": "lucky1",
-      "salt": "nVD4LwSD",
+      "role": "nVD4LwSD",
       "md5": "92c0299a1bd8e811668702816c3efbfa",
       "sha1": "7ab87a0af6be323b53ce26ceeec3fb60fa084881",
       "sha256":
@@ -2455,7 +2454,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "aa9003ac-1e1e-45f9-9d2c-e7113f93add4",
       "username": "beautifulpanda184",
       "password": "software",
-      "salt": "nWITv8eD",
+      "role": "nWITv8eD",
       "md5": "84606d846e1b83b27101bbb1f4f0c88a",
       "sha1": "8ad1163c504554563e1d271f549f588c4a9bff0b",
       "sha256":
@@ -2490,7 +2489,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "370ee18e-a9d3-4aa9-890d-2c083edced4d",
       "username": "beautifulpeacock584",
       "password": "aaaa",
-      "salt": "Ft0vL7iE",
+      "role": "Ft0vL7iE",
       "md5": "7a1bd6216c6b39ce78dd2bab200b37ba",
       "sha1": "7fb0795e6479080bdcdf7143f246ad5022ab74a2",
       "sha256":
@@ -2528,7 +2527,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "0c83586b-fb9f-4dd0-887f-c8e49d6b2c28",
       "username": "bluesnake175",
       "password": "felix1",
-      "salt": "i8f3ZSJr",
+      "role": "i8f3ZSJr",
       "md5": "ee1390ac9158536d42951d629bc33c19",
       "sha1": "a7d250090a1d28052057896522c9b62632c5a19e",
       "sha256":
@@ -2566,7 +2565,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "3443bc83-bb5c-48cc-988c-71b3a387a11d",
       "username": "crazyostrich506",
       "password": "120676",
-      "salt": "s03q5Hei",
+      "role": "s03q5Hei",
       "md5": "cfa3aa728c6763ed790b05333941a7e8",
       "sha1": "ecf33753c1f6351f8be48ca7824cc2a78ea78fe0",
       "sha256":
@@ -2601,7 +2600,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "9eeec222-f72f-4410-9387-d87ff8f557c1",
       "username": "yellowelephant898",
       "password": "britney",
-      "salt": "nUqCYPKQ",
+      "role": "nUqCYPKQ",
       "md5": "b0b8eb400f18d20b431b9854bd3e4854",
       "sha1": "d750f9678343a9ea6a0a5912d3944112be5aec10",
       "sha256":
@@ -2636,7 +2635,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "64b30df1-cee9-4a62-83d2-ff1ef0182806",
       "username": "bigmeercat225",
       "password": "lakeside",
-      "salt": "mBoJSvkZ",
+      "role": "mBoJSvkZ",
       "md5": "192b7c5affef709be526b6bc35652e55",
       "sha1": "5a1bd5069093937fcb1b574d599e267a8994d3b0",
       "sha256":
@@ -2671,7 +2670,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "35289e45-787b-4ffc-aba6-71eb91a150c0",
       "username": "bluefrog238",
       "password": "carmel",
-      "salt": "merXf6be",
+      "role": "merXf6be",
       "md5": "cc149532ac755e10e820113c10d64f4b",
       "sha1": "464e597e6d553b8d0421a28b812563331dd6bfde",
       "sha256":
@@ -2709,7 +2708,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "9991b7a2-638b-4b5b-9af0-c8746af077fe",
       "username": "happyladybug238",
       "password": "goober",
-      "salt": "31ZiHVgh",
+      "role": "31ZiHVgh",
       "md5": "b5166d2b131d314569c968db28bb521e",
       "sha1": "82f669b17efd66cfe56491b0db3ee65dfaff6cd5",
       "sha256":
@@ -2744,7 +2743,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "4b6b8635-e95a-4853-b3b5-4a3527a5297b",
       "username": "greenrabbit623",
       "password": "fortress",
-      "salt": "tA4i8TGe",
+      "role": "tA4i8TGe",
       "md5": "28736220018b7842b9cc894151703a1e",
       "sha1": "d569d93f53f42a3768170dd81c97cef2dc9202b3",
       "sha256":
@@ -2779,7 +2778,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "b505b49f-1b67-43f7-b4ce-26288c3e7aba",
       "username": "happyduck696",
       "password": "grease",
-      "salt": "xgLEQIfR",
+      "role": "xgLEQIfR",
       "md5": "00a35c30b69c9d64243ae2a9d32914b2",
       "sha1": "5e5b06f6b4dea9dc57618a4821f4fb7d09ae6976",
       "sha256":
@@ -2817,7 +2816,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "3f3eb372-f8c4-4745-a4bb-b72605011071",
       "username": "heavycat159",
       "password": "five",
-      "salt": "iFU9PgWz",
+      "role": "iFU9PgWz",
       "md5": "6c11f30dcd659358ccb18498536ca178",
       "sha1": "fc386b6a4f734745dc563290d766cc28ecdeaad7",
       "sha256":
@@ -2852,7 +2851,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "fa25c51d-6b14-44cc-af48-65d6683b37d5",
       "username": "purpleleopard972",
       "password": "busty",
-      "salt": "qHhRFkMk",
+      "role": "qHhRFkMk",
       "md5": "4dfe59738cd4ea58e8babac5691f7980",
       "sha1": "4aeb91ea202873a9b89a8c56ac6fbe7699fd818c",
       "sha256":
@@ -2890,7 +2889,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "549f4c0f-225e-46bb-93a8-ded436a99cc4",
       "username": "organicduck439",
       "password": "benny1",
-      "salt": "FEfpk7nJ",
+      "role": "FEfpk7nJ",
       "md5": "db810b1442b1ce6b21d855fbb53d9da7",
       "sha1": "dd1c62a0c309629d5b83fc72ad1d6cbadb68b66e",
       "sha256":
@@ -2925,7 +2924,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "21efbcc3-f66c-4314-802c-03f46e8512ff",
       "username": "beautifulfish997",
       "password": "1975",
-      "salt": "MoGHxX0E",
+      "role": "MoGHxX0E",
       "md5": "1478f4871c21046b4971c9fdac6e9052",
       "sha1": "a4923dc4afbb4143a7060db63eb529979a1b846f",
       "sha256":
@@ -2963,7 +2962,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7ab568bd-fed6-4d75-a715-3868838a7f5b",
       "username": "lazymeercat883",
       "password": "chilli",
-      "salt": "IBRRL0PW",
+      "role": "IBRRL0PW",
       "md5": "29ca64c7c79bdf49d14edc3cb17cb1c0",
       "sha1": "6a743d9a9f96f8a96019a97e5109376ae02f29af",
       "sha256":
@@ -3001,7 +3000,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "b6d96bb8-2a91-4cd7-8872-d5c28574ebd7",
       "username": "blueleopard263",
       "password": "2323",
-      "salt": "Tfk1quro",
+      "role": "Tfk1quro",
       "md5": "be05c7d3598a5222b4ef7d62aaa5b465",
       "sha1": "082c28aa7a84ed2b4f6334679d680607034c6140",
       "sha256":
@@ -3039,7 +3038,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "0a3598a2-e178-4552-ae24-1c58323a073f",
       "username": "purplebutterfly279",
       "password": "packer",
-      "salt": "3ns1T7kN",
+      "role": "3ns1T7kN",
       "md5": "a8518ee0513581b1aa1a9a520a72ca1d",
       "sha1": "3aa0aec131122e29d0142fdde9b4ce6efca7e9cc",
       "sha256":
@@ -3077,7 +3076,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "828bae3a-9ff5-42f5-a4d5-021b4a6d0a50",
       "username": "organicelephant328",
       "password": "radar",
-      "salt": "Pr4vnvNu",
+      "role": "Pr4vnvNu",
       "md5": "c6e9587d16a59899607719e6111b3a6d",
       "sha1": "28f13cc6693f38a20902b4e41d1cc0e7bafc9051",
       "sha256":
@@ -3112,7 +3111,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "afda3923-ae9a-421c-bfab-ed158ab57e16",
       "username": "ticklishwolf644",
       "password": "camero",
-      "salt": "IERw21zp",
+      "role": "IERw21zp",
       "md5": "16984af866e0ef6f2f64aab6978ed539",
       "sha1": "f87045b69e66054cf072dbc25ca9598ce813f5e7",
       "sha256":
@@ -3147,7 +3146,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "c994c0e4-f6ec-4adf-9591-0ae578962fd9",
       "username": "greentiger815",
       "password": "donnie",
-      "salt": "Sl0FPseS",
+      "role": "Sl0FPseS",
       "md5": "546a0c05b5ce69bf23fff552d56693a7",
       "sha1": "5dcb23b2d75fe924a9a9e8b0997cc9d627bfb1e8",
       "sha256":
@@ -3182,7 +3181,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "f174262f-eb9b-40d1-a75b-b89f7cccdcf3",
       "username": "greenswan825",
       "password": "byteme",
-      "salt": "F5ZqwCTo",
+      "role": "F5ZqwCTo",
       "md5": "d1c30c4c1ea1082130fa4b089ac69829",
       "sha1": "094379f19cdca261f1a44bc48c97aa441b57c8d1",
       "sha256":
@@ -3220,7 +3219,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "52ddabbb-d179-4490-8cac-5963c8138d5f",
       "username": "crazybird646",
       "password": "iawgk2",
-      "salt": "4slwhh8u",
+      "role": "4slwhh8u",
       "md5": "e6c50b9d81bb20cfe8fe63a71d0380bd",
       "sha1": "7dc7eabd36b3038b8ae4def35387570309754bfb",
       "sha256":
@@ -3258,7 +3257,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "e2f36a4f-32dd-4eba-8059-cfbed7ab90fe",
       "username": "blackpeacock504",
       "password": "police",
-      "salt": "u4E8Krw1",
+      "role": "u4E8Krw1",
       "md5": "5fbde8eb8f71f42bb456a4028b3feb37",
       "sha1": "ca3493d147be9ec0a809d5a18d538c3e9e0d4f69",
       "sha256":
@@ -3293,7 +3292,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "e186d0c6-6792-490f-a06a-c9ed2f5c6ca0",
       "username": "smallfrog211",
       "password": "smooth",
-      "salt": "s6lWZ7lT",
+      "role": "s6lWZ7lT",
       "md5": "a2336439d6eac4d6fb36aebcf244b1aa",
       "sha1": "61e1c57552249ada1709e1361207f3c71bd09743",
       "sha256":
@@ -3328,7 +3327,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "be1ea95a-263e-4012-84a8-4ce657b26559",
       "username": "heavyelephant862",
       "password": "disney",
-      "salt": "wff0opv2",
+      "role": "wff0opv2",
       "md5": "bcac79744ca5d19eb1917c8ce5dc2bfb",
       "sha1": "399c879905c1b44f279cb156e207d358386edb15",
       "sha256":
@@ -3363,7 +3362,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "235babca-0f34-473f-ae6b-98ce32fa77ee",
       "username": "sadpanda113",
       "password": "fowler",
-      "salt": "PfCqZ9FH",
+      "role": "PfCqZ9FH",
       "md5": "3ff996a392100a0d8302c12163391e8f",
       "sha1": "d0840c3899e517fc810559c772d6a7b2cd104d7c",
       "sha256":
@@ -3401,7 +3400,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "0b957b70-5d62-4459-936e-7895a03819a3",
       "username": "heavysnake596",
       "password": "highland",
-      "salt": "98mvqWxv",
+      "role": "98mvqWxv",
       "md5": "01e80d9a7c699cabaa7eaf25379bee3d",
       "sha1": "b0f8420983fb4ae2ae7edcf2aee34e38190e1cc3",
       "sha256":
@@ -3439,7 +3438,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "09b6af30-28af-42bb-84db-72247a7bdf74",
       "username": "beautifulbird358",
       "password": "fullmoon",
-      "salt": "bJUtLAjr",
+      "role": "bJUtLAjr",
       "md5": "53c174b365890cccbcf28a162953b252",
       "sha1": "2775fce0661ea345fb87279f1a17b8fb2b70c7a6",
       "sha256":
@@ -3474,7 +3473,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "a6708539-664c-41d3-a9d6-2b1a86c2367a",
       "username": "crazyfish960",
       "password": "callie",
-      "salt": "msqXy9lf",
+      "role": "msqXy9lf",
       "md5": "b5c33361cc4fd4b8e8de438980e8f187",
       "sha1": "5dfc2bbfb0d38ef38ac1b7091e70f56472ee90af",
       "sha256":
@@ -3509,7 +3508,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7bb11162-14b0-48c2-b947-c64879007207",
       "username": "smallelephant445",
       "password": "costello",
-      "salt": "p2dwPxUQ",
+      "role": "p2dwPxUQ",
       "md5": "02e77f1cd2dcf203619bbb4390db78f9",
       "sha1": "f6e29f5075f04a48fd19ea8ba03336357252a617",
       "sha256":
@@ -3547,7 +3546,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "53febe2c-7c01-4182-8726-cec879f6a9e1",
       "username": "angryduck731",
       "password": "farmer",
-      "salt": "fNTyEwLT",
+      "role": "fNTyEwLT",
       "md5": "03610e2f61b97898a6f065ea53cac4ac",
       "sha1": "c0eb541579f3a82dfa2665ec929b011259fcedbb",
       "sha256":
@@ -3585,7 +3584,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "94727b70-0ffd-4b7d-a3f8-65be1374ee56",
       "username": "heavyleopard544",
       "password": "maserati",
-      "salt": "5nn4y2L9",
+      "role": "5nn4y2L9",
       "md5": "7b869530db6adf52f4b9f1948b0a67e3",
       "sha1": "3a8140637d5da1ce4dbc88240b42da8b54f32c4e",
       "sha256":
@@ -3620,7 +3619,7 @@ List<Map<String, dynamic>> users = [
       "uuid": "7f4f1ef1-8409-4a00-9266-55d355c14dc3",
       "username": "purplegoose696",
       "password": "wildwood",
-      "salt": "5ZH6cgor",
+      "role": "5ZH6cgor",
       "md5": "0fdaf81e54b73f67697f5496160c231a",
       "sha1": "704ffbcb21a435baa17aaad5e609a88429f150aa",
       "sha256":

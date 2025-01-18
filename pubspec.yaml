@@ -23,6 +23,9 @@ dependencies:
   cupertino_icons: ^1.0.2  
   shared_preferences: ^2.3.2
   provider: ^6.1.2
+  dio: ^5.1.2
+  dart_jsonwebtoken: ^2.14.2
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +53,8 @@ flutter:
   assets:
     - assets/loading.gif
     - assets/images/
-    - assets/avatars/    
+    - assets/avatars/
+    - .env    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

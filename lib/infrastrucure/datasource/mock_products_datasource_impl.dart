@@ -5,22 +5,22 @@ import 'package:flutter_application_base/mocks/products.mock.dart';
 
 class MockProductsDatasourceImpl implements ProductsDatasource {
   @override
-  Future<ProductsEntity> getProduct(int id) async {
+  Future<ProductEntity> getProduct(int id) async {
     //simuación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
     final productos = getProducts();
-    final ProductsEntity producto =
+    final ProductEntity producto =
         (await productos).firstWhere((producto) => producto.id == id);
 
     return producto;
   }
 
   @override
-  Future<List<ProductsEntity>> getProducts() async {
+  Future<List<ProductEntity>> getProducts() async {
     //simuación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
-    final List<ProductsEntity> productsList = products
-        .map((product) => ProductsModel.fromJson(product).toProductsEntity())
+    final List<ProductEntity> productsList = products
+        .map((product) => ProductModel.fromJson(product).toProductEntity())
         .toList();
 
     return productsList;

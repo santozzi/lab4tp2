@@ -3,7 +3,7 @@ import 'package:flutter_application_base/presentation/screens/products/product_s
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 
 class ProductsCard extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const ProductsCard({super.key, required this.product});
 

@@ -1,4 +1,4 @@
-import 'package:flutter_application_base/domain/entities/user_preferences.dart';
+import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
 
 abstract class UserPreferencesRepository {
   Future<UserPreferences> getUserPreferences(String id);

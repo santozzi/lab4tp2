@@ -1,6 +1,6 @@
-import 'package:flutter_application_base/domain/datasource/user_datasource.dart';
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
-import 'package:flutter_application_base/domain/repositories/user_repository.dart';
+import 'package:flutter_application_base/domain/datasource/user/user_datasource.dart';
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
+import 'package:flutter_application_base/domain/repositories/user/user_repository.dart';
 
 class UserRepositoryImp implements UserRepository {
   final UserDatasource userDatasource;
@@ -23,7 +23,7 @@ class UserRepositoryImp implements UserRepository {
   }
 
   @override
-  Future<bool> login(String username, String password) async {
+  Future<String> login(String username, String password) async {
     return await userDatasource.login(username, password);
   }
 }

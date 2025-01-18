@@ -69,11 +69,14 @@ class _HomeScreenState extends State<LoginScreen> {
                             height: 20,
                           ),
                           ElevatedButton(
-                            onPressed: () async {
-                              log('usuarios:   $_username, password: $_password');
-                              final loged = await userprovider.login(
-                                  _username, _password);
-                              log('loged: $loged');
+                            onPressed: () {
+                              userprovider
+                                  .login(_username, _password)
+                                  .then((value) {
+                                userPreferencesProvider
+                                    .setPreferencesById(value.id);
+                              });
+
                               Navigator.pushNamed(context, 'home');
                             },
                             child: const Text('Login'),

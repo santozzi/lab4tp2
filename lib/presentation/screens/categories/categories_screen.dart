@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/categories_entity.dart';
+import 'package:flutter_application_base/domain/entities/category_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/categories_provider.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
@@ -17,10 +17,10 @@ class CategoriesScreen extends StatelessWidget {
 
     // Obtener las categorías desde el CategoriesProvider
     categoryprovider.getCategories();
-    final List<CategoriesEntity> categories = categoryprovider.categories;
+    final List<CategoryEntity> categories = categoryprovider.categories;
 
     // Obtener los productos desde el ProductsProvider
-    final List<ProductsEntity> allProducts = productsprovider.products;
+    final List<ProductEntity> allProducts = productsprovider.products;
 
     return Scaffold(
       appBar: AppBar(

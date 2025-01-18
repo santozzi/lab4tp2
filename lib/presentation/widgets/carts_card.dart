@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/screens/carts/cart_screen.dart';
 // import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 // import 'package:flutter_application_base/domain/entities/user_entity.dart';
-import 'package:flutter_application_base/domain/entities/carts_entity.dart';
+import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
 // import 'package:provider/provider.dart';
 
 class CartsCard extends StatelessWidget {
-  final CartsEntity cart;
+  final CartEntity cart;
 
   const CartsCard({super.key, required this.cart});
 
@@ -20,7 +20,7 @@ class CartsCard extends StatelessWidget {
     // UserEntity cartUser;
     // cartUser = userProvider.user;
 
-     return Container(
+    return Container(
       padding: const EdgeInsets.all(30),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -42,32 +42,32 @@ class CartsCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                    Text(
-                      'Carrito: ${cart.id}',
-                      style: const TextStyle(fontSize: 14),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Usuario: ${cart.userId}',
-                      style: const TextStyle(fontSize: 14),
-                    ),
-                    const SizedBox(height: 10),
-                    ],
+                Text(
+                  'Carrito: ${cart.id}',
+                  style: const TextStyle(fontSize: 14),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'Usuario: ${cart.userId}',
+                  style: const TextStyle(fontSize: 14),
+                ),
+                const SizedBox(height: 10),
+              ],
             ),
           ),
-          
+
           const SizedBox(width: 10),
           // Right Column (Products.lenght, Date)
           Column(
             children: [
               Text(
                 'Productos: ${cart.products.length}',
-                 style: const TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14),
               ),
               const SizedBox(height: 10),
               Text(
                 'Fecha: ${cart.date}',
-                 style: const TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12),
               ),
               const SizedBox(height: 10),
               ElevatedButton(

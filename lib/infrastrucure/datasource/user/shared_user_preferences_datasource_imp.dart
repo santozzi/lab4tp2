@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:flutter_application_base/domain/datasource/user_preferences_datasource.dart';
-import 'package:flutter_application_base/domain/entities/user_preferences.dart';
+import 'package:flutter_application_base/domain/datasource/user/user_preferences_datasource.dart';
+import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
 import 'package:flutter_application_base/infrastrucure/models/user_list_preferences_model.dart';
 import 'package:flutter_application_base/infrastrucure/models/user_preference_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';

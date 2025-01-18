@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/categories_entity.dart';
+import 'package:flutter_application_base/domain/entities/category_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
-  final CategoriesEntity category;
-  final List<ProductsEntity> products;
+  final CategoryEntity category;
+  final List<ProductEntity> products;
 
   const CategoryScreen({
     super.key,
@@ -27,7 +27,7 @@ class CategoryScreen extends StatelessWidget {
     }
 
     // Filtramos los productos por el nombre de la categoría.
-    List<ProductsEntity> categoryProducts;
+    List<ProductEntity> categoryProducts;
     categoryProducts = productProvider.products
         .where((product) => product.category == category.name)
         .toList();

@@ -1,12 +1,17 @@
 import 'dart:developer';
 
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
+import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
+import 'package:flutter_application_base/infrastrucure/datasource/api/user_datasource_imp.dart';
+import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
 
-import '../../domain/repositories/user_repository.dart';
+import '../../domain/repositories/user/user_repository.dart';
 
 UserEntity userDefault = UserEntity(
-  id: '0',
+  id: "0",
   username: 'username',
   password: 'password',
   name: 'name',
@@ -29,7 +34,11 @@ class UsersProvider extends ChangeNotifier {
   UsersProvider({required this.usuarioRepository});
 
   Future<void> getUsers() async {
-    users = await usuarioRepository.getUsers();
+    try {
+      users = await usuarioRepository.getUsers();
+    } catch (e) {
+      log(e.toString());
+    }
 
     notifyListeners();
   }
@@ -45,16 +54,50 @@ class UsersProvider extends ChangeNotifier {
     return user;
   }
 
-  Future<bool> login(String username, String password) async {
-    loged = await usuarioRepository.login(username, password);
-    await getUserByUsername(username);
+  Future<UserEntity> login(String username, String password) async {
+    final TokenPreferencesRepository tokenPreferencesRepository =
+        TokenRepositoryImp(
+            tokenDatasource: SharedTokenPreferencesDatasourceImp());
+
+    final token = await usuarioRepository.login(username, password);
+    // await getUserByUsername(username);
+
+    final jwt = JWT.decode(token);
+    final payload = jwt.payload;
+    await tokenPreferencesRepository.setTokenPreferences(token);
+
+    user = await usuarioRepository.getUser("${payload["id"]}");
+
+    loged = token != "";
     notifyListeners();
-    return loged;
+    return user;
+  }
+
+  Future<UserEntity> isLogged() async {
+    final TokenPreferencesRepository tokenPreferencesRepository =
+        TokenRepositoryImp(
+            tokenDatasource: SharedTokenPreferencesDatasourceImp());
+    final token = await tokenPreferencesRepository.getTokenPreferences();
+
+    if (token != "") {
+      final jwt = JWT.decode(token);
+      final payload = jwt.payload;
+
+      user = await usuarioRepository.getUser("${payload["id"]}");
+      loged = true;
+    }
+    //notifyListeners();
+
+    return user;
   }
 
   Future<void> logout() async {
     loged = false;
     user = userDefault;
+    final TokenPreferencesRepository tokenPreferencesRepository =
+        TokenRepositoryImp(
+            tokenDatasource: SharedTokenPreferencesDatasourceImp());
+    await tokenPreferencesRepository.deleteTokenPreferences();
     notifyListeners();
   }
 }

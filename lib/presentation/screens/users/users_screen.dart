@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
-import 'package:flutter_application_base/domain/entities/user_preferences.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/shared_user_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
+import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
+import 'package:flutter_application_base/infrastrucure/datasource/user/shared_user_preferences_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/repositories/shared_user_preferences_repository.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
@@ -44,6 +44,10 @@ class UsersScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(500),
                 child: FadeInImage(
                     placeholder: const AssetImage('assets/loading.gif'),
+                    imageErrorBuilder: (context, error, stackTrace) =>
+                        const Image(
+                            image: AssetImage(
+                                'assets/images/avatar_not_found.png')),
                     image: NetworkImage(usuarios[index].avatar)),
               ),
               title: Text(usuarios[index].name),

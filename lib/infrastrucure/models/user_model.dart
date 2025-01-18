@@ -1,4 +1,6 @@
-import 'package:flutter_application_base/domain/entities/user_entity.dart';
+import 'dart:developer';
+
+import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 
 class UserModel {
   final String id;
@@ -36,7 +38,7 @@ class UserModel {
       username: json['login']['username'],
       password: json['login']['password'],
       name: '${json['name']['first']} ${json['name']['last']}',
-      role: json['login']['salt'],
+      role: json['login']['role'],
       avatar: json['picture']['large'],
       gender: json['gender'],
       country: json['location']['country'],

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
@@ -13,9 +15,10 @@ class DrawerMenu extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
+
     final List<Map<String, String>> menuItems = <Map<String, String>>[
       {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
-      if (userProvider.loged && userProvider.user.role == 'admin')
+      if (userProvider.loged)
         {
           'route': 'users',
           'title': 'Usuarios',
@@ -50,7 +53,7 @@ class DrawerMenu extends StatelessWidget {
             : 'Ingrese al sistema'
       },
     ];
-
+    log("en drawer_menu.dart: ${userProvider.loged} y ${userProvider.user.role}");
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
