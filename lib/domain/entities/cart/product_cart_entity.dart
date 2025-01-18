@@ -1,5 +1,5 @@
 class ProductCartEntity {
-  int productId;
+  String productId;
   int quantity;
 
   ProductCartEntity({

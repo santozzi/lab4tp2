@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
+import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/cart_icon.dart';
 import 'package:flutter_application_base/presentation/widgets/products_card.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +23,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     final productProvider = context.watch<ProductsProvider>();
+    final cartprovider = context.watch<CartsProvider>();
     final colors = Theme.of(context).colorScheme;
 
     productProvider.getProducts(); // Obtener todos los productos.
@@ -67,6 +72,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          CartIcon(number: cartprovider.quantity),
+        ],
       ),
       body: Center(
         child: filteredProducts.isEmpty

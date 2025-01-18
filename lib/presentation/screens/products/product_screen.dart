@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
-import 'package:flutter_application_base/presentation/widgets/image_carousel.dart'; // Importa el widget reutilizable
+import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/cart_icon.dart';
+import 'package:flutter_application_base/presentation/widgets/image_carousel.dart';
+import 'package:provider/provider.dart'; // Importa el widget reutilizable
 
 class ProductScreen extends StatelessWidget {
   final ProductEntity product;
@@ -13,11 +17,14 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
+    final cartprovider = context.watch<CartsProvider>();
     return Scaffold(
       appBar: AppBar(
         title: Text(product.title),
         backgroundColor: colors.primary,
+        actions: [
+          CartIcon(number: cartprovider.quantity),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -54,6 +61,12 @@ class ProductScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          cartprovider.addProduct(
+                            ProductCartEntity(
+                              productId: product.id,
+                              quantity: 1,
+                            ),
+                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content:

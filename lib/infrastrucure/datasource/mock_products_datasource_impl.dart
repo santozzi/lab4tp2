@@ -5,7 +5,7 @@ import 'package:flutter_application_base/mocks/products.mock.dart';
 
 class MockProductsDatasourceImpl implements ProductsDatasource {
   @override
-  Future<ProductEntity> getProduct(int id) async {
+  Future<ProductEntity> getProduct(String id) async {
     //simuación de peticion a la api
     // await Future.delayed(const Duration(seconds: 2));
     final productos = getProducts();

@@ -24,7 +24,7 @@ class ProductDatasoureceImp implements ProductsDatasource {
   ProductDatasoureceImp();
 
   @override
-  Future<ProductEntity> getProduct(int id) async {
+  Future<ProductEntity> getProduct(String id) async {
     try {
       final response = await dio.get("/products/$id");
       final dato = await response.data;

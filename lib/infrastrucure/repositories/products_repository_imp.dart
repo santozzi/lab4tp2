@@ -8,7 +8,7 @@ class ProductsRepositoryImp implements ProductsRepository {
   ProductsRepositoryImp({required this.productsDatasource});
 
   @override
-  Future<ProductEntity> getProduct(int id) {
+  Future<ProductEntity> getProduct(String id) {
     // TODO: implement getProduct
     return productsDatasource.getProduct(id);
   }

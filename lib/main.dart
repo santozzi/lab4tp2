@@ -1,28 +1,19 @@
 // Falta actualizar carts en presentation
 import 'dart:developer';
-import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
-
 import 'package:flutter/material.dart';
 //Themes
 import 'package:flutter_application_base/config/theme/index_themes.dart';
-import 'package:flutter_application_base/domain/datasource/token_preferences_datasource.dart';
-import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
-import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
-
 //Domains
 import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
 import 'package:flutter_application_base/domain/repositories/repositories.dart';
-import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/api/categories_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/api/product_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/shared_cart_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
 import 'package:flutter_application_base/infrastrucure/datasource/api/user_datasource_imp.dart';
 //Infrastructures
 import 'package:flutter_application_base/infrastrucure/datasource/datasources.dart';
-
 import 'package:flutter_application_base/infrastrucure/repositories/repositories.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
+
 //Presentations
 import 'package:flutter_application_base/presentation/providers/providers.dart';
 import 'package:flutter_application_base/presentation/screens/screens.dart';
@@ -80,7 +71,9 @@ class MyApp extends StatelessWidget {
             create: (_) => UserPreferencesProvider(
                 userPreferencesRepository: userPreferencesRepository)),
         ChangeNotifierProvider(
-            create: (_) => CartsProvider(cartsRepository: cartsRepository)),
+            create: (_) => CartsProvider(
+                cartsRepository: cartsRepository,
+                productsRepository: productsRepository)),
         ChangeNotifierProvider(
             create: (_) =>
                 CategoriesProvider(categoriesRepository: categoriesRepository)),
@@ -98,33 +91,21 @@ class App extends StatelessWidget {
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
     final UsersProvider usersProvider = Provider.of<UsersProvider>(context);
-    //SharedUserPreferencesDatasourceImp sharedUserPreferencesDatasourceImp =
-    //   SharedUserPreferencesDatasourceImp();
-
-    usersProvider.isLogged().then((value) {
-      log("en app: ${value.username}");
-      userPreferencesProvider
-          .setPreferencesByIdWithoutNotify(usersProvider.user.id)
-          .then((c) {
-        if (!userPreferencesProvider.entre) {
+    final cartprovider = context.watch<CartsProvider>();
+    if (!userPreferencesProvider.entre) {
+      usersProvider.isLogged().then((value) async {
+        log("en app2: ${value.username}");
+        final userId = usersProvider.user.id;
+        await cartprovider.getCart(userId);
+        await cartprovider.getProducts();
+        userPreferencesProvider
+            .setPreferencesByIdWithoutNotify(userId)
+            .then((c) {
           userPreferencesProvider.notificar();
           userPreferencesProvider.entre = true;
-        }
-      });
-    });
-    if (usersProvider.loged) {
-      userPreferencesProvider
-          .setPreferencesByIdWithoutNotify(usersProvider.user.id)
-          .then((c) {
-        if (!userPreferencesProvider.entre) {
-          userPreferencesProvider.notificar();
-          userPreferencesProvider.entre = true;
-        }
+        });
       });
     }
-    log("valor de entre: ${userPreferencesProvider.entre}");
-
-    //sharedUserPreferencesDatasourceImp.toString2();
 
     UserPreferences userPreferences = userPreferencesProvider.getPreferences();
 
@@ -143,10 +124,9 @@ class App extends StatelessWidget {
           'categories': (context) => const CategoriesScreen(),
           'login': (context) => const LoginScreen(),
           'profile': (context) => const ProfileScreen(),
-          'carts': (context) => const CartsScreen(),
+          'carts': (context) => const CartScreen(),
         }
         /* home: DesignScreen(), */
         );
-    ;
   }
 }

@@ -7,7 +7,7 @@ class ProductsProvider extends ChangeNotifier {
   final ProductsRepository productsRepository;
   List<ProductEntity> products = [];
   ProductEntity product = ProductEntity(
-      id: 0,
+      id: "0",
       title: '',
       price: 0.0,
       description: '',
@@ -22,10 +22,11 @@ class ProductsProvider extends ChangeNotifier {
     //notifyListeners();
   }
 
-  Future<void> getProduct(int id) async {
+  Future<ProductEntity> getProduct(String id) async {
     product = await productsRepository.getProduct(id);
 
     notifyListeners();
+    return product;
   }
 
   // Filtra los productos por categoría
@@ -37,7 +38,7 @@ class ProductsProvider extends ChangeNotifier {
 
   // Filtra los productos según las IDs del carrito
   List<ProductEntity> getProductsByCart(CartEntity cart) {
-    List<int> cartProductIds =
+    List<String> cartProductIds =
         cart.products.map((product) => product.productId).toList();
     return products
         .where((product) => cartProductIds.contains(product.id))

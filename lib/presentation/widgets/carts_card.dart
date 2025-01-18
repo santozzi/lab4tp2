@@ -21,72 +21,28 @@ class CartsCard extends StatelessWidget {
     // cartUser = userProvider.user;
 
     return Container(
-      padding: const EdgeInsets.all(30),
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: colors.primaryContainer,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: colors.primary.withOpacity(0.5),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
-          ]),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Left Column (Id, UserId)
-          Expanded(
-            flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Carrito: ${cart.id}',
-                  style: const TextStyle(fontSize: 14),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  'Usuario: ${cart.userId}',
-                  style: const TextStyle(fontSize: 14),
-                ),
-                const SizedBox(height: 10),
-              ],
-            ),
-          ),
-
-          const SizedBox(width: 10),
-          // Right Column (Products.lenght, Date)
-          Column(
-            children: [
-              Text(
-                'Productos: ${cart.products.length}',
-                style: const TextStyle(fontSize: 14),
+        padding: const EdgeInsets.all(30),
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: colors.primaryContainer,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: colors.primary.withOpacity(0.5),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
               ),
-              const SizedBox(height: 10),
-              Text(
-                'Fecha: ${cart.date}',
-                style: const TextStyle(fontSize: 12),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CartScreen(
-                        cart: cart,
-                      ),
-                    ),
-                  );
-                },
-                child: const Text('Ver Carrito'),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+            ]),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Left Column (Id, UserId)
+            Expanded(
+                flex: 2,
+                child: CartScreen(
+                  cart: cart,
+                )),
+          ],
+        ));
   }
 }

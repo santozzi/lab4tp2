@@ -155,10 +155,10 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
       ProductCartEntity product = products.firstWhere(
           (producto) => producto.productId == productCartEntity.productId,
           orElse: () {
-        return ProductCartEntity(productId: 0, quantity: 0);
+        return ProductCartEntity(productId: "0", quantity: 0);
       });
 
-      if (product.productId == 0) {
+      if (product.productId == "0") {
         products.add(productCartEntity);
       } else {
         product.quantity = product.quantity + productCartEntity.quantity;

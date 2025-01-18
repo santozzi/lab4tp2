@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 
 class ProductModel {
-  final int id;
+  final String id;
   final String title;
   final double price;
   final String description;
@@ -33,7 +33,7 @@ class ProductModel {
     }
 
     return ProductModel(
-        id: json['id'],
+        id: "${json['id']}",
         title: json['title'],
         price: (json['price'] as num).toDouble(),
         description: json['description'],
