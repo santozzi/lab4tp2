@@ -1,10 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
-
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
-
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:flutter_application_base/presentation/widgets/user_card.dart';
 import 'package:provider/provider.dart';
 
@@ -28,13 +26,8 @@ class UserScreen extends StatelessWidget {
         title: const Text('User Screen'),
 
         //boton de regreso
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
+      drawer: const DrawerMenu(),
       body: Center(
         child: UserCard(
             id: userSelected.id,

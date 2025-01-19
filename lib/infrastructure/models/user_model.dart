@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 
 class UserModel {

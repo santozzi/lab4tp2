@@ -9,13 +9,11 @@ class ProductsRepositoryImp implements ProductsRepository {
 
   @override
   Future<ProductEntity> getProduct(String id) {
-    // TODO: implement getProduct
     return productsDatasource.getProduct(id);
   }
 
   @override
   Future<List<ProductEntity>> getProducts() {
-    // TODO: implement getProducts
     return productsDatasource.getProducts();
   }
 }

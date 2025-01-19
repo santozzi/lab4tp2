@@ -7,8 +7,6 @@ import 'package:flutter_application_base/domain/entities/product_cart_entity.dar
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/domain/repositories/repositories.dart';
 
-import '../../domain/repositories/cart/carts_repository.dart';
-
 class CartsProvider extends ChangeNotifier {
   final CartsRepository cartsRepository;
   final ProductsRepository productsRepository;
@@ -20,12 +18,6 @@ class CartsProvider extends ChangeNotifier {
   CartsProvider(
       {required this.cartsRepository, required this.productsRepository});
 
-/*   Future<void> getCarts() async {
-    carts = await cartsRepository.getCarts();
-
-    notifyListeners();
-  } */
-
   Future<void> getCart(String id) async {
     cart = await cartsRepository.getCart(id);
 
@@ -33,15 +25,16 @@ class CartsProvider extends ChangeNotifier {
   }
 
   Future<void> addProduct(ProductCartEntity product) async {
-    log("Estoy en addProducto provider ${cart.id}");
     await cartsRepository.addCartProduct(cart.id, product);
+
     quantity += product.quantity;
     notifyListeners();
   }
 
   Future<List<ProductCartQEntity>> getProducts() async {
     total = 0;
-    quantity = 0;
+    int cantidad = 0;
+
     List<ProductCartQEntity> products = [];
     for (ProductCartEntity product in cart.products) {
       ProductEntity productEntity =
@@ -57,9 +50,27 @@ class CartsProvider extends ChangeNotifier {
           category: productEntity.category,
           quantity: product.quantity);
       total += productCartQEntity.subTotal;
-      quantity += product.quantity;
+      if (cart.userId != "0") {
+        cantidad += product.quantity;
+      }
+
       products.add(productCartQEntity);
     }
+    quantity = cantidad;
+
     return products;
+  }
+
+  int getQuantity() {
+    int cantidad = 0;
+
+    for (ProductCartEntity product in cart.products) {
+      if (cart.userId != "0") {
+        cantidad += product.quantity;
+      }
+    }
+    quantity = cantidad;
+    notifyListeners();
+    return quantity;
   }
 }

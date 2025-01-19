@@ -1,6 +1,6 @@
 import 'package:flutter_application_base/domain/datasource/products_datasource.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
-import 'package:flutter_application_base/infrastrucure/models/products_model.dart';
+import 'package:flutter_application_base/infrastructure/models/products_model.dart';
 import 'package:flutter_application_base/mocks/products.mock.dart';
 
 class MockProductsDatasourceImpl implements ProductsDatasource {

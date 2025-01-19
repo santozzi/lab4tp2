@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:flutter_application_base/presentation/widgets/user_card.dart';
 import 'package:provider/provider.dart';
 
@@ -14,13 +15,9 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: colors.primary,
         appBar: AppBar(
-            title: const Text('Perfil'),
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )),
+          title: const Text('Perfil'),
+        ),
+        drawer: const DrawerMenu(),
         body: Center(
             child: UserCard(
                 id: user.id,

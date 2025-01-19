@@ -6,13 +6,13 @@ import 'package:flutter_application_base/config/theme/index_themes.dart';
 //Domains
 import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
 import 'package:flutter_application_base/domain/repositories/repositories.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/api/categories_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/api/product_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/shared_cart_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/api/user_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/api/categories_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/api/product_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/shared_cart_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/api/user_datasource_imp.dart';
 //Infrastructures
-import 'package:flutter_application_base/infrastrucure/datasource/datasources.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/repositories.dart';
+import 'package:flutter_application_base/infrastructure/datasource/datasources.dart';
+import 'package:flutter_application_base/infrastructure/repositories/repositories.dart';
 
 //Presentations
 import 'package:flutter_application_base/presentation/providers/providers.dart';
@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
     final UserPreferencesRepository userPreferencesRepository =
         SharedUserPreferencesRepository(
             userPreferencesDataSource: SharedUserPreferencesDatasourceImp());
+
     final CartsRepository cartsRepository = CartsRepositoryImp(
         cartsDatasource: SharedCartPreferencesDatasourceImp());
 
@@ -49,12 +50,12 @@ class MyApp extends StatelessWidget {
 /*     cart.deleteCart("1").then((value) {
       log("en main: ");
     }); */
-/*     cart.getCart("2").then((value) {
+/*  cart.getCart("2").then((value) {
       //value.products.add(ProductCartEntity(productId: 1, quantity: 5));
       log("en main: agrego cart 2: value: ${value.toString()}");
-    });
-    cart.addCartProduct("2", ProductCartEntity(productId: 3, quantity: 5));
-    cart.getCarts().then((value) {
+    }); */
+
+/*     cart.getCarts().then((value) {
       log("en main: ${value.toString()}");
     }); */
 
@@ -94,10 +95,9 @@ class App extends StatelessWidget {
     final cartprovider = context.watch<CartsProvider>();
     if (!userPreferencesProvider.entre) {
       usersProvider.isLogged().then((value) async {
-        log("en app2: ${value.username}");
         final userId = usersProvider.user.id;
         await cartprovider.getCart(userId);
-        await cartprovider.getProducts();
+        cartprovider.getQuantity();
         userPreferencesProvider
             .setPreferencesByIdWithoutNotify(userId)
             .then((c) {

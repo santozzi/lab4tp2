@@ -1,0 +1,5 @@
+export 'package:flutter_application_base/infrastructure/repositories/products_repository_imp.dart';
+export 'package:flutter_application_base/infrastructure/repositories/shared_user_preferences_repository.dart';
+export 'package:flutter_application_base/infrastructure/repositories/user_repository_imp.dart';
+export 'package:flutter_application_base/infrastructure/repositories/carts_repository_imp.dart';
+export 'package:flutter_application_base/infrastructure/repositories/categories_repository_imp.dart';

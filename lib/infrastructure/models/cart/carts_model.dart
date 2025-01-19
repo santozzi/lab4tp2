@@ -1,6 +1,5 @@
 import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
-import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
-import 'package:flutter_application_base/infrastrucure/models/cart/product_cart_model.dart';
+import 'package:flutter_application_base/infrastructure/models/cart/product_cart_model.dart';
 
 class CartModel {
   final String id;

@@ -1,13 +1,13 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_application_base/config/env/connection_backend_config.dart';
 import 'package:flutter_application_base/domain/datasource/user/user_datasource.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_model.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/user/shared_token_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/models/user_model.dart';
+import 'package:flutter_application_base/infrastructure/repositories/token_repository_imp.dart';
 
 class UserDatasoureceImp implements UserDatasource {
   final Dio dio = Dio(
@@ -64,7 +64,6 @@ class UserDatasoureceImp implements UserDatasource {
         },
       );
       final datos = await response.data;
-      log(datos.toString());
 
       if (datos != null) {
         return datos.toString();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
+import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/cart_icon.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:flutter_application_base/presentation/widgets/products_card.dart';
 import 'package:provider/provider.dart';
 
@@ -22,17 +23,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget build(BuildContext context) {
     final productProvider = context.watch<ProductsProvider>();
     final cartprovider = context.watch<CartsProvider>();
+
+    final userProvider = context.watch<UsersProvider>();
     final colors = Theme.of(context).colorScheme;
-
-    // Obtener todos los productos.
-
-    // Filtrar los productos según la categoría y el término de búsqueda
-/*     List<ProductEntity> filteredProducts = productProvider.products
-        .where((product) =>
-            (widget.categoryName == null ||
-                product.category == widget.categoryName) &&
-            (product.title.toLowerCase().contains(searchQuery.toLowerCase())))
-        .toList(); */
 
     return Scaffold(
       appBar: AppBar(
@@ -64,16 +57,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
           cursorColor: Colors.white,
         ),
         backgroundColor: colors.primary,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         actions: [
-          CartIcon(number: cartprovider.quantity),
+          (userProvider.loged)
+              ? CartIcon(number: cartprovider.quantity)
+              : const SizedBox(),
         ],
       ),
+      drawer: const DrawerMenu(),
       body: FutureBuilder(
         future: productProvider.getFilteredProducts(
             widget.categoryName, searchQuery),

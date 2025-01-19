@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
@@ -34,11 +33,12 @@ class DrawerMenu extends StatelessWidget {
         'title': 'Listado de Categorias',
         'subtitle': 'Esta es la pantalla de Leonardo'
       },
-      {
-        'route': 'carts',
-        'title': 'Carros de Compra',
-        'subtitle': 'Tus carros y los de otros'
-      },
+      if (userProvider.loged)
+        {
+          'route': 'carts',
+          'title': 'Carros de Compra',
+          'subtitle': 'Tus carros y los de otros'
+        },
       if (userProvider.loged)
         {
           'route': 'profile',
@@ -53,7 +53,6 @@ class DrawerMenu extends StatelessWidget {
             : 'Ingrese al sistema'
       },
     ];
-    log("en drawer_menu.dart: ${userProvider.loged} y ${userProvider.user.role}");
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -81,7 +80,6 @@ class DrawerMenu extends StatelessWidget {
                             await userPreferencesProvider.changeEntre();
                           }
                           Navigator.pop(context);
-                          //Navigator.pushReplacementNamed(context, item['route']!);
                           Navigator.pushNamed(context, item['route']!);
                         },
                       ))

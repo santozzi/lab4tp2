@@ -27,8 +27,6 @@ class ProductsProvider extends ChangeNotifier {
       log("Error en getProducts provider: ${e.toString()}");
       return [];
     }
-
-    //notifyListeners();
   }
 
   Future<List<ProductEntity>> getFilteredProducts(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
 import 'package:flutter_application_base/domain/repositories/user/user_preferences_repository.dart';
-import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 
 class UserPreferencesProvider extends ChangeNotifier {
   final UserPreferencesRepository userPreferencesRepository;

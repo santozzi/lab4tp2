@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
+import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/cart_icon.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:flutter_application_base/presentation/widgets/image_carousel.dart';
 import 'package:provider/provider.dart'; // Importa el widget reutilizable
 
@@ -18,14 +20,18 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final cartprovider = context.watch<CartsProvider>();
+    final userProvider = context.watch<UsersProvider>();
     return Scaffold(
       appBar: AppBar(
         title: Text(product.title),
         backgroundColor: colors.primary,
         actions: [
-          CartIcon(number: cartprovider.quantity),
+          (userProvider.loged)
+              ? CartIcon(number: cartprovider.quantity)
+              : const SizedBox(),
         ],
       ),
+      drawer: const DrawerMenu(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,23 +65,25 @@ class ProductScreen extends StatelessWidget {
                           color: Colors.green,
                         ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          cartprovider.addProduct(
-                            ProductCartEntity(
-                              productId: product.id,
-                              quantity: 1,
-                            ),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Agregado al carrito: ${product.title}'),
-                            ),
-                          );
-                        },
-                        child: const Text('Agregar al carrito'),
-                      ),
+                      (userProvider.loged)
+                          ? ElevatedButton(
+                              onPressed: () async {
+                                await cartprovider.addProduct(
+                                  ProductCartEntity(
+                                    productId: product.id,
+                                    quantity: 1,
+                                  ),
+                                );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        'Agregado al carrito: ${product.title}'),
+                                  ),
+                                );
+                              },
+                              child: const Text('Agregar al carrito'),
+                            )
+                          : const Text('Inicia sesión para comprar'),
                     ],
                   ),
                   const SizedBox(height: 20),

@@ -17,7 +17,7 @@ class CartIcon extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             // Icono del carrito
-            Icon(
+            const Icon(
               Icons.shopping_cart,
               size: 30,
             ),
@@ -26,14 +26,14 @@ class CartIcon extends StatelessWidget {
                 right: 0,
                 top: 5,
                 child: Container(
-                  padding: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(4),
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                     shape: BoxShape.circle,
                   ),
                   child: Text(
                     '$number',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,

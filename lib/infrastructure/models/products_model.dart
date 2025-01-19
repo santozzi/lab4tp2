@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 
 class ProductModel {

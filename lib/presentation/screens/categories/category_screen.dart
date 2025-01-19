@@ -3,6 +3,7 @@ import 'package:flutter_application_base/domain/entities/category_entity.dart';
 import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/screens/products/products_screen.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -37,6 +38,7 @@ class CategoryScreen extends StatelessWidget {
         title: const Text('Categoría'),
         backgroundColor: colors.primary,
       ),
+      drawer: const DrawerMenu(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

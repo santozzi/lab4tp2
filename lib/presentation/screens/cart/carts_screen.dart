@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/product_cart_entity.dart';
 import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/cart_card.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -15,19 +16,14 @@ class CartScreen extends StatelessWidget {
         cartprovider.getProducts();
 
     final colors = Theme.of(context).colorScheme;
-    //cartprovider.getCarts();
+
     //final List<CartEntity> carts = cartprovider.carts;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Carrito'),
         backgroundColor: colors.primary,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
+      drawer: const DrawerMenu(),
       body: FutureBuilder<List<ProductCartQEntity>>(
         future: cartProducts,
         builder: (context, snapshot) {

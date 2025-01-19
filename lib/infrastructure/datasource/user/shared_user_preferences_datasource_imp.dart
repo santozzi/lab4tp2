@@ -3,15 +3,15 @@ import 'dart:developer';
 
 import 'package:flutter_application_base/domain/datasource/user/user_preferences_datasource.dart';
 import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_list_preferences_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_preference_model.dart';
+import 'package:flutter_application_base/infrastructure/models/user_list_preferences_model.dart';
+import 'package:flutter_application_base/infrastructure/models/user_preference_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedUserPreferencesDatasourceImp extends UserPreferencesDataSource {
   static final SharedUserPreferencesDatasourceImp _instance =
       SharedUserPreferencesDatasourceImp._internal();
   static String _preferences = 'entidades:[]';
-  static String _logueado = '1019';
+  static String _logueado = "";
 
   SharedUserPreferencesDatasourceImp._internal();
 
@@ -49,9 +49,10 @@ class SharedUserPreferencesDatasourceImp extends UserPreferencesDataSource {
     _usersPreferencesfromList(usersPreferences);
   }
 
+  @override
   Future<String> getLogueado() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _logueado = prefs.getString('logueado') ?? '1019';
+    _logueado = prefs.getString('logueado') ?? '';
     return _logueado;
   }
 

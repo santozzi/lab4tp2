@@ -1,12 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
-import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
-
+import 'package:flutter_application_base/presentation/providers/carts_provider.dart';
+import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
+import 'package:flutter_application_base/presentation/providers/users_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,10 +13,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _username = '';
-  String _password = '';
   @override
   Widget build(BuildContext context) {
+    final UserPreferencesProvider userPreferencesProvider =
+        Provider.of<UserPreferencesProvider>(context);
+    final UsersProvider usersProvider = Provider.of<UsersProvider>(context);
+    final cartprovider = context.watch<CartsProvider>();
+    if (!userPreferencesProvider.entre) {
+      usersProvider.isLogged().then((value) async {
+        final userId = usersProvider.user.id;
+        await cartprovider.getCart(userId);
+        cartprovider.getQuantity();
+        userPreferencesProvider
+            .setPreferencesByIdWithoutNotify(userId)
+            .then((c) {
+          userPreferencesProvider.notificar();
+          userPreferencesProvider.entre = true;
+        });
+      });
+    }
     return Scaffold(
         appBar: AppBar(
           title: const Text('Home Screen'),
@@ -27,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           leadingWidth: 40,
           toolbarHeight: 80,
         ),
-        drawer: DrawerMenu(),
+        drawer: const DrawerMenu(),
         body: Center(
           child: Column(
             children: [
@@ -47,16 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        final TokenPreferencesRepository
-                            tokenPreferencesRepository = TokenRepositoryImp(
-                                tokenDatasource:
-                                    SharedTokenPreferencesDatasourceImp());
-                        tokenPreferencesRepository
-                            .getTokenPreferences()
-                            .then((value) {
-                          log(value.toString());
-                        });
-
+                        cartprovider.getQuantity();
                         Navigator.pushNamed(context, 'products');
                       },
                       child: const Text('Buscar productos'),

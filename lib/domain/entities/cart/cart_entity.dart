@@ -14,7 +14,6 @@ class CartEntity {
   });
   @override
   String toString() {
-    // TODO: implement toString
     return '{id: $id, userId: $userId, date: $date, products: $products}';
   }
 }

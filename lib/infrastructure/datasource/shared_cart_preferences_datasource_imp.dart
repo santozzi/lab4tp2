@@ -2,21 +2,17 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter_application_base/domain/datasource/cart/carts_datasource.dart';
-import 'package:flutter_application_base/domain/datasource/user/user_preferences_datasource.dart';
 import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
 import 'package:flutter_application_base/domain/entities/cart/product_cart_entity.dart';
-import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
-import 'package:flutter_application_base/infrastrucure/models/cart/carts_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/cart/product_cart_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/cart_list_preferences_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_list_preferences_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_preference_model.dart';
-import 'package:flutter_application_base/mocks/carts.mock.dart';
+import 'package:flutter_application_base/infrastructure/models/cart/carts_model.dart';
+import 'package:flutter_application_base/infrastructure/models/cart/product_cart_model.dart';
+import 'package:flutter_application_base/infrastructure/models/cart_list_preferences_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedCartPreferencesDatasourceImp extends CartsDatasource {
   static final SharedCartPreferencesDatasourceImp _instance =
       SharedCartPreferencesDatasourceImp._internal();
+
   static String _preferences = 'carts:[]';
   late List<CartEntity> _carts;
   final String cartPreferences = 'cartPreferences';
@@ -33,7 +29,7 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       _preferences = prefs.getString(cartPreferences) ?? '{"carts":[]}';
-      log("estoy en cartPreferencestoList: $_preferences");
+
       List<CartEntity> cartsPreferencesToList = _preferences.isNotEmpty
           ? CartListPreferncesModel.fromJson(jsonDecode(_preferences))
               .toCartEntityList()
@@ -44,25 +40,13 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
       log("Error en _cartPreferencestoList: $e");
       return [];
     }
-
-/*     _preferences = prefs.getString(cartPreferences) ?? 'carts:[]';
-    log("en _cartPreferencestoList: $_preferences");
-    List<dynamic> cartPreferencesToList = jsonDecode(_preferences);
-    log("en _cartPreferencestoList dynamic: $cartPreferencesToList");
-    List<CartEntity> cartList = [];
-    for (var item in cartPreferencesToList) {
-      cartList.add(CartModel.fromJson(item).toCartsEntity());
-    }
-    log("en _cartPreferencestoList2:$cartList");
-    return cartList; */
   }
 
   //id del usuario
   @override
   Future<CartEntity> getCart(String id) async {
     try {
-      //List<CartEntity> cartsPreferences = await _cartPreferencestoList();
-
+      // _carts = await _cartPreferencestoList();
       CartEntity cartEntity =
           _carts.firstWhere((element) => element.userId == id, orElse: () {
         CartEntity preferenceDefault =
@@ -77,19 +61,6 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
       return CartEntity(
           id: "0", userId: "0", date: DateTime.now(), products: []);
     }
-/* 
-    log("estoy en getCart");
-    List<CartEntity> cartPreferences = await _cartPreferencestoList();
-    log("en getCart: $cartPreferences");
-    CartEntity cartEntity = cartPreferences
-        .firstWhere((element) => element.userId == id, orElse: () {
-      CartEntity cartDefault =
-          CartEntity(id: id, userId: id, date: DateTime.now(), products: []);
-      addCart(cartDefault);
-      return cartDefault;
-    });
-
-    return cartEntity; */
   }
 
   Future<void> _cartPreferencesfromList() async {
@@ -120,8 +91,6 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
   @override
   Future<CartEntity> addCart(CartEntity cartEntity) async {
     try {
-      //List<CartEntity> cartsPreferences = await _cartPreferencestoList();
-
       _carts.add(cartEntity);
       _cartPreferencesfromList();
       return cartEntity;
@@ -132,10 +101,10 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
     }
   }
 
-  @override
+  //solo de prueba
+
   Future<List<CartEntity>> getCarts() async {
     try {
-      //List<CartEntity> cartPreferences = await _cartPreferencestoList();
       await _cartPreferencestoList();
       return _carts;
     } catch (e) {
@@ -146,12 +115,10 @@ class SharedCartPreferencesDatasourceImp extends CartsDatasource {
 
   @override
   Future<void> addCartProduct(
-      String id, ProductCartEntity productCartEntity) async {
+      String idCart, ProductCartEntity productCartEntity) async {
     try {
-      CartEntity cart = await getCart(id);
-
+      CartEntity cart = await getCart(idCart);
       List<ProductCartEntity> products = cart.products;
-
       ProductCartEntity product = products.firstWhere(
           (producto) => producto.productId == productCartEntity.productId,
           orElse: () {

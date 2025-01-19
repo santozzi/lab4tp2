@@ -1,5 +1,5 @@
 import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_preference_model.dart';
+import 'package:flutter_application_base/infrastructure/models/user_preference_model.dart';
 
 class UserListPreferncesModel {
   final List<UserPreferenceModel> userPreferenceModel;

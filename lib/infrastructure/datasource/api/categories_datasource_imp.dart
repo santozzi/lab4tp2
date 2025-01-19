@@ -1,19 +1,10 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_application_base/config/env/connection_backend_config.dart';
 import 'package:flutter_application_base/domain/datasource/categories_datasource.dart';
-import 'package:flutter_application_base/domain/datasource/products_datasource.dart';
-import 'package:flutter_application_base/domain/datasource/user/user_datasource.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_application_base/domain/entities/category_entity.dart';
-import 'package:flutter_application_base/domain/entities/products_entity.dart';
-import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
-import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/models/category_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/products_model.dart';
-import 'package:flutter_application_base/infrastrucure/models/user_model.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
+import 'package:flutter_application_base/infrastructure/models/category_model.dart';
 
 class CategoriesDatasourceImp implements CategoriesDatasource {
   final Dio dio = Dio(

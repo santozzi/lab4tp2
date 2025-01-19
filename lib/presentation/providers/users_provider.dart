@@ -4,8 +4,8 @@ import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
 import 'package:flutter_application_base/domain/repositories/token_preferences_repository.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_token_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/token_repository_imp.dart';
+import 'package:flutter_application_base/infrastructure/datasource/user/shared_token_preferences_datasource_imp.dart';
+import 'package:flutter_application_base/infrastructure/repositories/token_repository_imp.dart';
 import '../../domain/repositories/user/user_repository.dart';
 
 UserEntity userDefault = UserEntity(

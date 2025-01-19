@@ -1,6 +1,6 @@
 import 'package:flutter_application_base/domain/datasource/categories_datasource.dart';
 import 'package:flutter_application_base/domain/entities/category_entity.dart';
-import 'package:flutter_application_base/infrastrucure/models/category_model.dart';
+import 'package:flutter_application_base/infrastructure/models/category_model.dart';
 import 'package:flutter_application_base/mocks/categories.mock.dart';
 import 'dart:developer';
 

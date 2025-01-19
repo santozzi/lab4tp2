@@ -1,13 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/domain/entities/user/user_entity.dart';
-import 'package:flutter_application_base/domain/entities/user/user_preferences.dart';
-import 'package:flutter_application_base/infrastrucure/datasource/user/shared_user_preferences_datasource_imp.dart';
-import 'package:flutter_application_base/infrastrucure/repositories/shared_user_preferences_repository.dart';
-import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
-
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class UsersScreen extends StatelessWidget {
@@ -15,20 +9,13 @@ class UsersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UsersProvider userprovider = context.watch<UsersProvider>();
-    final UserPreferencesProvider userPreferenciesProvider =
-        context.watch<UserPreferencesProvider>();
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Usuarios'),
         //boton de regreso
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
+      drawer: const DrawerMenu(),
       body: FutureBuilder<List<UserEntity>>(
         future: userprovider.getUsers(),
         builder: (context, snapshot) {

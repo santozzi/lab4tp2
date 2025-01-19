@@ -4,6 +4,7 @@ import 'package:flutter_application_base/domain/entities/products_entity.dart';
 import 'package:flutter_application_base/presentation/providers/categories_provider.dart';
 import 'package:flutter_application_base/presentation/providers/products_provider.dart';
 import 'package:flutter_application_base/presentation/widgets/categories_card.dart';
+import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -26,13 +27,8 @@ class CategoriesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Categorías'),
         backgroundColor: colors.primary,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
+      drawer: const DrawerMenu(),
       body: Center(
         child: GridView.builder(
           padding: const EdgeInsets.all(10),

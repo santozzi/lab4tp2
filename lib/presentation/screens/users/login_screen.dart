@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/providers/user_preferences_provider.dart';
 import 'package:flutter_application_base/presentation/providers/users_provider.dart';
-
 import 'package:flutter_application_base/presentation/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +19,7 @@ class _HomeScreenState extends State<LoginScreen> {
     final UsersProvider userprovider = context.watch<UsersProvider>();
     final UserPreferencesProvider userPreferencesProvider =
         Provider.of<UserPreferencesProvider>(context);
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Home Screen'),
@@ -72,11 +70,12 @@ class _HomeScreenState extends State<LoginScreen> {
                             onPressed: () {
                               userprovider
                                   .login(_username, _password)
-                                  .then((value) {
+                                  .then((value) async {
                                 userPreferencesProvider
                                     .setPreferencesById(value.id);
+                                await userPreferencesProvider.changeEntre();
                               });
-
+                              userPreferencesProvider.entre = false;
                               Navigator.pushNamed(context, 'home');
                             },
                             child: const Text('Login'),

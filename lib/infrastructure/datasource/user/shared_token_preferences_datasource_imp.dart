@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter_application_base/domain/datasource/token_preferences_datasource.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedTokenPreferencesDatasourceImp extends TokenPreferencesDataSource {
@@ -32,7 +28,6 @@ class SharedTokenPreferencesDatasourceImp extends TokenPreferencesDataSource {
   @override
   Future<void> setTokenPreferences(String token) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    log("seteado");
     prefs.setString('tokenPreferences', token);
   }
 

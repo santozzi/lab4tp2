@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_base/presentation/screens/cart/cart_screen.dart';
-// import 'package:flutter_application_base/presentation/providers/users_provider.dart';
-// import 'package:flutter_application_base/domain/entities/user_entity.dart';
 import 'package:flutter_application_base/domain/entities/cart/cart_entity.dart';
-// import 'package:provider/provider.dart';
 
 class CartsCard extends StatelessWidget {
   final CartEntity cart;
@@ -13,12 +10,6 @@ class CartsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    // final userProvider = context.watch<UsersProvider>();
-
-    // Obtenemos usuario del carrito
-    // userProvider.getUser(cart.userId);
-    // UserEntity cartUser;
-    // cartUser = userProvider.user;
 
     return Container(
         padding: const EdgeInsets.all(30),
