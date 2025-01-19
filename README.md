@@ -1,11 +1,5 @@
 # The Best Buy - carrito de compras
 
-## Integrantes
-  * Sergio Antozzi
-  * Gianluca Fagherazzi 
-  * Leonardo Telez
-  * Javier Kinter
-
 ## Tabla de Contenidos
 
 - [Descripción](#descripción)
